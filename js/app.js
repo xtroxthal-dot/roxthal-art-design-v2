@@ -113,7 +113,10 @@ function moduleTemplate(icon, title, text, buttons = []) {
 function renderInicio() {
   return `
     <section class="hero">
-      <div class="eyebrow">RoXThal Art Design</div>
+
+      <div class="eyebrow">
+        ROXTHAL ART DESIGN · ATELIER
+      </div>
 
       <h1>
         Arte que<br>
@@ -121,79 +124,186 @@ function renderInicio() {
       </h1>
 
       <p>
-        Arte, tatuajes y formación artística en un espacio
-        creativo, moderno y cercano.
+        Un espacio creativo dedicado al arte,
+        los tatuajes y la formación artística.
+        Descubre nuestros servicios, cursos,
+        trabajos y proyectos.
       </p>
 
       <div class="actions">
-        <button class="btn" type="button" data-route="tatuajes">
-          ✎ Ver tatuajes
+
+        <button
+          class="btn"
+          type="button"
+          data-route="tatuajes"
+        >
+          ✎ Tatuajes
         </button>
 
-        <button class="btn secondary" type="button" data-route="formacion">
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="formacion"
+        >
           ▣ Formación
         </button>
+
       </div>
+
     </section>
 
     <section class="section">
+
       <div class="section-head">
         <div>
-          <h2>Descubre RoXThal</h2>
-          <p>Acceso rápido a las áreas principales.</p>
+          <h2>RoXThal</h2>
+
+          <p>
+            Arte, creación y aprendizaje.
+          </p>
         </div>
       </div>
 
       <div class="grid">
 
         <article class="card">
+
           <div class="emoji">🎨</div>
+
           <h3>Arte</h3>
-          <p>Dibujo, pintura y creación artística.</p>
 
-          <button class="btn secondary" type="button" data-route="arte">
-            Entrar
+          <p>
+            Dibujo, pintura y desarrollo
+            de la creatividad artística.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="arte"
+          >
+            Explorar
           </button>
+
         </article>
 
         <article class="card">
+
           <div class="emoji">🖋️</div>
+
           <h3>Tatuajes</h3>
-          <p>Diseños, estilos y trabajo artístico.</p>
 
-          <button class="btn secondary" type="button" data-route="tatuajes">
-            Entrar
+          <p>
+            Diseño, estilos e inspiración
+            para proyectos de tatuaje.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="tatuajes"
+          >
+            Explorar
           </button>
+
         </article>
 
         <article class="card">
+
           <div class="emoji">📚</div>
-          <h3>Formación</h3>
-          <p>Cursos y talleres de RoXThal.</p>
 
-          <button class="btn secondary" type="button" data-route="formacion">
-            Ver cursos
+          <h3>Formación</h3>
+
+          <p>
+            Cursos y talleres para aprender,
+            practicar y evolucionar.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="formacion"
+          >
+            Ver formación
           </button>
+
         </article>
 
         <article class="card">
-          <div class="emoji">🖼️</div>
-          <h3>Galería</h3>
-          <p>Una futura colección visual de trabajos.</p>
 
-          <button class="btn secondary" type="button" data-route="galeria">
+          <div class="emoji">🖼️</div>
+
+          <h3>Galería</h3>
+
+          <p>
+            Próximamente reuniremos aquí
+            los trabajos y proyectos de RoXThal.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
             Ver galería
           </button>
+
         </article>
 
       </div>
+
     </section>
 
     <section class="section">
-      <div class="notice">
-        ✦ RoXThal Art Design V2 está construida de forma modular.
-        Primero estabilizamos la base y después añadimos cada sistema.
+
+      <div class="module-hero">
+
+        <div class="module-icon">
+          ✦
+        </div>
+
+        <h2>
+          Una nueva etapa
+        </h2>
+
+        <p>
+          RoXThal Art Design V2 está siendo
+          construida como una plataforma modular,
+          rápida y preparada para crecer sin
+          depender del antiguo sistema.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="btn"
+            type="button"
+            data-route="arte"
+          >
+            🎨 Descubrir RoXThal
+          </button>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="mas"
+          >
+            ••• Más
+          </button>
+
+        </div>
+
       </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="notice">
+        ♻️ Creatividad, diversidad y compromiso
+        con una forma de hacer arte diferente.
+      </div>
+
     </section>
 
     <p class="footer-note">
