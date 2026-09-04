@@ -1,4 +1,4 @@
-const CACHE_NAME = "roxthal-v2-core-v1";
+const CACHE_NAME = "roxthal-v2-core-v2";
 
 const APP_FILES = [
   "./",
@@ -23,11 +23,7 @@ self.addEventListener("activate", event => {
     caches.keys().then(keys => {
       return Promise.all(
         keys
-          .filter(
-            key =>
-              key !== CACHE_NAME &&
-              key.startsWith("roxthal-v2-")
-          )
+          .filter(key => key.startsWith("roxthal-v2-") && key !== CACHE_NAME)
           .map(key => caches.delete(key))
       );
     })
@@ -41,43 +37,52 @@ self.addEventListener("fetch", event => {
 
   const request = event.request;
 
-  event.respondWith(
-    caches.match(request).then(cached => {
-
-      if (cached) {
-        return cached;
-      }
-
-      return fetch(request)
+  // El HTML y JavaScript siempre deben comprobar primero
+  // si existe una versión nueva en GitHub Pages.
+  if (
+    request.url.endsWith("/index.html") ||
+    request.url.endsWith("/js/app.js") ||
+    request.url.endsWith("/css/roxthal.css") ||
+    request.url.endsWith("/manifest.json")
+  ) {
+    event.respondWith(
+      fetch(request)
         .then(response => {
+          if (response && response.ok) {
+            const copy = response.clone();
 
-          if (
-            !response ||
-            response.status !== 200 ||
-            response.type === "opaque"
-          ) {
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(request, copy);
+            });
+
             return response;
           }
 
-          const copy = response.clone();
-
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(request, copy);
-          });
-
-          return response;
+          return caches.match(request);
         })
-        .catch(() => {
+        .catch(() => caches.match(request))
+    );
 
-          if (request.mode === "navigate") {
-            return caches.match("./index.html");
-          }
+    return;
+  }
 
-          return new Response("", {
-            status: 503,
-            statusText: "Offline"
-          });
+  event.respondWith(
+    caches.match(request).then(cached => {
+      if (cached) return cached;
+
+      return fetch(request).then(response => {
+        if (!response || !response.ok) {
+          return response;
+        }
+
+        const copy = response.clone();
+
+        caches.open(CACHE_NAME).then(cache => {
+          cache.put(request, copy);
         });
+
+        return response;
+      });
     })
   );
 });
