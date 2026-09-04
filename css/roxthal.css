@@ -810,3 +810,507 @@ a {
   }
 
 }
+/* =========================================================
+   ROXTHAL ART DESIGN V2
+   VISUAL ENHANCEMENT LAYER
+   Añadido sin alterar la estructura existente
+   ========================================================= */
+
+:root {
+  --rox-gold: #d8b35b;
+  --rox-gold-bright: #f1d98f;
+  --rox-glow: rgba(216,179,91,.18);
+  --rox-glow-strong: rgba(216,179,91,.30);
+  --rox-border: rgba(216,179,91,.18);
+}
+
+/* ---------- Mejora general ---------- */
+
+::selection {
+  color: #111;
+  background: var(--rox-gold-bright);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.main {
+  isolation: isolate;
+}
+
+/* ---------- Topbar ---------- */
+
+.topbar {
+  box-shadow:
+    0 8px 30px rgba(0,0,0,.12);
+}
+
+.brand {
+  transition:
+    transform .2s ease,
+    opacity .2s ease;
+}
+
+.brand:hover {
+  transform: translateY(-1px);
+  opacity: .96;
+}
+
+.brand-mark {
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background:
+    linear-gradient(
+      120deg,
+      transparent 35%,
+      rgba(255,255,255,.16) 50%,
+      transparent 65%
+    );
+  transform: translateX(-70%) rotate(18deg);
+  transition: transform .55s ease;
+}
+
+.brand:hover .brand-mark::after {
+  transform: translateX(70%) rotate(18deg);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  min-height: 310px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  border-color:
+    rgba(216,179,91,.16);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.40),
+    inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.hero h1 {
+  max-width: 680px;
+
+  text-wrap: balance;
+}
+
+.hero p {
+  max-width: 620px;
+
+  text-wrap: pretty;
+}
+
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero .eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: var(--gold);
+}
+
+/* ---------- Botones ---------- */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+
+  isolation: isolate;
+}
+
+.btn::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(255,255,255,.20) 50%,
+      transparent 75%
+    );
+
+  transform: translateX(-120%);
+  transition: transform .45s ease;
+
+  pointer-events: none;
+  z-index: -1;
+}
+
+.btn:hover::after {
+  transform: translateX(120%);
+}
+
+.btn:active {
+  transform: scale(.98);
+}
+
+/* ---------- Secciones ---------- */
+
+.section {
+  scroll-margin-top: 90px;
+}
+
+.section-head {
+  position: relative;
+}
+
+.section-head h2 {
+  text-wrap: balance;
+}
+
+/* ---------- Tarjetas ---------- */
+
+.card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 145px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(216,179,91,.065),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.035),
+      rgba(17,20,25,.94)
+    );
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 17px;
+  right: 17px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(216,179,91,.25),
+      transparent
+    );
+
+  opacity: .65;
+}
+
+.card:hover {
+  border-color:
+    rgba(216,179,91,.32);
+
+  box-shadow:
+    0 18px 42px rgba(0,0,0,.30),
+    0 0 35px rgba(216,179,91,.055);
+}
+
+.card .emoji {
+  filter:
+    drop-shadow(0 5px 12px rgba(0,0,0,.28));
+}
+
+/* ---------- Listas ---------- */
+
+.list-item {
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease;
+}
+
+.list-item:hover {
+  transform: translateY(-1px);
+
+  border-color:
+    rgba(216,179,91,.22);
+
+  box-shadow:
+    0 14px 32px rgba(0,0,0,.16);
+}
+
+/* ---------- Drawer / Más ---------- */
+
+.drawer-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.drawer-button::after {
+  content: "›";
+
+  position: absolute;
+  right: 16px;
+  top: 50%;
+
+  transform:
+    translateY(-50%)
+    translateX(-4px);
+
+  color: var(--gold);
+
+  font-size: 22px;
+  opacity: .55;
+
+  transition:
+    transform .18s ease,
+    opacity .18s ease;
+}
+
+.drawer-button:hover::after {
+  transform:
+    translateY(-50%)
+    translateX(0);
+
+  opacity: 1;
+}
+
+/* ---------- Cabeceras de módulos ---------- */
+
+.module-hero {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(216,179,91,.10),
+      transparent 42%
+    ),
+    var(--surface);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.22);
+}
+
+.module-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -100px;
+  bottom: -120px;
+
+  border:
+    1px solid rgba(216,179,91,.10);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.module-icon {
+  filter:
+    drop-shadow(0 8px 18px rgba(216,179,91,.10));
+}
+
+/* ---------- Badges ---------- */
+
+.badge {
+  border:
+    1px solid rgba(216,179,91,.10);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+/* ---------- Avisos ---------- */
+
+.notice {
+  box-shadow:
+    0 8px 24px rgba(0,0,0,.08);
+}
+
+/* ---------- Navegación inferior ---------- */
+
+.bottom-nav {
+  border-color:
+    rgba(216,179,91,.13);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.52),
+    0 0 0 1px rgba(255,255,255,.015);
+}
+
+.nav-item {
+  position: relative;
+
+  border-radius: 17px;
+
+  transition:
+    background .18s ease,
+    transform .18s ease,
+    color .18s ease;
+}
+
+.nav-item:hover {
+  background:
+    rgba(216,179,91,.055);
+}
+
+.nav-item.active {
+  color: var(--gold-light);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(216,179,91,.13),
+      rgba(216,179,91,.055)
+    );
+}
+
+.nav-item.active::before {
+  content: "";
+
+  position: absolute;
+
+  top: 4px;
+  left: 50%;
+
+  width: 24px;
+  height: 2px;
+
+  transform: translateX(-50%);
+
+  background:
+    var(--gold);
+
+  border-radius: 999px;
+
+  box-shadow:
+    0 0 12px rgba(216,179,91,.35);
+}
+
+.nav-item span {
+  transition:
+    transform .18s ease;
+}
+
+.nav-item:hover span,
+.nav-item.active span {
+  transform: translateY(-1px);
+}
+
+/* ---------- Tema claro ---------- */
+
+body.light .card {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(216,179,91,.09),
+      transparent 42%
+    ),
+    var(--surface);
+
+  box-shadow:
+    0 14px 34px rgba(0,0,0,.08);
+}
+
+body.light .bottom-nav {
+  border-color:
+    rgba(133,99,28,.18);
+
+  box-shadow:
+    0 18px 50px rgba(0,0,0,.14);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 520px) {
+
+  .main {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .hero {
+    min-height: 290px;
+    padding: 27px 19px;
+  }
+
+  .hero h1 {
+    font-size: clamp(34px, 11vw, 48px);
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+
+  .section {
+    margin-top: 25px;
+  }
+
+  .bottom-nav {
+    bottom: 8px;
+    width: calc(100% - 14px);
+  }
+
+  .nav-item {
+    min-height: 55px;
+  }
+}
+
+@media (max-width: 390px) {
+
+  .main {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .hero {
+    padding: 24px 17px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .brand-text small {
+    letter-spacing: .18em;
+  }
+}
+
+/* ---------- Accesibilidad ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
