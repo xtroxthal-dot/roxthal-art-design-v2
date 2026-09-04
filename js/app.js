@@ -540,73 +540,258 @@ function renderArte() {
   `;
 }
 
+
 function renderTatuajes() {
   return `
-    ${moduleTemplate(
-      "✎",
-      "Tatuajes",
-      "Diseño y expresión corporal desde una perspectiva artística.",
-      [
-        {
-          icon: "🔎",
-          label: "Buscar diseños",
-          route: "galeria"
-        },
-        {
-          icon: "←",
-          label: "Volver",
-          route: "inicio",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
+
+      <div class="module-icon">🖋️</div>
+
+      <div class="eyebrow">
+        ROXTHAL TATTOO STUDIO
+      </div>
+
+      <h2>
+        Tatuajes con identidad.
+      </h2>
+
+      <p>
+        Diseño, composición y expresión corporal
+        desarrollados de forma personalizada.
+        Cada proyecto nace de una idea y se
+        convierte en una pieza única.
+      </p>
+
+      <div class="actions">
+
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="inicio"
+        >
+          ← Volver
+        </button>
+
+        <button
+          class="btn"
+          type="button"
+          data-route="contacto"
+        >
+          📍 Contactar
+        </button>
+
+      </div>
+
+    </section>
 
     <section class="section">
+
+      <div class="section-head">
+
+        <div>
+          <h2>
+            Universo del tatuaje
+          </h2>
+
+          <p>
+            Todo lo relacionado con el tatuaje
+            permanece separado del área de
+            dibujo y pintura.
+          </p>
+        </div>
+
+      </div>
 
       <div class="grid">
 
         <article class="card">
+
           <div class="emoji">🖋️</div>
-          <h3>Diseño personalizado</h3>
+
+          <h3>
+            Diseño personalizado
+          </h3>
+
           <p>
-            Ideas transformadas en propuestas visuales.
+            Desarrollo de ideas para crear
+            diseños exclusivos adaptados
+            a cada proyecto.
           </p>
+
         </article>
 
         <article class="card">
+
           <div class="emoji">🧭</div>
-          <h3>Estilos</h3>
+
+          <h3>
+            Estilos de tatuaje
+          </h3>
+
           <p>
-            Explora diferentes lenguajes y referencias.
+            Explora diferentes lenguajes,
+            composiciones y posibilidades
+            dentro del mundo del tattoo.
           </p>
+
         </article>
 
         <article class="card">
+
+          <div class="emoji">🔎</div>
+
+          <h3>
+            Inspiración tattoo
+          </h3>
+
+          <p>
+            Referencias e ideas orientadas
+            exclusivamente a proyectos
+            de tatuaje.
+          </p>
+
+        </article>
+
+        <article class="card">
+
           <div class="emoji">🖼️</div>
-          <h3>Inspiración</h3>
-          <p>
-            Una biblioteca visual crecerá progresivamente.
-          </p>
-        </article>
 
-        <article class="card">
-          <div class="emoji">✦</div>
-          <h3>RoXThal IA</h3>
+          <h3>
+            Galería tattoo
+          </h3>
+
           <p>
-            El asistente artístico se conectará posteriormente.
+            Espacio reservado para una
+            futura colección exclusiva
+            de tatuajes realizados en
+            RoXThal.
           </p>
 
-          <button class="btn secondary" type="button" data-route="ia">
-            Abrir IA
-          </button>
         </article>
 
       </div>
 
     </section>
+
+    <section class="section">
+
+      <div class="section-head">
+
+        <div>
+          <h2>
+            Formación tattoo
+          </h2>
+
+          <p>
+            El aprendizaje del tatuaje tendrá
+            su propio espacio independiente.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="list">
+
+        <div class="list-item">
+
+          <div class="list-icon">
+            📚
+          </div>
+
+          <div class="list-content">
+
+            <strong>
+              Iniciación al tatuaje
+            </strong>
+
+            <small>
+              Curso dedicado específicamente
+              al aprendizaje del tatuaje.
+            </small>
+
+          </div>
+
+          <span class="badge">
+            TATTOO
+          </span>
+
+        </div>
+
+        <div class="list-item">
+
+          <div class="list-icon">
+            🧠
+          </div>
+
+          <div class="list-content">
+
+            <strong>
+              Diseño aplicado al tattoo
+            </strong>
+
+            <small>
+              Composición y preparación de
+              ideas destinadas al tatuaje.
+            </small>
+
+          </div>
+
+          <span class="badge">
+            TATTOO
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="card">
+
+        <div class="emoji">
+          ✦
+        </div>
+
+        <h3>
+          RoXThal IA · Tattoo
+        </h3>
+
+        <p>
+          Futuro asistente especializado
+          en inspiración, conceptos y
+          desarrollo de ideas para tatuajes.
+        </p>
+
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="ia"
+        >
+          Abrir RoXThal IA
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="notice">
+        🖋️ Área exclusiva de tatuajes.
+        El contenido de dibujo y pintura
+        pertenece al área Arte y no se
+        mezclará con este módulo.
+      </div>
+
+    </section>
+
+    <p class="footer-note">
+      RoXThal Tattoo Studio · Diseño · Tatuajes · Formación Tattoo
+    </p>
   `;
 }
-
 function renderFormacion() {
   return `
     ${moduleTemplate(
