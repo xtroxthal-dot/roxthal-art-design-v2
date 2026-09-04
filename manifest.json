@@ -1,0 +1,12 @@
+{
+  "name": "RoXThal Art Design",
+  "short_name": "RoXThal",
+  "description": "RoXThal Art Design — Arte, tatuajes y formación artística.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#08090b",
+  "theme_color": "#08090b"
+}
