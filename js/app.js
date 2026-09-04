@@ -314,54 +314,229 @@ function renderInicio() {
 
 function renderArte() {
   return `
-    ${moduleTemplate(
-      "🎨",
-      "Arte",
-      "Espacio dedicado al dibujo, la pintura y la creación artística.",
-      [
-        {
-          icon: "▣",
-          label: "Ver formación",
-          route: "formacion"
-        },
-        {
-          icon: "←",
-          label: "Volver",
-          route: "inicio",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
 
-    <section class="section">
-      <div class="list">
+      <div class="module-icon">🎨</div>
 
-        <div class="list-item">
-          <div class="list-icon">✏️</div>
-          <div class="list-content">
-            <strong>Dibujo</strong>
-            <small>Técnica, composición y desarrollo artístico.</small>
-          </div>
-        </div>
+      <div class="eyebrow">
+        ROXTHAL ART DESIGN
+      </div>
 
-        <div class="list-item">
-          <div class="list-icon">🖌️</div>
-          <div class="list-content">
-            <strong>Pintura</strong>
-            <small>Color, materia, expresión y creatividad.</small>
-          </div>
-        </div>
+      <h2>
+        Arte sin límites.
+      </h2>
 
-        <div class="list-item">
-          <div class="list-icon">♻️</div>
-          <div class="list-content">
-            <strong>Creatividad responsable</strong>
-            <small>Arte y reutilización de materiales.</small>
-          </div>
-        </div>
+      <p>
+        Un espacio para descubrir, aprender y
+        desarrollar tu propia identidad artística.
+      </p>
+
+      <div class="actions">
+
+        <button
+          class="btn"
+          type="button"
+          data-route="formacion"
+        >
+          📚 Formación
+        </button>
+
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="galeria"
+        >
+          🖼️ Galería
+        </button>
 
       </div>
+
     </section>
+
+    <section class="section">
+
+      <div class="section-head">
+        <div>
+          <h2>Disciplinas</h2>
+          <p>
+            Diferentes caminos para desarrollar
+            tu creatividad.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+
+          <div class="emoji">✏️</div>
+
+          <h3>Dibujo</h3>
+
+          <p>
+            Línea, proporción, volumen, composición
+            y desarrollo de una base sólida.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="formacion"
+          >
+            Aprender
+          </button>
+
+        </article>
+
+        <article class="card">
+
+          <div class="emoji">🖌️</div>
+
+          <h3>Pintura</h3>
+
+          <p>
+            Color, luz, textura y composición para
+            construir obras con personalidad.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="formacion"
+          >
+            Aprender
+          </button>
+
+        </article>
+
+        <article class="card">
+
+          <div class="emoji">🖋️</div>
+
+          <h3>Tattoo Art</h3>
+
+          <p>
+            El dibujo aplicado al tatuaje:
+            composición, estilos e identidad visual.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="tatuajes"
+          >
+            Explorar
+          </button>
+
+        </article>
+
+        <article class="card">
+
+          <div class="emoji">♻️</div>
+
+          <h3>Creación</h3>
+
+          <p>
+            Experimentación, reutilización y nuevas
+            formas de convertir ideas en arte.
+          </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            Ver proyectos
+          </button>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="section-head">
+        <div>
+          <h2>Explora</h2>
+          <p>
+            Herramientas y espacios de inspiración.
+          </p>
+        </div>
+      </div>
+
+      <div class="list">
+
+        <button
+          class="list-item"
+          type="button"
+          data-route="galeria"
+        >
+          <span class="list-icon">🖼️</span>
+
+          <span class="list-content">
+            <strong>Galería de obras</strong>
+            <small>
+              Trabajos, proyectos y futuras colecciones.
+            </small>
+          </span>
+
+          <span class="badge">VER</span>
+        </button>
+
+        <button
+          class="list-item"
+          type="button"
+          data-route="tatuajes"
+        >
+          <span class="list-icon">🔎</span>
+
+          <span class="list-content">
+            <strong>Inspiración para tatuajes</strong>
+            <small>
+              Descubre estilos e ideas para nuevos proyectos.
+            </small>
+          </span>
+
+          <span class="badge">EXPLORAR</span>
+        </button>
+
+        <button
+          class="list-item"
+          type="button"
+          data-route="formacion"
+        >
+          <span class="list-icon">📚</span>
+
+          <span class="list-content">
+            <strong>Aprende con RoXThal</strong>
+            <small>
+              Cursos y formación artística.
+            </small>
+          </span>
+
+          <span class="badge">CURSOS</span>
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="notice">
+        ✦ La V2 está preparada para incorporar
+        progresivamente obras, colecciones,
+        imágenes y contenido artístico sin
+        depender del antiguo sistema.
+      </div>
+
+    </section>
+
+    <p class="footer-note">
+      RoXThal Art Design · Dibujo · Pintura · Tattoo Art
+    </p>
   `;
 }
 
