@@ -4,58 +4,21 @@ const navItems = [...document.querySelectorAll(".nav-item")];
 const brandButton = document.querySelector(".brand");
 
 const ROUTES = {
-  inicio: {
-    title: "Inicio",
-    icon: "⌂"
-  },
-  arte: {
-    title: "Arte",
-    icon: "✦"
-  },
-  tatuajes: {
-    title: "Tatuajes",
-    icon: "✎"
-  },
-  formacion: {
-    title: "Formación",
-    icon: "▣"
-  },
-  galeria: {
-    title: "Galería",
-    icon: "▤"
-  },
-  radio: {
-    title: "Radio",
-    icon: "◉"
-  },
-  ia: {
-    title: "RoXThal IA",
-    icon: "✧"
-  },
-  sorteo: {
-    title: "Sorteo",
-    icon: "★"
-  },
-  resenas: {
-    title: "Reseñas",
-    icon: "♡"
-  },
-  pagos: {
-    title: "Pagos",
-    icon: "€"
-  },
-  contacto: {
-    title: "Contacto",
-    icon: "⌖"
-  },
-  admin: {
-    title: "Administración",
-    icon: "⚙"
-  },
-  mas: {
-    title: "Más",
-    icon: "•••"
-  }
+  inicio: { title: "Inicio", icon: "⌂" },
+  arte: { title: "Arte", icon: "✦" },
+  tatuajes: { title: "Tatuajes", icon: "✎" },
+  formacion: { title: "Formación", icon: "▣" },
+  "formacion-arte": { title: "Formación artística", icon: "🎨" },
+  "formacion-tattoo": { title: "Formación tattoo", icon: "🖋️" },
+  galeria: { title: "Galería", icon: "▤" },
+  radio: { title: "Radio", icon: "◉" },
+  ia: { title: "RoXThal IA", icon: "✧" },
+  sorteo: { title: "Sorteo", icon: "★" },
+  resenas: { title: "Reseñas", icon: "♡" },
+  pagos: { title: "Pagos", icon: "€" },
+  contacto: { title: "Contacto", icon: "⌖" },
+  admin: { title: "Administración", icon: "⚙" },
+  mas: { title: "Más", icon: "•••" }
 };
 
 function escapeHTML(value) {
@@ -68,8 +31,13 @@ function escapeHTML(value) {
 }
 
 function setActiveNav(route) {
+  const activeRoute =
+    route === "formacion-arte" || route === "formacion-tattoo"
+      ? "formacion"
+      : route;
+
   navItems.forEach(button => {
-    const active = button.dataset.route === route;
+    const active = button.dataset.route === activeRoute;
 
     button.classList.toggle("active", active);
 
@@ -84,7 +52,7 @@ function setActiveNav(route) {
 function moduleTemplate(icon, title, text, buttons = []) {
   return `
     <section class="module-hero">
-      <div class="module-icon">${icon}</div>
+      <div class="module-icon">${escapeHTML(icon)}</div>
       <h2>${escapeHTML(title)}</h2>
       <p>${escapeHTML(text)}</p>
 
@@ -113,7 +81,6 @@ function moduleTemplate(icon, title, text, buttons = []) {
 function renderInicio() {
   return `
     <section class="hero">
-
       <div class="eyebrow">
         ROXTHAL ART DESIGN · ATELIER
       </div>
@@ -131,50 +98,40 @@ function renderInicio() {
       </p>
 
       <div class="actions">
-
         <button
           class="btn"
           type="button"
-          data-route="tatuajes"
+          data-route="arte"
         >
-          ✎ Tatuajes
+          🎨 Arte
         </button>
 
         <button
           class="btn secondary"
           type="button"
-          data-route="formacion"
+          data-route="tatuajes"
         >
-          ▣ Formación
+          🖋️ Tatuajes
         </button>
-
       </div>
-
     </section>
 
     <section class="section">
-
       <div class="section-head">
         <div>
           <h2>RoXThal</h2>
-
-          <p>
-            Arte, creación y aprendizaje.
-          </p>
+          <p>Arte, creación y aprendizaje.</p>
         </div>
       </div>
 
       <div class="grid">
 
         <article class="card">
-
           <div class="emoji">🎨</div>
-
           <h3>Arte</h3>
-
           <p>
-            Dibujo, pintura y desarrollo
-            de la creatividad artística.
+            Dibujo, pintura, ilustración y
+            desarrollo de la creatividad artística.
           </p>
 
           <button
@@ -184,18 +141,14 @@ function renderInicio() {
           >
             Explorar
           </button>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">🖋️</div>
-
           <h3>Tatuajes</h3>
-
           <p>
-            Diseño, estilos e inspiración
-            para proyectos de tatuaje.
+            Diseño, estilos, inspiración y
+            proyectos personalizados de tatuaje.
           </p>
 
           <button
@@ -205,18 +158,14 @@ function renderInicio() {
           >
             Explorar
           </button>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">📚</div>
-
           <h3>Formación</h3>
-
           <p>
-            Cursos y talleres para aprender,
-            practicar y evolucionar.
+            Formación artística y formación
+            específica de tatuaje, separadas.
           </p>
 
           <button
@@ -226,18 +175,14 @@ function renderInicio() {
           >
             Ver formación
           </button>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">🖼️</div>
-
           <h3>Galería</h3>
-
           <p>
-            Próximamente reuniremos aquí
-            los trabajos y proyectos de RoXThal.
+            Próximamente reuniremos las
+            colecciones y trabajos de RoXThal.
           </p>
 
           <button
@@ -247,24 +192,16 @@ function renderInicio() {
           >
             Ver galería
           </button>
-
         </article>
 
       </div>
-
     </section>
 
     <section class="section">
-
       <div class="module-hero">
+        <div class="module-icon">✦</div>
 
-        <div class="module-icon">
-          ✦
-        </div>
-
-        <h2>
-          Una nueva etapa
-        </h2>
+        <h2>Una nueva etapa</h2>
 
         <p>
           RoXThal Art Design V2 está siendo
@@ -274,7 +211,6 @@ function renderInicio() {
         </p>
 
         <div class="actions">
-
           <button
             class="btn"
             type="button"
@@ -290,20 +226,15 @@ function renderInicio() {
           >
             ••• Más
           </button>
-
         </div>
-
       </div>
-
     </section>
 
     <section class="section">
-
       <div class="notice">
         ♻️ Creatividad, diversidad y compromiso
         con una forma de hacer arte diferente.
       </div>
-
     </section>
 
     <p class="footer-note">
@@ -327,8 +258,9 @@ function renderArte() {
       </h2>
 
       <p>
-        Un espacio para descubrir, aprender y
-        desarrollar tu propia identidad artística.
+        Un espacio dedicado exclusivamente
+        al dibujo, la pintura, la ilustración
+        y la creación artística.
       </p>
 
       <div class="actions">
@@ -336,9 +268,9 @@ function renderArte() {
         <button
           class="btn"
           type="button"
-          data-route="formacion"
+          data-route="formacion-arte"
         >
-          📚 Formación
+          📚 Formación artística
         </button>
 
         <button
@@ -346,11 +278,10 @@ function renderArte() {
           type="button"
           data-route="galeria"
         >
-          🖼️ Galería
+          🖼️ Galería de arte
         </button>
 
       </div>
-
     </section>
 
     <section class="section">
@@ -359,8 +290,7 @@ function renderArte() {
         <div>
           <h2>Disciplinas</h2>
           <p>
-            Diferentes caminos para desarrollar
-            tu creatividad.
+            El área artística de RoXThal.
           </p>
         </div>
       </div>
@@ -368,100 +298,78 @@ function renderArte() {
       <div class="grid">
 
         <article class="card">
-
           <div class="emoji">✏️</div>
 
           <h3>Dibujo</h3>
 
           <p>
-            Línea, proporción, volumen, composición
-            y desarrollo de una base sólida.
+            Línea, proporción, volumen,
+            composición y desarrollo de
+            una base sólida.
           </p>
 
           <button
             class="btn secondary"
             type="button"
-            data-route="formacion"
+            data-route="formacion-arte"
           >
             Aprender
           </button>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">🖌️</div>
 
           <h3>Pintura</h3>
 
           <p>
-            Color, luz, textura y composición para
-            construir obras con personalidad.
+            Color, luz, textura y composición
+            para construir obras con personalidad.
           </p>
 
           <button
             class="btn secondary"
             type="button"
-            data-route="formacion"
+            data-route="formacion-arte"
           >
             Aprender
           </button>
-
         </article>
 
         <article class="card">
+          <div class="emoji">🖍️</div>
 
-          <div class="emoji">🖋️</div>
-
-          <h3>Tattoo Art</h3>
+          <h3>Ilustración</h3>
 
           <p>
-            El dibujo aplicado al tatuaje:
-            composición, estilos e identidad visual.
+            Desarrollo de imágenes, ideas,
+            personajes y lenguaje visual.
           </p>
-
-          <button
-            class="btn secondary"
-            type="button"
-            data-route="tatuajes"
-          >
-            Explorar
-          </button>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">♻️</div>
 
           <h3>Creación</h3>
 
           <p>
-            Experimentación, reutilización y nuevas
-            formas de convertir ideas en arte.
+            Experimentación, reutilización y
+            nuevas formas de convertir ideas
+            en arte.
           </p>
-
-          <button
-            class="btn secondary"
-            type="button"
-            data-route="galeria"
-          >
-            Ver proyectos
-          </button>
-
         </article>
 
       </div>
-
     </section>
 
     <section class="section">
 
       <div class="section-head">
         <div>
-          <h2>Explora</h2>
+          <h2>Explora el área artística</h2>
           <p>
-            Herramientas y espacios de inspiración.
+            Todo el contenido de esta sección
+            pertenece al universo del arte.
           </p>
         </div>
       </div>
@@ -476,9 +384,9 @@ function renderArte() {
           <span class="list-icon">🖼️</span>
 
           <span class="list-content">
-            <strong>Galería de obras</strong>
+            <strong>Galería de arte</strong>
             <small>
-              Trabajos, proyectos y futuras colecciones.
+              Obras, proyectos y futuras colecciones.
             </small>
           </span>
 
@@ -488,31 +396,14 @@ function renderArte() {
         <button
           class="list-item"
           type="button"
-          data-route="tatuajes"
-        >
-          <span class="list-icon">🔎</span>
-
-          <span class="list-content">
-            <strong>Inspiración para tatuajes</strong>
-            <small>
-              Descubre estilos e ideas para nuevos proyectos.
-            </small>
-          </span>
-
-          <span class="badge">EXPLORAR</span>
-        </button>
-
-        <button
-          class="list-item"
-          type="button"
-          data-route="formacion"
+          data-route="formacion-arte"
         >
           <span class="list-icon">📚</span>
 
           <span class="list-content">
-            <strong>Aprende con RoXThal</strong>
+            <strong>Formación artística</strong>
             <small>
-              Cursos y formación artística.
+              Dibujo, pintura e ilustración.
             </small>
           </span>
 
@@ -520,26 +411,20 @@ function renderArte() {
         </button>
 
       </div>
-
     </section>
 
     <section class="section">
-
       <div class="notice">
-        ✦ La V2 está preparada para incorporar
-        progresivamente obras, colecciones,
-        imágenes y contenido artístico sin
-        depender del antiguo sistema.
+        ✦ Esta área no mezcla contenido de
+        tatuajes con dibujo y pintura.
       </div>
-
     </section>
 
     <p class="footer-note">
-      RoXThal Art Design · Dibujo · Pintura · Tattoo Art
+      RoXThal Art Design · Dibujo · Pintura · Ilustración
     </p>
   `;
 }
-
 
 function renderTatuajes() {
   return `
@@ -556,10 +441,11 @@ function renderTatuajes() {
       </h2>
 
       <p>
-        Diseño, composición y expresión corporal
-        desarrollados de forma personalizada.
-        Cada proyecto nace de una idea y se
-        convierte en una pieza única.
+        Diseño, composición y expresión
+        corporal desarrollados de forma
+        personalizada. Cada proyecto nace
+        de una idea y se convierte en una
+        pieza única.
       </p>
 
       <div class="actions">
@@ -569,7 +455,7 @@ function renderTatuajes() {
           type="button"
           data-route="inicio"
         >
-          ← Volver
+          ← Inicio
         </button>
 
         <button
@@ -581,7 +467,6 @@ function renderTatuajes() {
         </button>
 
       </div>
-
     </section>
 
     <section class="section">
@@ -589,14 +474,12 @@ function renderTatuajes() {
       <div class="section-head">
 
         <div>
-          <h2>
-            Universo del tatuaje
-          </h2>
+          <h2>Universo del tatuaje</h2>
 
           <p>
-            Todo lo relacionado con el tatuaje
-            permanece separado del área de
-            dibujo y pintura.
+            Todo el contenido de tatuaje
+            permanece separado del área
+            de dibujo y pintura.
           </p>
         </div>
 
@@ -605,72 +488,54 @@ function renderTatuajes() {
       <div class="grid">
 
         <article class="card">
-
           <div class="emoji">🖋️</div>
 
-          <h3>
-            Diseño personalizado
-          </h3>
+          <h3>Diseño personalizado</h3>
 
           <p>
             Desarrollo de ideas para crear
             diseños exclusivos adaptados
             a cada proyecto.
           </p>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">🧭</div>
 
-          <h3>
-            Estilos de tatuaje
-          </h3>
+          <h3>Estilos de tatuaje</h3>
 
           <p>
             Explora diferentes lenguajes,
             composiciones y posibilidades
             dentro del mundo del tattoo.
           </p>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">🔎</div>
 
-          <h3>
-            Inspiración tattoo
-          </h3>
+          <h3>Inspiración tattoo</h3>
 
           <p>
             Referencias e ideas orientadas
             exclusivamente a proyectos
             de tatuaje.
           </p>
-
         </article>
 
         <article class="card">
-
           <div class="emoji">🖼️</div>
 
-          <h3>
-            Galería tattoo
-          </h3>
+          <h3>Galería tattoo</h3>
 
           <p>
-            Espacio reservado para una
+            Espacio reservado para la
             futura colección exclusiva
-            de tatuajes realizados en
-            RoXThal.
+            de tatuajes de RoXThal.
           </p>
-
         </article>
 
       </div>
-
     </section>
 
     <section class="section">
@@ -678,9 +543,7 @@ function renderTatuajes() {
       <div class="section-head">
 
         <div>
-          <h2>
-            Formación tattoo
-          </h2>
+          <h2>Formación tattoo</h2>
 
           <p>
             El aprendizaje del tatuaje tendrá
@@ -692,170 +555,337 @@ function renderTatuajes() {
 
       <div class="list">
 
-        <div class="list-item">
+        <button
+          class="list-item"
+          type="button"
+          data-route="formacion-tattoo"
+        >
+          <span class="list-icon">📚</span>
 
-          <div class="list-icon">
-            📚
-          </div>
-
-          <div class="list-content">
-
-            <strong>
-              Iniciación al tatuaje
-            </strong>
-
+          <span class="list-content">
+            <strong>Curso de iniciación al tatuaje</strong>
             <small>
-              Curso dedicado específicamente
-              al aprendizaje del tatuaje.
+              Formación específica de tatuaje.
             </small>
-
-          </div>
-
-          <span class="badge">
-            TATTOO
           </span>
 
-        </div>
+          <span class="badge">VER</span>
+        </button>
 
-        <div class="list-item">
+        <button
+          class="list-item"
+          type="button"
+          data-route="ia"
+        >
+          <span class="list-icon">✧</span>
 
-          <div class="list-icon">
-            🧠
-          </div>
-
-          <div class="list-content">
-
-            <strong>
-              Diseño aplicado al tattoo
-            </strong>
-
+          <span class="list-content">
+            <strong>RoXThal IA · Tattoo</strong>
             <small>
-              Composición y preparación de
-              ideas destinadas al tatuaje.
+              Asistente orientado a ideas y
+              proyectos de tatuaje.
             </small>
-
-          </div>
-
-          <span class="badge">
-            TATTOO
           </span>
 
-        </div>
+          <span class="badge">IA</span>
+        </button>
 
       </div>
+    </section>
+
+    <section class="section">
+      <div class="notice">
+        ✦ El área tattoo permanece independiente
+        del contenido de arte, dibujo y pintura.
+      </div>
+    </section>
+
+    <p class="footer-note">
+      RoXThal Tattoo Studio · Diseño · Estilos · Tattoo
+    </p>
+  `;
+}
+
+function renderFormacion() {
+  return `
+    <section class="module-hero">
+
+      <div class="module-icon">📚</div>
+
+      <div class="eyebrow">
+        ROXTHAL FORMACIÓN
+      </div>
+
+      <h2>
+        Aprende. Practica. Evoluciona.
+      </h2>
+
+      <p>
+        La formación de RoXThal está
+        organizada en dos áreas independientes:
+        formación artística y formación tattoo.
+      </p>
 
     </section>
 
     <section class="section">
 
-      <div class="card">
+      <div class="grid">
 
-        <div class="emoji">
-          ✦
-        </div>
+        <article class="card">
 
-        <h3>
-          RoXThal IA · Tattoo
-        </h3>
+          <div class="emoji">🎨</div>
 
-        <p>
-          Futuro asistente especializado
-          en inspiración, conceptos y
-          desarrollo de ideas para tatuajes.
-        </p>
+          <h3>Formación artística</h3>
 
-        <button
-          class="btn secondary"
-          type="button"
-          data-route="ia"
-        >
-          Abrir RoXThal IA
-        </button>
+          <p>
+            Dibujo, pintura, ilustración,
+            composición y desarrollo creativo.
+          </p>
+
+          <button
+            class="btn"
+            type="button"
+            data-route="formacion-arte"
+          >
+            Entrar
+          </button>
+
+        </article>
+
+        <article class="card">
+
+          <div class="emoji">🖋️</div>
+
+          <h3>Formación tattoo</h3>
+
+          <p>
+            Formación específica para
+            iniciarse y desarrollarse
+            en el mundo del tatuaje.
+          </p>
+
+          <button
+            class="btn"
+            type="button"
+            data-route="formacion-tattoo"
+          >
+            Entrar
+          </button>
+
+        </article>
 
       </div>
-
     </section>
 
     <section class="section">
 
       <div class="notice">
-        🖋️ Área exclusiva de tatuajes.
-        El contenido de dibujo y pintura
-        pertenece al área Arte y no se
-        mezclará con este módulo.
+        🔒 Las dos áreas formativas están
+        separadas para mantener una estructura
+        clara y profesional.
       </div>
 
     </section>
 
     <p class="footer-note">
-      RoXThal Tattoo Studio · Diseño · Tatuajes · Formación Tattoo
+      RoXThal Formación · Arte + Tattoo
     </p>
   `;
 }
-function renderFormacion() {
+
+function renderFormacionArte() {
   return `
-    ${moduleTemplate(
-      "▣",
-      "Formación",
-      "Cursos y talleres artísticos de RoXThal Art Design.",
-      [
-        {
-          icon: "←",
-          label: "Volver",
-          route: "inicio",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
+
+      <div class="module-icon">🎨</div>
+
+      <div class="eyebrow">
+        FORMACIÓN ARTÍSTICA
+      </div>
+
+      <h2>
+        Dibujo y pintura
+      </h2>
+
+      <p>
+        Formación artística dedicada al
+        desarrollo técnico y creativo.
+      </p>
+
+      <div class="actions">
+
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="formacion"
+        >
+          ← Formación
+        </button>
+
+        <button
+          class="btn"
+          type="button"
+          data-route="arte"
+        >
+          🎨 Área de arte
+        </button>
+
+      </div>
+    </section>
 
     <section class="section">
 
-      <div class="list">
+      <div class="grid">
 
-        <div class="list-item">
-          <div class="list-icon">🖋️</div>
+        <article class="card">
+          <div class="emoji">✏️</div>
 
-          <div class="list-content">
-            <strong>Iniciación al tatuaje</strong>
-            <small>
-              Formación progresiva para comenzar en el mundo del tatuaje.
-            </small>
-          </div>
+          <h3>Dibujo</h3>
 
-          <span class="badge">CURSO</span>
-        </div>
+          <p>
+            Fundamentos, observación,
+            proporción, volumen y composición.
+          </p>
+        </article>
 
-        <div class="list-item">
-          <div class="list-icon">🎨</div>
+        <article class="card">
+          <div class="emoji">🖌️</div>
 
-          <div class="list-content">
-            <strong>Dibujo y pintura</strong>
-            <small>
-              Desarrollo técnico y creativo.
-            </small>
-          </div>
+          <h3>Pintura</h3>
 
-          <span class="badge">CURSO</span>
-        </div>
+          <p>
+            Color, luz, textura y
+            construcción de una obra.
+          </p>
+        </article>
 
-        <div class="list-item">
-          <div class="list-icon">🧒</div>
+        <article class="card">
+          <div class="emoji">🖍️</div>
 
-          <div class="list-content">
-            <strong>Talleres infantiles</strong>
-            <small>
-              Actividades artísticas adaptadas a los más pequeños.
-            </small>
-          </div>
+          <h3>Ilustración</h3>
 
-          <span class="badge">TALLER</span>
-        </div>
+          <p>
+            Desarrollo de lenguaje visual,
+            ideas y proyectos personales.
+          </p>
+        </article>
 
+      </div>
+    </section>
+
+    <section class="section">
+
+      <div class="notice">
+        🎨 Formación exclusivamente artística.
+        No incluye formación de tatuaje.
       </div>
 
     </section>
+
+    <p class="footer-note">
+      RoXThal Formación Artística
+    </p>
   `;
 }
+
+function renderFormacionTattoo() {
+  return `
+    <section class="module-hero">
+
+      <div class="module-icon">🖋️</div>
+
+      <div class="eyebrow">
+        FORMACIÓN TATTOO
+      </div>
+
+      <h2>
+        Curso de iniciación al tatuaje
+      </h2>
+
+      <p>
+        Formación específica para comenzar
+        a desarrollar conocimientos dentro
+        del mundo del tatuaje.
+      </p>
+
+      <div class="actions">
+
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="formacion"
+        >
+          ← Formación
+        </button>
+
+        <button
+          class="btn"
+          type="button"
+          data-route="tatuajes"
+        >
+          🖋️ Área tattoo
+        </button>
+
+      </div>
+    </section>
+
+    <section class="section">
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="emoji">📖</div>
+
+          <h3>Iniciación</h3>
+
+          <p>
+            Introducción progresiva al
+            mundo del tatuaje.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">🖋️</div>
+
+          <h3>Diseño tattoo</h3>
+
+          <p>
+            Preparación de diseños y
+            conceptos orientados al tatuaje.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="emoji">🎯</div>
+
+          <h3>Desarrollo</h3>
+
+          <p>
+            Construcción de una base para
+            continuar evolucionando.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section">
+
+      <div class="notice">
+        🖋️ Formación exclusivamente de tatuaje.
+        No incluye el curso general de dibujo
+        y pintura.
+      </div>
+
+    </section>
+
+    <p class="footer-note">
+      RoXThal Formación Tattoo
+    </p>
+  `;
+}
+
 function renderGaleria() {
   return `
     <section class="module-hero">
@@ -867,102 +897,41 @@ function renderGaleria() {
       </div>
 
       <h2>
-        Galería de arte
+        Galería
       </h2>
 
       <p>
-        Un espacio dedicado a dibujos, pinturas,
-        obras originales y proyectos creativos
-        desarrollados en RoXThal.
+        Este espacio estará preparado para
+        mostrar las diferentes colecciones
+        de RoXThal.
       </p>
-
-      <div class="actions">
-
-        <button
-          class="btn"
-          type="button"
-          data-route="arte"
-        >
-          🎨 Volver a Arte
-        </button>
-
-        <button
-          class="btn secondary"
-          type="button"
-          data-route="formacion"
-        >
-          📚 Formación
-        </button>
-
-      </div>
 
     </section>
 
     <section class="section">
 
-      <div class="section-head">
-        <div>
-          <h2>Obras</h2>
-
-          <p>
-            Próximamente podrás explorar
-            nuestras colecciones.
-          </p>
-        </div>
-      </div>
-
       <div class="grid">
 
         <article class="card">
+          <div class="emoji">🎨</div>
 
-          <div class="emoji">✏️</div>
-
-          <h3>Dibujos</h3>
+          <h3>Galería de arte</h3>
 
           <p>
-            Estudios, bocetos, ilustraciones
-            y trabajos de dibujo.
+            Obras originales, dibujo,
+            pintura e ilustración.
           </p>
-
         </article>
 
         <article class="card">
+          <div class="emoji">🖋️</div>
 
-          <div class="emoji">🖌️</div>
-
-          <h3>Pinturas</h3>
-
-          <p>
-            Obras realizadas mediante diferentes
-            técnicas y materiales.
-          </p>
-
-        </article>
-
-        <article class="card">
-
-          <div class="emoji">🖼️</div>
-
-          <h3>Obras originales</h3>
+          <h3>Galería tattoo</h3>
 
           <p>
-            Piezas artísticas creadas en
-            RoXThal Art Design.
+            Colección exclusiva de trabajos
+            de tatuaje.
           </p>
-
-        </article>
-
-        <article class="card">
-
-          <div class="emoji">🧪</div>
-
-          <h3>Proyectos</h3>
-
-          <p>
-            Experimentación, procesos y
-            proyectos artísticos especiales.
-          </p>
-
         </article>
 
       </div>
@@ -972,29 +941,29 @@ function renderGaleria() {
     <section class="section">
 
       <div class="notice">
-        ✨ La galería se conectará posteriormente
-        con el nuevo sistema de almacenamiento
-        para incorporar imágenes y vídeos sin
-        depender de Supabase.
+        🖼️ Las futuras colecciones mantendrán
+        claramente diferenciadas las obras de
+        arte y los tatuajes.
       </div>
 
     </section>
 
     <p class="footer-note">
-      RoXThal Art Design · Galería de Arte
+      RoXThal Art Design · Galería
     </p>
   `;
 }
+
 function renderRadio() {
   return moduleTemplate(
     "◉",
-    "Radio",
-    "Espacio preparado para la futura radio de RoXThal.",
+    "RoXThal Radio",
+    "Espacio preparado para integrar progresivamente la radio y contenidos de audio de RoXThal.",
     [
       {
-        icon: "←",
+        route: "inicio",
         label: "Volver",
-        route: "mas",
+        icon: "←",
         secondary: true
       }
     ]
@@ -1003,341 +972,341 @@ function renderRadio() {
 
 function renderIA() {
   return `
-    ${moduleTemplate(
-      "✧",
-      "RoXThal IA",
-      "Asistente artístico para inspiración, ideas, estilos y proyectos.",
-      [
-        {
-          icon: "←",
-          label: "Volver",
-          route: "tatuajes",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
+
+      <div class="module-icon">✧</div>
+
+      <div class="eyebrow">
+        ROXTHAL IA
+      </div>
+
+      <h2>
+        Asistente creativo.
+      </h2>
+
+      <p>
+        Espacio preparado para integrar
+        progresivamente el asistente de
+        inteligencia artificial de RoXThal.
+      </p>
+
+      <div class="actions">
+
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="tatuajes"
+        >
+          ← Tattoo
+        </button>
+
+      </div>
+
+    </section>
 
     <section class="section">
 
       <div class="notice">
-        ✦ La interfaz está preparada.
-        La conexión con el servicio de inteligencia artificial
-        se añadirá posteriormente sin depender de Supabase.
+        ✧ La conexión con el servicio IA
+        se incorporará de forma independiente
+        sin afectar al resto de la aplicación.
       </div>
 
     </section>
+
+    <p class="footer-note">
+      RoXThal IA
+    </p>
   `;
 }
 
 function renderSorteo() {
-  return `
-    ${moduleTemplate(
-      "★",
-      "Sorteo",
-      "Espacio reservado para el sistema de sorteos de RoXThal.",
-      [
-        {
-          icon: "←",
-          label: "Volver",
-          route: "mas",
-          secondary: true
-        }
-      ]
-    )}
-
-    <section class="section">
-      <div class="notice">
-        🎟️ El sistema de participación y sorteos se conectará
-        cuando terminemos la nueva capa de datos.
-      </div>
-    </section>
-  `;
+  return moduleTemplate(
+    "★",
+    "Sorteo RoXThal",
+    "Espacio preparado para futuros sorteos y promociones de RoXThal.",
+    [
+      {
+        route: "inicio",
+        label: "Volver",
+        icon: "←",
+        secondary: true
+      }
+    ]
+  );
 }
 
 function renderResenas() {
-  return `
-    ${moduleTemplate(
-      "♡",
-      "Reseñas",
-      "Opiniones y experiencias de quienes forman parte de RoXThal.",
-      [
-        {
-          icon: "←",
-          label: "Volver",
-          route: "mas",
-          secondary: true
-        }
-      ]
-    )}
-
-    <section class="section">
-      <div class="notice">
-        💬 Las reseñas se incorporarán al nuevo sistema de datos.
-      </div>
-    </section>
-  `;
+  return moduleTemplate(
+    "♡",
+    "Reseñas",
+    "Espacio preparado para mostrar las opiniones y experiencias de la comunidad RoXThal.",
+    [
+      {
+        route: "inicio",
+        label: "Volver",
+        icon: "←",
+        secondary: true
+      }
+    ]
+  );
 }
 
 function renderPagos() {
-  return `
-    ${moduleTemplate(
-      "€",
-      "Pagos",
-      "Zona preparada para gestionar pagos y estados de cursos o servicios.",
-      [
-        {
-          icon: "←",
-          label: "Volver",
-          route: "mas",
-          secondary: true
-        }
-      ]
-    )}
-
-    <section class="section">
-      <div class="notice">
-        🔐 La gestión de pagos se conectará posteriormente mediante
-        una capa segura de servidor.
-      </div>
-    </section>
-  `;
+  return moduleTemplate(
+    "€",
+    "Pagos",
+    "Espacio preparado para integrar los sistemas de pago y reservas de RoXThal.",
+    [
+      {
+        route: "contacto",
+        label: "Contacto",
+        icon: "⌖"
+      },
+      {
+        route: "inicio",
+        label: "Volver",
+        icon: "←",
+        secondary: true
+      }
+    ]
+  );
 }
 
 function renderContacto() {
   return `
-    ${moduleTemplate(
-      "⌖",
-      "Contacto",
-      "Encuentra y contacta con RoXThal Art Design.",
-      [
-        {
-          icon: "←",
-          label: "Volver",
-          route: "mas",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
 
-    <section class="section">
+      <div class="module-icon">⌖</div>
 
-      <div class="list">
+      <div class="eyebrow">
+        ROXTHAL ART DESIGN
+      </div>
 
-        <div class="list-item">
-          <div class="list-icon">⌖</div>
+      <h2>
+        Contacto
+      </h2>
 
-          <div class="list-content">
-            <strong>Ubicación</strong>
-            <small>Lisandro de la Torre 880 · San Antonio de Padua</small>
-          </div>
-        </div>
+      <p>
+        Estamos en Lisandro de la Torre 880,
+        San Antonio de Padua, Buenos Aires.
+      </p>
 
-        <div class="list-item">
-          <div class="list-icon">✉</div>
+      <div class="actions">
 
-          <div class="list-content">
-            <strong>Correo</strong>
-            <small>roxthal@hotmail.com</small>
-          </div>
-        </div>
+        <a
+          class="btn"
+          href="mailto:roxthal@hotmail.com"
+        >
+          ✉️ Email
+        </a>
 
-        <div class="list-item">
-          <div class="list-icon">◎</div>
-
-          <div class="list-content">
-            <strong>Instagram</strong>
-            <small>@roxthalartdesign</small>
-          </div>
-        </div>
+        <a
+          class="btn secondary"
+          href="https://www.instagram.com/roxthalartdesign/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          📷 Instagram
+        </a>
 
       </div>
 
     </section>
+
+    <section class="section">
+
+      <div class="notice">
+        📍 RoXThal Art Design · San Antonio
+        de Padua · Buenos Aires
+      </div>
+
+    </section>
+
+    <p class="footer-note">
+      RoXThal Art Design
+    </p>
   `;
 }
 
 function renderAdmin() {
   return `
-    ${moduleTemplate(
-      "⚙",
-      "Administración",
-      "Panel preparado para la futura administración centralizada.",
-      [
-        {
-          icon: "←",
-          label: "Volver",
-          route: "mas",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
+
+      <div class="module-icon">⚙</div>
+
+      <div class="eyebrow">
+        ROXTHAL ADMIN
+      </div>
+
+      <h2>
+        Administración
+      </h2>
+
+      <p>
+        Panel reservado para las futuras
+        herramientas administrativas de
+        RoXThal Art Design V2.
+      </p>
+
+    </section>
 
     <section class="section">
 
-      <div class="grid">
-
-        <article class="card">
-          <div class="emoji">👥</div>
-          <h3>Alumnos</h3>
-          <p>Gestión futura de alumnos.</p>
-        </article>
-
-        <article class="card">
-          <div class="emoji">📅</div>
-          <h3>Reservas</h3>
-          <p>Gestión futura de reservas.</p>
-        </article>
-
-        <article class="card">
-          <div class="emoji">💳</div>
-          <h3>Pagos</h3>
-          <p>Control futuro de pagos.</p>
-        </article>
-
-        <article class="card">
-          <div class="emoji">🖼️</div>
-          <h3>Contenido</h3>
-          <p>Gestión futura de imágenes y vídeos.</p>
-        </article>
-
+      <div class="notice">
+        🔒 Área administrativa independiente
+        del contenido público.
       </div>
 
     </section>
+
+    <p class="footer-note">
+      RoXThal Administration
+    </p>
   `;
 }
 
 function renderMas() {
   return `
-    ${moduleTemplate(
-      "•••",
-      "Más",
-      "Accede a las herramientas y sistemas complementarios de RoXThal.",
-      [
-        {
-          icon: "←",
-          label: "Volver al inicio",
-          route: "inicio",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
+
+      <div class="module-icon">•••</div>
+
+      <div class="eyebrow">
+        ROXTHAL ART DESIGN
+      </div>
+
+      <h2>
+        Más
+      </h2>
+
+      <p>
+        Accesos adicionales de la plataforma.
+      </p>
+
+    </section>
 
     <section class="section">
 
-      <div class="drawer">
+      <div class="list">
 
         <button
-          class="drawer-button"
+          class="list-item"
           type="button"
           data-route="galeria"
         >
-          <span class="drawer-icon">▤</span>
+          <span class="list-icon">🖼️</span>
 
-          <span class="drawer-text">
+          <span class="list-content">
             <strong>Galería</strong>
-            <small>Trabajos y contenido visual.</small>
+            <small>
+              Obras y colecciones.
+            </small>
           </span>
+
+          <span class="badge">VER</span>
         </button>
 
         <button
-          class="drawer-button"
+          class="list-item"
           type="button"
           data-route="radio"
         >
-          <span class="drawer-icon">◉</span>
+          <span class="list-icon">◉</span>
 
-          <span class="drawer-text">
+          <span class="list-content">
             <strong>Radio</strong>
-            <small>Espacio multimedia.</small>
+            <small>
+              Audio y contenidos.
+            </small>
           </span>
+
+          <span class="badge">ABRIR</span>
         </button>
 
         <button
-          class="drawer-button"
-          type="button"
-          data-route="ia"
-        >
-          <span class="drawer-icon">✧</span>
-
-          <span class="drawer-text">
-            <strong>RoXThal IA</strong>
-            <small>Asistente artístico.</small>
-          </span>
-        </button>
-
-        <button
-          class="drawer-button"
+          class="list-item"
           type="button"
           data-route="sorteo"
         >
-          <span class="drawer-icon">★</span>
+          <span class="list-icon">★</span>
 
-          <span class="drawer-text">
+          <span class="list-content">
             <strong>Sorteo</strong>
-            <small>Participación y premios.</small>
+            <small>
+              Promociones y sorteos.
+            </small>
           </span>
+
+          <span class="badge">ABRIR</span>
         </button>
 
         <button
-          class="drawer-button"
+          class="list-item"
           type="button"
           data-route="resenas"
         >
-          <span class="drawer-icon">♡</span>
+          <span class="list-icon">♡</span>
 
-          <span class="drawer-text">
+          <span class="list-content">
             <strong>Reseñas</strong>
-            <small>Opiniones de la comunidad.</small>
+            <small>
+              Opiniones de la comunidad.
+            </small>
           </span>
+
+          <span class="badge">VER</span>
         </button>
 
         <button
-          class="drawer-button"
+          class="list-item"
           type="button"
           data-route="pagos"
         >
-          <span class="drawer-icon">€</span>
+          <span class="list-icon">€</span>
 
-          <span class="drawer-text">
+          <span class="list-content">
             <strong>Pagos</strong>
-            <small>Gestión económica.</small>
+            <small>
+              Reservas y pagos.
+            </small>
           </span>
+
+          <span class="badge">ABRIR</span>
         </button>
 
         <button
-          class="drawer-button"
+          class="list-item"
           type="button"
           data-route="contacto"
         >
-          <span class="drawer-icon">⌖</span>
+          <span class="list-icon">⌖</span>
 
-          <span class="drawer-text">
+          <span class="list-content">
             <strong>Contacto</strong>
-            <small>Ubicación y contacto.</small>
+            <small>
+              Ubicación y contacto.
+            </small>
           </span>
-        </button>
 
-        <button
-          class="drawer-button"
-          type="button"
-          data-route="admin"
-        >
-          <span class="drawer-icon">⚙</span>
-
-          <span class="drawer-text">
-            <strong>Administración</strong>
-            <small>Panel de gestión.</small>
-          </span>
+          <span class="badge">VER</span>
         </button>
 
       </div>
 
     </section>
+
+    <p class="footer-note">
+      RoXThal Art Design
+    </p>
   `;
 }
 
 function renderRoute(route) {
   switch (route) {
+    case "inicio":
+      return renderInicio();
+
     case "arte":
       return renderArte();
 
@@ -1346,6 +1315,12 @@ function renderRoute(route) {
 
     case "formacion":
       return renderFormacion();
+
+    case "formacion-arte":
+      return renderFormacionArte();
+
+    case "formacion-tattoo":
+      return renderFormacionTattoo();
 
     case "galeria":
       return renderGaleria();
@@ -1374,29 +1349,28 @@ function renderRoute(route) {
     case "mas":
       return renderMas();
 
-    case "inicio":
     default:
       return renderInicio();
   }
 }
 
-function navigate(route) {
-  const safeRoute = ROUTES[route] ? route : "inicio";
+function navigate(route, options = {}) {
+  if (!ROUTES[route]) {
+    route = "inicio";
+  }
 
-  app.innerHTML = renderRoute(safeRoute);
+  app.innerHTML = renderRoute(route);
 
-  setActiveNav(safeRoute);
+  setActiveNav(route);
 
-  document.title =
-    safeRoute === "inicio"
-      ? "RoXThal Art Design"
-      : `RoXThal · ${ROUTES[safeRoute].title}`;
-
-  history.replaceState(
-    { route: safeRoute },
-    "",
-    `#${safeRoute}`
-  );
+  if (!options.skipHistory) {
+    const url = `${window.location.pathname}#${route}`;
+    window.history.replaceState(
+      { route },
+      "",
+      url
+    );
+  }
 
   window.scrollTo({
     top: 0,
@@ -1405,11 +1379,13 @@ function navigate(route) {
 }
 
 function getInitialRoute() {
-  const route = window.location.hash.replace("#", "").trim();
+  const hash = window.location.hash.replace("#", "");
 
-  return ROUTES[route]
-    ? route
-    : "inicio";
+  if (ROUTES[hash]) {
+    return hash;
+  }
+
+  return "inicio";
 }
 
 function initTheme() {
@@ -1417,6 +1393,8 @@ function initTheme() {
 
   if (savedTheme === "light") {
     document.body.classList.add("light");
+  } else {
+    document.body.classList.remove("light");
   }
 
   updateThemeButton();
@@ -1438,10 +1416,7 @@ function updateThemeButton() {
 }
 
 function toggleTheme() {
-  document.body.classList.toggle("light");
-
-  const light =
-    document.body.classList.contains("light");
+  const light = document.body.classList.toggle("light");
 
   localStorage.setItem(
     "roxthal-theme",
@@ -1452,17 +1427,17 @@ function toggleTheme() {
 }
 
 document.addEventListener("click", event => {
-  const routeButton =
-    event.target.closest("[data-route]");
+  const target = event.target.closest("[data-route]");
 
-  if (!routeButton) return;
+  if (!target) return;
 
-  const route =
-    routeButton.dataset.route;
+  const route = target.dataset.route;
 
-  if (ROUTES[route]) {
-    navigate(route);
-  }
+  if (!route || !ROUTES[route]) return;
+
+  event.preventDefault();
+
+  navigate(route);
 });
 
 if (themeToggle) {
@@ -1475,37 +1450,47 @@ if (themeToggle) {
 if (brandButton) {
   brandButton.addEventListener(
     "click",
-    () => navigate("inicio")
+    event => {
+      event.preventDefault();
+      navigate("inicio");
+    }
   );
 }
 
 window.addEventListener(
   "popstate",
-  () => navigate(getInitialRoute())
+  () => {
+    navigate(
+      getInitialRoute(),
+      { skipHistory: true }
+    );
+  }
 );
 
 window.addEventListener(
   "hashchange",
-  () => navigate(getInitialRoute())
+  () => {
+    navigate(
+      getInitialRoute(),
+      { skipHistory: true }
+    );
+  }
 );
 
 initTheme();
-navigate(getInitialRoute());
+
+navigate(
+  getInitialRoute(),
+  { skipHistory: true }
+);
 
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js")
-      .then(() => {
-        console.log("RoXThal V2 · Service Worker activo");
-      })
-      .catch(error => {
-        console.warn(
-          "RoXThal V2 · No se pudo registrar el Service Worker:",
-          error
-        );
-      });
-  });
+  window.addEventListener(
+    "load",
+    () => {
+      navigator.serviceWorker.register(
+        "./sw.js"
+      ).catch(() => {});
+    }
+  );
 }
-
-
-
