@@ -671,39 +671,135 @@ function renderFormacion() {
     </section>
   `;
 }
-
 function renderGaleria() {
   return `
-    ${moduleTemplate(
-      "▤",
-      "Galería",
-      "La nueva galería visual se incorporará de forma progresiva.",
-      [
-        {
-          icon: "✎",
-          label: "Ver tatuajes",
-          route: "tatuajes"
-        },
-        {
-          icon: "←",
-          label: "Volver",
-          route: "inicio",
-          secondary: true
-        }
-      ]
-    )}
+    <section class="module-hero">
+
+      <div class="module-icon">🖼️</div>
+
+      <div class="eyebrow">
+        ROXTHAL ART DESIGN
+      </div>
+
+      <h2>
+        Galería de arte
+      </h2>
+
+      <p>
+        Un espacio dedicado a dibujos, pinturas,
+        obras originales y proyectos creativos
+        desarrollados en RoXThal.
+      </p>
+
+      <div class="actions">
+
+        <button
+          class="btn"
+          type="button"
+          data-route="arte"
+        >
+          🎨 Volver a Arte
+        </button>
+
+        <button
+          class="btn secondary"
+          type="button"
+          data-route="formacion"
+        >
+          📚 Formación
+        </button>
+
+      </div>
+
+    </section>
+
+    <section class="section">
+
+      <div class="section-head">
+        <div>
+          <h2>Obras</h2>
+
+          <p>
+            Próximamente podrás explorar
+            nuestras colecciones.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid">
+
+        <article class="card">
+
+          <div class="emoji">✏️</div>
+
+          <h3>Dibujos</h3>
+
+          <p>
+            Estudios, bocetos, ilustraciones
+            y trabajos de dibujo.
+          </p>
+
+        </article>
+
+        <article class="card">
+
+          <div class="emoji">🖌️</div>
+
+          <h3>Pinturas</h3>
+
+          <p>
+            Obras realizadas mediante diferentes
+            técnicas y materiales.
+          </p>
+
+        </article>
+
+        <article class="card">
+
+          <div class="emoji">🖼️</div>
+
+          <h3>Obras originales</h3>
+
+          <p>
+            Piezas artísticas creadas en
+            RoXThal Art Design.
+          </p>
+
+        </article>
+
+        <article class="card">
+
+          <div class="emoji">🧪</div>
+
+          <h3>Proyectos</h3>
+
+          <p>
+            Experimentación, procesos y
+            proyectos artísticos especiales.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
 
     <section class="section">
 
       <div class="notice">
-        🖼️ Esta zona está preparada para recibir posteriormente
-        imágenes y vídeos desde el nuevo sistema de almacenamiento.
+        ✨ La galería se conectará posteriormente
+        con el nuevo sistema de almacenamiento
+        para incorporar imágenes y vídeos sin
+        depender de Supabase.
       </div>
 
     </section>
+
+    <p class="footer-note">
+      RoXThal Art Design · Galería de Arte
+    </p>
   `;
 }
-
 function renderRadio() {
   return moduleTemplate(
     "◉",
