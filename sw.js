@@ -1,4 +1,4 @@
-const CACHE_NAME = "roxthal-v2-core-v2";
+const CACHE_NAME = "roxthal-v2-core-v5";
 
 const APP_FILES = [
   "./",
@@ -23,7 +23,11 @@ self.addEventListener("activate", event => {
     caches.keys().then(keys => {
       return Promise.all(
         keys
-          .filter(key => key.startsWith("roxthal-v2-") && key !== CACHE_NAME)
+          .filter(
+            key =>
+              key.startsWith("roxthal-v2-") &&
+              key !== CACHE_NAME
+          )
           .map(key => caches.delete(key))
       );
     })
@@ -37,14 +41,14 @@ self.addEventListener("fetch", event => {
 
   const request = event.request;
 
-  // El HTML y JavaScript siempre deben comprobar primero
-  // si existe una versión nueva en GitHub Pages.
-  if (
+  const isCoreFile =
     request.url.endsWith("/index.html") ||
     request.url.endsWith("/js/app.js") ||
     request.url.endsWith("/css/roxthal.css") ||
-    request.url.endsWith("/manifest.json")
-  ) {
+    request.url.endsWith("/manifest.json") ||
+    request.url.endsWith("/sw.js");
+
+  if (isCoreFile) {
     event.respondWith(
       fetch(request)
         .then(response => {
@@ -60,7 +64,9 @@ self.addEventListener("fetch", event => {
 
           return caches.match(request);
         })
-        .catch(() => caches.match(request))
+        .catch(() => {
+          return caches.match(request);
+        })
     );
 
     return;
@@ -68,21 +74,27 @@ self.addEventListener("fetch", event => {
 
   event.respondWith(
     caches.match(request).then(cached => {
-      if (cached) return cached;
+      if (cached) {
+        return cached;
+      }
 
-      return fetch(request).then(response => {
-        if (!response || !response.ok) {
+      return fetch(request)
+        .then(response => {
+          if (!response || !response.ok) {
+            return response;
+          }
+
+          const copy = response.clone();
+
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(request, copy);
+          });
+
           return response;
-        }
-
-        const copy = response.clone();
-
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(request, copy);
+        })
+        .catch(() => {
+          return caches.match(request);
         });
-
-        return response;
-      });
     })
   );
 });
