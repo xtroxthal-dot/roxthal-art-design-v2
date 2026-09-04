@@ -925,3 +925,18 @@ window.addEventListener(
 
 initTheme();
 navigate(getInitialRoute());
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => {
+        console.log("RoXThal V2 · Service Worker activo");
+      })
+      .catch(error => {
+        console.warn(
+          "RoXThal V2 · No se pudo registrar el Service Worker:",
+          error
+        );
+      });
+  });
+}
