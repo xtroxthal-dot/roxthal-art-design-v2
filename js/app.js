@@ -887,66 +887,15 @@ function renderFormacionTattoo() {
   `;
 }
 
+
 function renderGaleria() {
   return `
-    <section class="module-hero">
-
-      <div class="module-icon">🖼️</div>
-
-      <div class="eyebrow">
-        ROXTHAL ART DESIGN
-      </div>
-
-      <h2>
-        Galería
-      </h2>
-
-      <p>
-        Este espacio estará preparado para
-        mostrar las diferentes colecciones
-        de RoXThal.
-      </p>
-
+    <section class="section">
+      ${renderGallery("arte")}
     </section>
 
     <section class="section">
-
-      <div class="grid">
-
-        <article class="card">
-          <div class="emoji">🎨</div>
-
-          <h3>Galería de arte</h3>
-
-          <p>
-            Obras originales, dibujo,
-            pintura e ilustración.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="emoji">🖋️</div>
-
-          <h3>Galería tattoo</h3>
-
-          <p>
-            Colección exclusiva de trabajos
-            de tatuaje.
-          </p>
-        </article>
-
-      </div>
-
-    </section>
-
-    <section class="section">
-
-      <div class="notice">
-        🖼️ Las futuras colecciones mantendrán
-        claramente diferenciadas las obras de
-        arte y los tatuajes.
-      </div>
-
+      ${renderGallery("tatuajes")}
     </section>
 
     <p class="footer-note">
