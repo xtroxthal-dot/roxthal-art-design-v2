@@ -1,11 +1,12 @@
-const CACHE_NAME = "roxthal-v2-core-v5";
+const CACHE_NAME = "roxthal-v2-core-v6";
 
 const APP_FILES = [
   "./",
   "./index.html",
   "./manifest.json",
   "./css/roxthal.css",
-  "./js/app.js"
+  "./js/app.js",
+  "./js/galeria.js"
 ];
 
 self.addEventListener("install", event => {
@@ -44,6 +45,7 @@ self.addEventListener("fetch", event => {
   const isCoreFile =
     request.url.endsWith("/index.html") ||
     request.url.endsWith("/js/app.js") ||
+    request.url.endsWith("/js/galeria.js") ||
     request.url.endsWith("/css/roxthal.css") ||
     request.url.endsWith("/manifest.json") ||
     request.url.endsWith("/sw.js");
