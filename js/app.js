@@ -1,3 +1,4 @@
+import { renderGallery } from "./galeria.js";
 const app = document.getElementById("app");
 const themeToggle = document.getElementById("themeToggle");
 const navItems = [...document.querySelectorAll(".nav-item")];
