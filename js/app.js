@@ -660,66 +660,93 @@ function renderArte() {
 
 function renderTatuajes() {
   return `
-    <section class="module-hero">
+    <section class="module-hero tattoo-hero">
 
-      <div class="module-icon">🖋️</div>
+      <div class="tattoo-hero-glow"></div>
 
-      <div class="eyebrow">
-        ROXTHAL TATTOO STUDIO
-      </div>
+      <div class="tattoo-hero-content">
 
-      <h2>
-        Tatuajes con identidad.
-      </h2>
+        <div class="module-icon">🖋️</div>
 
-      <p>
-        Diseño, composición y expresión
-        corporal desarrollados de forma
-        personalizada. Cada proyecto nace
-        de una idea y se convierte en una
-        pieza única.
-      </p>
+        <div class="eyebrow">
+          ROXTHAL TATTOO STUDIO
+        </div>
 
-      <div class="actions">
+        <h2>
+          Tatuajes<br>
+          <span>con identidad.</span>
+        </h2>
 
-        <button
-          class="btn secondary"
-          type="button"
-          data-route="inicio"
-        >
-          ← Inicio
-        </button>
+        <p>
+          Diseño, composición y expresión
+          corporal desarrollados de forma
+          personalizada. Cada proyecto nace
+          de una idea y se convierte en una
+          pieza única.
+        </p>
 
-        <button
-          class="btn"
-          type="button"
-          data-route="contacto"
-        >
-          📍 Contactar
-        </button>
+        <div class="actions">
 
-      </div>
-    </section>
+          <button
+            class="btn"
+            type="button"
+            data-route="contacto"
+          >
+            📍 Contactar
+          </button>
 
-    <section class="section">
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="formacion-tattoo"
+          >
+            📚 Formación tattoo
+          </button>
 
-      <div class="section-head">
-
-        <div>
-          <h2>Universo del tatuaje</h2>
-
-          <p>
-            Todo el contenido de tatuaje
-            permanece separado del área
-            de dibujo y pintura.
-          </p>
         </div>
 
       </div>
 
-      <div class="grid">
+      <div class="tattoo-hero-signature">
+        <strong>TATTOO</strong>
+        <span>DESIGN · STYLE · IDENTITY</span>
+      </div>
 
-        <article class="card">
+    </section>
+
+
+    <section class="section tattoo-universe">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="eyebrow">
+            UNIVERSO TATTOO
+          </div>
+
+          <h2>
+            El tatuaje<br>
+            como lenguaje.
+          </h2>
+
+          <p>
+            Cada pieza parte de una idea,
+            encuentra su composición y desarrolla
+            una identidad propia.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="grid tattoo-grid">
+
+        <article class="card tattoo-card">
+
+          <div class="tattoo-card-number">01</div>
+
           <div class="emoji">🖋️</div>
 
           <h3>Diseño personalizado</h3>
@@ -729,21 +756,47 @@ function renderTatuajes() {
             diseños exclusivos adaptados
             a cada proyecto.
           </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="contacto"
+          >
+            Consultar
+          </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card tattoo-card">
+
+          <div class="tattoo-card-number">02</div>
+
           <div class="emoji">🧭</div>
 
           <h3>Estilos de tatuaje</h3>
 
           <p>
-            Explora diferentes lenguajes,
-            composiciones y posibilidades
-            dentro del mundo del tattoo.
+            Diferentes lenguajes, composiciones
+            y posibilidades dentro del mundo
+            del tattoo.
           </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            Explorar
+          </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card tattoo-card">
+
+          <div class="tattoo-card-number">03</div>
+
           <div class="emoji">🔎</div>
 
           <h3>Inspiración tattoo</h3>
@@ -753,87 +806,150 @@ function renderTatuajes() {
             exclusivamente a proyectos
             de tatuaje.
           </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            Inspirarse
+          </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card tattoo-card">
+
+          <div class="tattoo-card-number">04</div>
+
           <div class="emoji">🖼️</div>
 
           <h3>Galería tattoo</h3>
 
           <p>
-            Espacio reservado para la
-            futura colección exclusiva
-            de tatuajes de RoXThal.
+            Colección dedicada a los proyectos
+            y trabajos tattoo de RoXThal.
           </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            Ver galería
+          </button>
+
         </article>
 
       </div>
+
     </section>
+
+
+    <section class="section">
+
+      <div class="tattoo-statement">
+
+        <div class="tattoo-statement-mark">
+          ✦
+        </div>
+
+        <div>
+
+          <div class="eyebrow">
+            FILOSOFÍA ROXTHAL TATTOO
+          </div>
+
+          <h2>
+            Una pieza única.<br>
+            Una historia propia.
+          </h2>
+
+          <p>
+            El objetivo no es repetir un diseño.
+            Es construir una pieza que tenga
+            sentido para quien la lleva.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
     <section class="section">
 
       <div class="section-head">
 
         <div>
-          <h2>Formación tattoo</h2>
+
+          <div class="eyebrow">
+            FORMACIÓN
+          </div>
+
+          <h2>
+            Aprende el oficio.
+          </h2>
 
           <p>
-            El aprendizaje del tatuaje tendrá
-            su propio espacio independiente.
+            Formación específica para iniciarse
+            y desarrollar conocimientos dentro
+            del mundo del tatuaje.
           </p>
+
         </div>
 
       </div>
 
-      <div class="list">
 
-        <button
-          class="list-item"
-          type="button"
-          data-route="formacion-tattoo"
-        >
-          <span class="list-icon">📚</span>
+      <button
+        class="tattoo-training"
+        type="button"
+        data-route="formacion-tattoo"
+      >
 
-          <span class="list-content">
-            <strong>Curso de iniciación al tatuaje</strong>
-            <small>
-              Formación específica de tatuaje.
-            </small>
-          </span>
+        <span class="tattoo-training-icon">
+          📚
+        </span>
 
-          <span class="badge">VER</span>
-        </button>
+        <span class="tattoo-training-content">
 
-        <button
-          class="list-item"
-          type="button"
-          data-route="ia"
-        >
-          <span class="list-icon">✧</span>
+          <strong>
+            Curso de iniciación al tatuaje
+          </strong>
 
-          <span class="list-content">
-            <strong>RoXThal IA · Tattoo</strong>
-            <small>
-              Asistente orientado a ideas y
-              proyectos de tatuaje.
-            </small>
-          </span>
+          <small>
+            Formación específica de tatuaje.
+          </small>
 
-          <span class="badge">IA</span>
-        </button>
+        </span>
 
-      </div>
+        <span class="badge">
+          VER
+        </span>
+
+      </button>
+
     </section>
+
 
     <section class="section">
-      <div class="notice">
-        ✦ El área tattoo permanece independiente
-        del contenido de arte, dibujo y pintura.
+
+      <div class="notice tattoo-notice">
+
+        <strong>RoXThal Tattoo Studio</strong>
+        <br>
+
+        Diseño · Estilos · Inspiración · Formación
+
       </div>
+
     </section>
 
+
     <p class="footer-note">
-      RoXThal Tattoo Studio · Diseño · Estilos · Tattoo
+      RoXThal Tattoo Studio · San Antonio de Padua
     </p>
   `;
 }
