@@ -956,39 +956,93 @@ function renderTatuajes() {
 
 function renderFormacion() {
   return `
-    <section class="module-hero">
+    <section class="module-hero formation-hero">
 
-      <div class="module-icon">📚</div>
+      <div class="formation-hero-glow"></div>
 
-      <div class="eyebrow">
-        ROXTHAL FORMACIÓN
+      <div class="formation-hero-content">
+
+        <div class="module-icon">📚</div>
+
+        <div class="eyebrow">
+          ROXTHAL FORMACIÓN
+        </div>
+
+        <h2>
+          Aprende.<br>
+          <span>Desarrolla.</span>
+        </h2>
+
+        <p>
+          Formación artística y formación
+          tattoo reunidas en un espacio
+          diseñado para aprender, practicar
+          y evolucionar.
+        </p>
+
       </div>
 
-      <h2>
-        Aprende. Practica. Evoluciona.
-      </h2>
-
-      <p>
-        La formación de RoXThal está
-        organizada en dos áreas independientes:
-        formación artística y formación tattoo.
-      </p>
+      <div class="formation-hero-signature">
+        <strong>ROXTHAL</strong>
+        <span>LEARN · CREATE · EVOLVE</span>
+      </div>
 
     </section>
 
-    <section class="section">
 
-      <div class="grid">
+    <section class="section formation-areas">
 
-        <article class="card">
+      <div class="section-head">
 
-          <div class="emoji">🎨</div>
+        <div>
 
-          <h3>Formación artística</h3>
+          <div class="eyebrow">
+            DOS CAMINOS
+          </div>
+
+          <h2>
+            Elige tu<br>
+            área.
+          </h2>
 
           <p>
-            Dibujo, pintura, ilustración,
-            composición y desarrollo creativo.
+            Dos espacios formativos independientes,
+            con objetivos y contenidos específicos.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="formation-grid">
+
+
+        <article class="formation-card formation-card-art">
+
+          <div class="formation-card-number">
+            01
+          </div>
+
+          <div class="formation-card-icon">
+            🎨
+          </div>
+
+          <div class="eyebrow">
+            FORMACIÓN ARTÍSTICA
+          </div>
+
+          <h3>
+            Dibujo.<br>
+            Pintura.<br>
+            Ilustración.
+          </h3>
+
+          <p>
+            Desarrollo técnico y creativo
+            para construir una base artística
+            sólida y desarrollar un lenguaje
+            propio.
           </p>
 
           <button
@@ -996,21 +1050,36 @@ function renderFormacion() {
             type="button"
             data-route="formacion-arte"
           >
-            Entrar
+            🎨 Entrar en arte
           </button>
 
         </article>
 
-        <article class="card">
 
-          <div class="emoji">🖋️</div>
+        <article class="formation-card formation-card-tattoo">
 
-          <h3>Formación tattoo</h3>
+          <div class="formation-card-number">
+            02
+          </div>
+
+          <div class="formation-card-icon">
+            🖋️
+          </div>
+
+          <div class="eyebrow">
+            FORMACIÓN TATTOO
+          </div>
+
+          <h3>
+            Iniciación<br>
+            al tatuaje.
+          </h3>
 
           <p>
-            Formación específica para
-            iniciarse y desarrollarse
-            en el mundo del tatuaje.
+            Introducción progresiva al mundo
+            del tatuaje, diseño tattoo y
+            desarrollo de conocimientos
+            específicos.
           </p>
 
           <button
@@ -1018,26 +1087,138 @@ function renderFormacion() {
             type="button"
             data-route="formacion-tattoo"
           >
-            Entrar
+            🖋️ Entrar en tattoo
           </button>
 
         </article>
 
       </div>
+
     </section>
+
 
     <section class="section">
 
-      <div class="notice">
-        🔒 Las dos áreas formativas están
-        separadas para mantener una estructura
-        clara y profesional.
+      <div class="formation-statement">
+
+        <div class="formation-statement-mark">
+          ✦
+        </div>
+
+        <div>
+
+          <div class="eyebrow">
+            FILOSOFÍA ROXTHAL
+          </div>
+
+          <h2>
+            Aprender también<br>
+            es crear.
+          </h2>
+
+          <p>
+            La formación no consiste únicamente
+            en adquirir técnica. También consiste
+            en desarrollar criterio, creatividad
+            e identidad propia.
+          </p>
+
+        </div>
+
       </div>
 
     </section>
 
+
+    <section class="section">
+
+      <div class="formation-process">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="eyebrow">
+              METODOLOGÍA
+            </div>
+
+            <h2>
+              Aprende.<br>
+              Practica.<br>
+              Evoluciona.
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="formation-steps">
+
+          <div class="formation-step">
+
+            <span>01</span>
+
+            <div>
+              <strong>Aprende</strong>
+              <small>
+                Comprende los fundamentos.
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="formation-step">
+
+            <span>02</span>
+
+            <div>
+              <strong>Practica</strong>
+              <small>
+                Convierte la teoría en experiencia.
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="formation-step">
+
+            <span>03</span>
+
+            <div>
+              <strong>Evoluciona</strong>
+              <small>
+                Desarrolla tu propio lenguaje.
+              </small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="notice formation-notice">
+
+        <strong>RoXThal Formación</strong>
+        <br>
+
+        Arte · Dibujo · Pintura · Tattoo
+
+      </div>
+
+    </section>
+
+
     <p class="footer-note">
-      RoXThal Formación · Arte + Tattoo
+      RoXThal Formación · Learn · Create · Evolve
     </p>
   `;
 }
