@@ -1,4 +1,4 @@
-const CACHE_NAME = "roxthal-v2-core-v6";
+const CACHE_NAME = "roxthal-v2-core-v7";
 
 const APP_FILES = [
   "./",
