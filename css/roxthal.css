@@ -2024,3 +2024,324 @@ body.light .gallery-empty {
   }
 
 }
+/* =========================================================
+   ROXTHAL V2 · ARTE DEFINITIVO
+   ========================================================= */
+
+.art-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 440px;
+  padding: 30px 23px 23px;
+
+  background:
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(216,179,91,.23),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(255,255,255,.045),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.13),
+      rgba(17,20,25,.97) 48%,
+      rgba(8,9,11,.99)
+    );
+}
+
+.art-hero-glow {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  right: -125px;
+  bottom: -125px;
+
+  border: 1px solid rgba(216,179,91,.12);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 28px rgba(216,179,91,.025),
+    0 0 0 56px rgba(216,179,91,.018);
+
+  pointer-events: none;
+}
+
+.art-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.art-hero h2 {
+  margin: 13px 0 16px;
+
+  font-size: clamp(42px, 11vw, 64px);
+  line-height: .91;
+  letter-spacing: -.06em;
+}
+
+.art-hero h2 span {
+  color: var(--gold-light);
+}
+
+.art-hero p {
+  max-width: 570px;
+
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.art-hero-signature {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin-top: 50px;
+}
+
+.art-hero-signature strong {
+  color: var(--gold-light);
+
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .34em;
+}
+
+.art-hero-signature span {
+  margin-top: 4px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .20em;
+}
+
+.art-disciplines {
+  margin-top: 34px;
+}
+
+.art-disciplines .section-head h2 {
+  margin-top: 7px;
+
+  font-size: 30px;
+  line-height: 1;
+}
+
+.art-disciplines .section-head p {
+  max-width: 470px;
+  line-height: 1.55;
+}
+
+.art-grid {
+  gap: 13px;
+}
+
+.art-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 265px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.art-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 105px;
+  height: 105px;
+
+  right: -52px;
+  bottom: -52px;
+
+  border: 1px solid rgba(216,179,91,.10);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.art-card-number {
+  position: absolute;
+
+  top: 13px;
+  right: 15px;
+
+  color: rgba(216,179,91,.38);
+
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+}
+
+.art-card .emoji {
+  margin-bottom: 13px;
+  font-size: 27px;
+}
+
+.art-card h3 {
+  font-size: 17px;
+}
+
+.art-card p {
+  line-height: 1.55;
+}
+
+.art-card .btn {
+  margin-top: auto;
+}
+
+.art-statement {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  gap: 18px;
+
+  padding: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.12),
+      rgba(17,20,25,.96)
+    );
+
+  border: 1px solid rgba(216,179,91,.18);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.art-statement::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -100px;
+  top: -100px;
+
+  border: 1px solid rgba(216,179,91,.11);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.art-statement-mark {
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  color: var(--gold-light);
+
+  background: rgba(216,179,91,.09);
+
+  border: 1px solid rgba(216,179,91,.20);
+  border-radius: 15px;
+
+  font-size: 22px;
+}
+
+.art-statement > div:last-child {
+  position: relative;
+  z-index: 2;
+}
+
+.art-statement h2 {
+  margin: 8px 0 11px;
+
+  font-size: 25px;
+  line-height: 1.04;
+  letter-spacing: -.035em;
+}
+
+.art-statement p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.art-links {
+  display: grid;
+  gap: 10px;
+}
+
+.art-notice {
+  line-height: 1.65;
+}
+
+.art-notice strong {
+  color: var(--gold-light);
+}
+
+.light .art-hero {
+  background:
+    radial-gradient(
+      circle at 90% 8%,
+      rgba(216,179,91,.25),
+      transparent 36%
+    ),
+    var(--surface);
+}
+
+.light .art-statement {
+  background: var(--surface);
+}
+
+@media (max-width: 520px) {
+
+  .art-hero {
+    min-height: 415px;
+    padding: 27px 19px 20px;
+  }
+
+  .art-hero h2 {
+    font-size: clamp(43px, 13vw, 57px);
+  }
+
+  .art-hero p {
+    font-size: 14px;
+  }
+
+  .art-hero-signature {
+    margin-top: 40px;
+  }
+
+  .art-card {
+    min-height: 250px;
+  }
+
+  .art-statement {
+    padding: 18px;
+    gap: 13px;
+  }
+
+  .art-statement-mark {
+    width: 43px;
+    height: 43px;
+  }
+
+  .art-statement h2 {
+    font-size: 21px;
+  }
+
+}
