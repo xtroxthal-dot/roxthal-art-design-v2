@@ -1225,95 +1225,561 @@ function renderFormacion() {
 
 function renderFormacionArte() {
   return `
-    <section class="module-hero">
+    <section class="module-hero art-school-hero">
 
-      <div class="module-icon">🎨</div>
+      <div class="art-school-hero-glow"></div>
+      <div class="art-school-hero-ring"></div>
 
-      <div class="eyebrow">
-        FORMACIÓN ARTÍSTICA
+      <div class="art-school-hero-content">
+
+        <div class="module-icon">
+          🎨
+        </div>
+
+        <div class="eyebrow">
+          ROXTHAL ART DESIGN · ACADEMIA
+        </div>
+
+        <h2>
+          Aprende a<br>
+          <span>crear.</span>
+        </h2>
+
+        <p>
+          Formación artística para desarrollar
+          técnica, creatividad y una identidad
+          propia a través del dibujo, la pintura
+          y la ilustración.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="btn"
+            type="button"
+            data-route="formacion"
+          >
+            ← Formación
+          </button>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            🖼️ Ver arte
+          </button>
+
+        </div>
+
       </div>
 
-      <h2>
-        Dibujo y pintura
-      </h2>
+      <div class="art-school-hero-signature">
 
-      <p>
-        Formación artística dedicada al
-        desarrollo técnico y creativo.
-      </p>
+        <strong>ART SCHOOL</strong>
 
-      <div class="actions">
-
-        <button
-          class="btn secondary"
-          type="button"
-          data-route="formacion"
-        >
-          ← Formación
-        </button>
-
-        <button
-          class="btn"
-          type="button"
-          data-route="arte"
-        >
-          🎨 Área de arte
-        </button>
+        <span>
+          DRAW · PAINT · ILLUSTRATE · CREATE
+        </span>
 
       </div>
+
     </section>
+
+
+    <section class="section art-school-intro">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="eyebrow">
+            FORMACIÓN ARTÍSTICA
+          </div>
+
+          <h2>
+            Una base sólida.<br>
+            Una identidad propia.
+          </h2>
+
+          <p>
+            El objetivo no es simplemente aprender
+            técnicas. Es comprenderlas, aplicarlas
+            y utilizarlas para desarrollar una forma
+            personal de crear.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
     <section class="section">
 
-      <div class="grid">
+      <div class="art-school-disciplines">
 
-        <article class="card">
-          <div class="emoji">✏️</div>
 
-          <h3>Dibujo</h3>
+        <article class="art-school-discipline">
+
+          <div class="art-school-discipline-number">
+            01
+          </div>
+
+          <div class="art-school-discipline-icon">
+            ✏️
+          </div>
+
+          <div class="eyebrow">
+            FUNDAMENTOS
+          </div>
+
+          <h3>
+            Dibujo
+          </h3>
 
           <p>
-            Fundamentos, observación,
-            proporción, volumen y composición.
+            Línea, proporción, perspectiva,
+            volumen, anatomía, observación
+            y construcción de formas.
           </p>
+
+          <div class="art-school-tags">
+            <span>LÍNEA</span>
+            <span>VOLUMEN</span>
+            <span>PROPORCIÓN</span>
+          </div>
+
         </article>
 
-        <article class="card">
-          <div class="emoji">🖌️</div>
 
-          <h3>Pintura</h3>
+        <article class="art-school-discipline">
+
+          <div class="art-school-discipline-number">
+            02
+          </div>
+
+          <div class="art-school-discipline-icon">
+            🖌️
+          </div>
+
+          <div class="eyebrow">
+            EXPRESIÓN
+          </div>
+
+          <h3>
+            Pintura
+          </h3>
 
           <p>
-            Color, luz, textura y
-            construcción de una obra.
+            Color, luz, contraste, textura,
+            composición y construcción de una
+            obra con personalidad.
           </p>
+
+          <div class="art-school-tags">
+            <span>COLOR</span>
+            <span>LUZ</span>
+            <span>TEXTURA</span>
+          </div>
+
         </article>
 
-        <article class="card">
-          <div class="emoji">🖍️</div>
 
-          <h3>Ilustración</h3>
+        <article class="art-school-discipline">
+
+          <div class="art-school-discipline-number">
+            03
+          </div>
+
+          <div class="art-school-discipline-icon">
+            🖍️
+          </div>
+
+          <div class="eyebrow">
+            LENGUAJE VISUAL
+          </div>
+
+          <h3>
+            Ilustración
+          </h3>
 
           <p>
-            Desarrollo de lenguaje visual,
-            ideas y proyectos personales.
+            Ideas, personajes, narrativa visual
+            y desarrollo de recursos para construir
+            imágenes propias.
           </p>
+
+          <div class="art-school-tags">
+            <span>IDEA</span>
+            <span>CONCEPTO</span>
+            <span>ESTILO</span>
+          </div>
+
+        </article>
+
+
+        <article class="art-school-discipline art-school-discipline-featured">
+
+          <div class="art-school-discipline-number">
+            04
+          </div>
+
+          <div class="art-school-discipline-icon">
+            ✦
+          </div>
+
+          <div class="eyebrow">
+            DESARROLLO
+          </div>
+
+          <h3>
+            Creación
+          </h3>
+
+          <p>
+            Composición, experimentación y
+            desarrollo de proyectos para transformar
+            conocimientos en lenguaje artístico.
+          </p>
+
+          <div class="art-school-tags">
+            <span>CREAR</span>
+            <span>EXPERIMENTAR</span>
+            <span>EVOLUCIONAR</span>
+          </div>
+
         </article>
 
       </div>
+
     </section>
+
 
     <section class="section">
 
-      <div class="notice">
-        🎨 Formación exclusivamente artística.
-        No incluye formación de tatuaje.
+      <div class="art-school-manifesto">
+
+        <div class="art-school-manifesto-mark">
+          ✦
+        </div>
+
+        <div class="art-school-manifesto-content">
+
+          <div class="eyebrow">
+            FILOSOFÍA ROXTHAL
+          </div>
+
+          <h2>
+            No copies.<br>
+            <span>Construye.</span>
+          </h2>
+
+          <p>
+            La técnica es una herramienta.
+            La creatividad es la dirección.
+            La identidad es lo que convierte
+            una obra en algo verdaderamente propio.
+          </p>
+
+        </div>
+
       </div>
 
     </section>
+
+
+    <section class="section">
+
+      <div class="art-school-method">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="eyebrow">
+              METODOLOGÍA
+            </div>
+
+            <h2>
+              Del fundamento<br>
+              al lenguaje propio.
+            </h2>
+
+            <p>
+              Un recorrido progresivo para pasar
+              de comprender las herramientas a
+              utilizarlas con libertad.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="art-school-method-grid">
+
+          <div class="art-school-method-step">
+
+            <span>01</span>
+
+            <div class="art-school-method-icon">
+              📐
+            </div>
+
+            <strong>
+              Fundamentos
+            </strong>
+
+            <small>
+              Comprender las bases técnicas.
+            </small>
+
+          </div>
+
+
+          <div class="art-school-method-step">
+
+            <span>02</span>
+
+            <div class="art-school-method-icon">
+              ✏️
+            </div>
+
+            <strong>
+              Práctica
+            </strong>
+
+            <small>
+              Aplicar lo aprendido mediante ejercicios.
+            </small>
+
+          </div>
+
+
+          <div class="art-school-method-step">
+
+            <span>03</span>
+
+            <div class="art-school-method-icon">
+              🧠
+            </div>
+
+            <strong>
+              Criterio
+            </strong>
+
+            <small>
+              Aprender a tomar decisiones visuales.
+            </small>
+
+          </div>
+
+
+          <div class="art-school-method-step">
+
+            <span>04</span>
+
+            <div class="art-school-method-icon">
+              ✦
+            </div>
+
+            <strong>
+              Identidad
+            </strong>
+
+            <small>
+              Desarrollar una voz artística propia.
+            </small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="art-school-path">
+
+        <div class="art-school-path-header">
+
+          <div>
+
+            <div class="eyebrow">
+              TU RECORRIDO
+            </div>
+
+            <h2>
+              Aprender.<br>
+              Crear.<br>
+              Evolucionar.
+            </h2>
+
+          </div>
+
+          <div class="art-school-path-symbol">
+            🎨
+          </div>
+
+        </div>
+
+
+        <div class="art-school-path-line">
+
+          <div class="art-school-path-item">
+
+            <span>01</span>
+
+            <div>
+              <strong>
+                Observa
+              </strong>
+
+              <small>
+                Aprende a mirar y comprender.
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="art-school-path-item">
+
+            <span>02</span>
+
+            <div>
+              <strong>
+                Comprende
+              </strong>
+
+              <small>
+                Descubre cómo funciona la imagen.
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="art-school-path-item">
+
+            <span>03</span>
+
+            <div>
+              <strong>
+                Experimenta
+              </strong>
+
+              <small>
+                Prueba, combina y encuentra posibilidades.
+              </small>
+            </div>
+
+          </div>
+
+
+          <div class="art-school-path-item">
+
+            <span>04</span>
+
+            <div>
+              <strong>
+                Crea
+              </strong>
+
+              <small>
+                Convierte tus ideas en obras propias.
+              </small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="art-school-explore">
+
+        <div>
+
+          <div class="eyebrow">
+            CONTINÚA EXPLORANDO
+          </div>
+
+          <h2>
+            El arte no<br>
+            termina aquí.
+          </h2>
+
+          <p>
+            Descubre el resto del universo
+            artístico de RoXThal.
+          </p>
+
+        </div>
+
+
+        <div class="actions">
+
+          <button
+            class="btn"
+            type="button"
+            data-route="galeria"
+          >
+            🖼️ Galería
+          </button>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="formacion"
+          >
+            📚 Formación
+          </button>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="arte"
+          >
+            🎨 Área de arte
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="section">
+
+      <div class="notice art-school-notice">
+
+        <strong>
+          RoXThal Formación Artística
+        </strong>
+
+        <br>
+
+        Dibujo · Pintura · Ilustración · Composición · Creatividad
+
+      </div>
+
+    </section>
+
 
     <p class="footer-note">
-      RoXThal Formación Artística
+      RoXThal Art Design · Art School
     </p>
   `;
 }
