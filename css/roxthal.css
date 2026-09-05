@@ -3568,3 +3568,850 @@ body.light .gallery-empty {
   }
 
 }
+
+/* =========================================================
+   ROXTHAL V2 · FORMACIÓN ARTÍSTICA
+   ART SCHOOL · DEFINITIVO
+   ========================================================= */
+
+.art-school-hero {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 455px;
+
+  padding: 30px 23px 23px;
+
+  background:
+    radial-gradient(
+      circle at 92% 7%,
+      rgba(216,179,91,.27),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 5% 92%,
+      rgba(216,179,91,.08),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.15),
+      rgba(17,20,25,.97) 48%,
+      rgba(8,9,11,.99)
+    );
+
+  border-color: rgba(216,179,91,.20);
+
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.44),
+    inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+.art-school-hero-glow {
+  position: absolute;
+
+  width: 270px;
+  height: 270px;
+
+  right: -145px;
+  bottom: -145px;
+
+  border: 1px solid rgba(216,179,91,.15);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 34px rgba(216,179,91,.025),
+    0 0 0 68px rgba(216,179,91,.018),
+    0 0 0 102px rgba(216,179,91,.012);
+
+  pointer-events: none;
+}
+
+.art-school-hero-ring {
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  right: 28px;
+  top: 28px;
+
+  border: 1px solid rgba(216,179,91,.09);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.art-school-hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+.art-school-hero h2 {
+  margin: 14px 0 17px;
+
+  font-size: clamp(45px, 13vw, 70px);
+
+  line-height: .88;
+
+  letter-spacing: -.065em;
+}
+
+.art-school-hero h2 span {
+  color: var(--gold-light);
+}
+
+.art-school-hero p {
+  max-width: 600px;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+.art-school-hero-signature {
+  position: relative;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin-top: 48px;
+}
+
+.art-school-hero-signature strong {
+  color: var(--gold-light);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: .34em;
+}
+
+.art-school-hero-signature span {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 800;
+
+  letter-spacing: .18em;
+}
+
+.art-school-intro {
+  margin-top: 35px;
+}
+
+.art-school-intro .section-head h2 {
+  margin-top: 7px;
+
+  font-size: 31px;
+
+  line-height: .98;
+
+  letter-spacing: -.045em;
+}
+
+.art-school-intro .section-head p {
+  max-width: 560px;
+
+  line-height: 1.65;
+}
+
+
+/* ---------- Disciplinas ---------- */
+
+.art-school-disciplines {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 13px;
+}
+
+.art-school-discipline {
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 325px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.07),
+      var(--surface) 58%
+    );
+
+  border: 1px solid var(--line);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+.art-school-discipline:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(216,179,91,.24);
+
+  box-shadow:
+    0 18px 45px rgba(0,0,0,.26);
+}
+
+.art-school-discipline::after {
+  content: "";
+
+  position: absolute;
+
+  width: 145px;
+  height: 145px;
+
+  right: -82px;
+  bottom: -82px;
+
+  border: 1px solid rgba(216,179,91,.10);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.art-school-discipline-number {
+  position: absolute;
+
+  top: 14px;
+  right: 16px;
+
+  color: rgba(216,179,91,.42);
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: .13em;
+}
+
+.art-school-discipline-icon {
+  display: grid;
+  place-items: center;
+
+  width: 54px;
+  height: 54px;
+
+  margin-bottom: 18px;
+
+  background:
+    rgba(216,179,91,.09);
+
+  border:
+    1px solid rgba(216,179,91,.18);
+
+  border-radius: 16px;
+
+  font-size: 26px;
+}
+
+.art-school-discipline .eyebrow {
+  margin-bottom: 8px;
+}
+
+.art-school-discipline h3 {
+  margin: 0 0 13px;
+
+  font-size: 28px;
+
+  line-height: .98;
+
+  letter-spacing: -.045em;
+}
+
+.art-school-discipline p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.62;
+}
+
+.art-school-discipline-featured {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.15),
+      var(--surface) 62%
+    );
+
+  border-color:
+    rgba(216,179,91,.19);
+}
+
+.art-school-tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.art-school-tags span {
+  padding: 5px 8px;
+
+  color: var(--gold-light);
+
+  background:
+    rgba(216,179,91,.055);
+
+  border:
+    1px solid rgba(216,179,91,.13);
+
+  border-radius: 999px;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  letter-spacing: .10em;
+}
+
+
+/* ---------- Manifiesto ---------- */
+
+.art-school-manifesto {
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  gap: 18px;
+
+  padding: 23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.15),
+      rgba(17,20,25,.97)
+    );
+
+  border:
+    1px solid rgba(216,179,91,.20);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 22px 65px rgba(0,0,0,.30);
+}
+
+.art-school-manifesto::after {
+  content: "";
+
+  position: absolute;
+
+  width: 230px;
+  height: 230px;
+
+  right: -125px;
+  top: -125px;
+
+  border:
+    1px solid rgba(216,179,91,.12);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.art-school-manifesto-mark {
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 51px;
+  height: 51px;
+
+  color: var(--gold-light);
+
+  background:
+    rgba(216,179,91,.09);
+
+  border:
+    1px solid rgba(216,179,91,.20);
+
+  border-radius: 16px;
+
+  font-size: 23px;
+}
+
+.art-school-manifesto-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+.art-school-manifesto h2 {
+  margin: 8px 0 12px;
+
+  font-size: 31px;
+
+  line-height: .95;
+
+  letter-spacing: -.045em;
+}
+
+.art-school-manifesto h2 span {
+  color: var(--gold-light);
+}
+
+.art-school-manifesto p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.68;
+}
+
+
+/* ---------- Metodología ---------- */
+
+.art-school-method {
+  padding: 22px;
+
+  background:
+    var(--surface);
+
+  border:
+    1px solid var(--line);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.art-school-method .section-head {
+  margin-bottom: 22px;
+}
+
+.art-school-method .section-head h2 {
+  margin-top: 7px;
+
+  font-size: 30px;
+
+  line-height: .96;
+
+  letter-spacing: -.045em;
+}
+
+.art-school-method .section-head p {
+  line-height: 1.6;
+}
+
+.art-school-method-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 9px;
+}
+
+.art-school-method-step {
+  position: relative;
+
+  min-height: 145px;
+
+  padding: 15px;
+
+  background:
+    var(--surface-2);
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 16px;
+}
+
+.art-school-method-step > span {
+  position: absolute;
+
+  top: 11px;
+  right: 13px;
+
+  color: rgba(216,179,91,.42);
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: .12em;
+}
+
+.art-school-method-icon {
+  margin-bottom: 13px;
+
+  font-size: 22px;
+}
+
+.art-school-method-step strong {
+  display: block;
+
+  font-size: 14px;
+}
+
+.art-school-method-step small {
+  display: block;
+
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  line-height: 1.45;
+}
+
+
+/* ---------- Recorrido ---------- */
+
+.art-school-path {
+  position: relative;
+
+  padding: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.075),
+      var(--surface)
+    );
+
+  border:
+    1px solid var(--line);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.art-school-path-header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 23px;
+}
+
+.art-school-path-header h2 {
+  margin-top: 7px;
+
+  font-size: 31px;
+
+  line-height: .92;
+
+  letter-spacing: -.05em;
+}
+
+.art-school-path-symbol {
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 58px;
+  height: 58px;
+
+  background:
+    rgba(216,179,91,.09);
+
+  border:
+    1px solid rgba(216,179,91,.18);
+
+  border-radius: 17px;
+
+  font-size: 27px;
+}
+
+.art-school-path-line {
+  display: grid;
+
+  gap: 8px;
+}
+
+.art-school-path-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 13px;
+
+  background:
+    rgba(255,255,255,.018);
+
+  border:
+    1px solid var(--line);
+
+  border-radius: 15px;
+}
+
+.art-school-path-item > span {
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 31px;
+  height: 31px;
+
+  color: var(--gold-light);
+
+  background:
+    rgba(216,179,91,.08);
+
+  border:
+    1px solid rgba(216,179,91,.15);
+
+  border-radius: 10px;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+.art-school-path-item strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.art-school-path-item small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+/* ---------- CTA ---------- */
+
+.art-school-explore {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 24px;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(216,179,91,.18),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.10),
+      var(--surface)
+    );
+
+  border:
+    1px solid rgba(216,179,91,.18);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    var(--shadow-soft);
+}
+
+.art-school-explore h2 {
+  margin: 8px 0 12px;
+
+  font-size: 32px;
+
+  line-height: .94;
+
+  letter-spacing: -.05em;
+}
+
+.art-school-explore p {
+  max-width: 430px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+.art-school-explore .actions {
+  margin-top: 21px;
+}
+
+.art-school-notice {
+  line-height: 1.65;
+}
+
+.art-school-notice strong {
+  color: var(--gold-light);
+}
+
+
+/* ---------- Tema claro ---------- */
+
+.light .art-school-hero {
+  background:
+    radial-gradient(
+      circle at 92% 7%,
+      rgba(216,179,91,.25),
+      transparent 34%
+    ),
+    var(--surface);
+}
+
+.light .art-school-manifesto {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.10),
+      var(--surface)
+    );
+}
+
+.light .art-school-explore {
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(216,179,91,.20),
+      transparent 40%
+    ),
+    var(--surface);
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 620px) {
+
+  .art-school-disciplines {
+    grid-template-columns: 1fr;
+  }
+
+  .art-school-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .art-school-hero {
+    min-height: 425px;
+
+    padding: 27px 19px 20px;
+  }
+
+  .art-school-hero h2 {
+    font-size: clamp(46px, 14vw, 60px);
+  }
+
+  .art-school-hero p {
+    font-size: 14px;
+  }
+
+  .art-school-hero-signature {
+    margin-top: 40px;
+  }
+
+  .art-school-hero-ring {
+    width: 90px;
+    height: 90px;
+
+    right: 18px;
+    top: 18px;
+  }
+
+  .art-school-discipline {
+    min-height: 300px;
+
+    padding: 18px;
+  }
+
+  .art-school-discipline h3 {
+    font-size: 25px;
+  }
+
+  .art-school-manifesto {
+    padding: 18px;
+
+    gap: 13px;
+  }
+
+  .art-school-manifesto-mark {
+    width: 43px;
+    height: 43px;
+  }
+
+  .art-school-manifesto h2 {
+    font-size: 24px;
+  }
+
+  .art-school-method {
+    padding: 18px;
+  }
+
+  .art-school-path {
+    padding: 18px;
+  }
+
+  .art-school-path-header h2 {
+    font-size: 26px;
+  }
+
+  .art-school-path-symbol {
+    width: 49px;
+    height: 49px;
+
+    font-size: 22px;
+  }
+
+  .art-school-explore {
+    padding: 20px;
+  }
+
+  .art-school-explore h2 {
+    font-size: 27px;
+  }
+
+}
