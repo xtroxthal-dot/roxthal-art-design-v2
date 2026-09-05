@@ -366,67 +366,93 @@ function moduleTemplate(icon, title, text, buttons = []) {
 
 function renderArte() {
   return `
-    <section class="module-hero">
+    <section class="module-hero art-hero">
 
-      <div class="module-icon">🎨</div>
+      <div class="art-hero-glow"></div>
 
-      <div class="eyebrow">
-        ROXTHAL ART DESIGN
+      <div class="art-hero-content">
+
+        <div class="module-icon">🎨</div>
+
+        <div class="eyebrow">
+          ROXTHAL ART DESIGN · ATELIER
+        </div>
+
+        <h2>
+          Arte<br>
+          <span>sin límites.</span>
+        </h2>
+
+        <p>
+          Dibujo, pintura, ilustración y creación
+          artística en un espacio pensado para
+          desarrollar técnica, imaginación e
+          identidad propia.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="btn"
+            type="button"
+            data-route="formacion-arte"
+          >
+            📚 Formación artística
+          </button>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            🖼️ Explorar galería
+          </button>
+
+        </div>
+
       </div>
 
-      <h2>
-        Arte sin límites.
-      </h2>
-
-      <p>
-        Un espacio dedicado exclusivamente
-        al dibujo, la pintura, la ilustración
-        y la creación artística.
-      </p>
-
-      <div class="actions">
-
-        <button
-          class="btn"
-          type="button"
-          data-route="formacion-arte"
-        >
-          📚 Formación artística
-        </button>
-
-        <button
-          class="btn secondary"
-          type="button"
-          data-route="galeria"
-        >
-          🖼️ Galería de arte
-        </button>
-
+      <div class="art-hero-signature">
+        <strong>ART</strong>
+        <span>DRAW · PAINT · CREATE</span>
       </div>
+
     </section>
 
-    <section class="section">
+
+    <section class="section art-disciplines">
 
       <div class="section-head">
         <div>
-          <h2>Disciplinas</h2>
+          <div class="eyebrow">DISCIPLINAS</div>
+
+          <h2>
+            El lenguaje<br>
+            del arte.
+          </h2>
+
           <p>
-            El área artística de RoXThal.
+            Diferentes técnicas. Una misma
+            búsqueda: desarrollar una identidad.
           </p>
         </div>
       </div>
 
-      <div class="grid">
 
-        <article class="card">
+      <div class="grid art-grid">
+
+        <article class="card art-card">
+
+          <div class="art-card-number">01</div>
+
           <div class="emoji">✏️</div>
 
           <h3>Dibujo</h3>
 
           <p>
             Línea, proporción, volumen,
-            composición y desarrollo de
-            una base sólida.
+            composición y observación para
+            construir una base artística sólida.
           </p>
 
           <button
@@ -436,16 +462,22 @@ function renderArte() {
           >
             Aprender
           </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card art-card">
+
+          <div class="art-card-number">02</div>
+
           <div class="emoji">🖌️</div>
 
           <h3>Pintura</h3>
 
           <p>
             Color, luz, textura y composición
-            para construir obras con personalidad.
+            para transformar una idea en una
+            obra con personalidad.
           </p>
 
           <button
@@ -455,64 +487,119 @@ function renderArte() {
           >
             Aprender
           </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card art-card">
+
+          <div class="art-card-number">03</div>
+
           <div class="emoji">🖍️</div>
 
           <h3>Ilustración</h3>
 
           <p>
-            Desarrollo de imágenes, ideas,
-            personajes y lenguaje visual.
+            Desarrollo de imágenes, conceptos,
+            personajes y recursos visuales para
+            encontrar un lenguaje propio.
           </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            Explorar
+          </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card art-card">
+
+          <div class="art-card-number">04</div>
+
           <div class="emoji">♻️</div>
 
           <h3>Creación</h3>
 
           <p>
             Experimentación, reutilización y
-            nuevas formas de convertir ideas
-            en arte.
+            nuevas formas de convertir materiales
+            e ideas en propuestas artísticas.
           </p>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="galeria"
+          >
+            Ver proyectos
+          </button>
+
         </article>
 
       </div>
+
     </section>
+
+
+    <section class="section">
+
+      <div class="art-statement">
+
+        <div class="art-statement-mark">
+          ✦
+        </div>
+
+        <div>
+
+          <div class="eyebrow">
+            FILOSOFÍA ROXTHAL
+          </div>
+
+          <h2>
+            La técnica sirve<br>
+            a la idea.
+          </h2>
+
+          <p>
+            Aprender no consiste solamente en
+            dominar herramientas. Consiste en
+            desarrollar una mirada propia y
+            convertirla en una forma de expresión.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
 
     <section class="section">
 
       <div class="section-head">
+
         <div>
-          <h2>Explora el área artística</h2>
+          <div class="eyebrow">EXPLORA</div>
+
+          <h2>
+            Todo empieza<br>
+            con una idea.
+          </h2>
+
           <p>
-            Todo el contenido de esta sección
-            pertenece al universo del arte.
+            Accede directamente a los espacios
+            relacionados con el área artística.
           </p>
         </div>
+
       </div>
 
-      <div class="list">
 
-        <button
-          class="list-item"
-          type="button"
-          data-route="galeria"
-        >
-          <span class="list-icon">🖼️</span>
-
-          <span class="list-content">
-            <strong>Galería de arte</strong>
-            <small>
-              Obras, proyectos y futuras colecciones.
-            </small>
-          </span>
-
-          <span class="badge">VER</span>
-        </button>
+      <div class="art-links">
 
         <button
           class="list-item"
@@ -531,18 +618,42 @@ function renderArte() {
           <span class="badge">CURSOS</span>
         </button>
 
+
+        <button
+          class="list-item"
+          type="button"
+          data-route="galeria"
+        >
+          <span class="list-icon">🖼️</span>
+
+          <span class="list-content">
+            <strong>Galería de arte</strong>
+            <small>
+              Obras, proyectos y futuras colecciones.
+            </small>
+          </span>
+
+          <span class="badge">VER</span>
+        </button>
+
       </div>
+
     </section>
+
 
     <section class="section">
-      <div class="notice">
-        ✦ Esta área no mezcla contenido de
-        tatuajes con dibujo y pintura.
+
+      <div class="notice art-notice">
+        <strong>RoXThal Art Design</strong>
+        <br>
+        Dibujo · Pintura · Ilustración · Creación
       </div>
+
     </section>
 
+
     <p class="footer-note">
-      RoXThal Art Design · Dibujo · Pintura · Ilustración
+      RoXThal Art Design · Área artística
     </p>
   `;
 }
