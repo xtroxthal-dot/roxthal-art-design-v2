@@ -79,60 +79,86 @@ function moduleTemplate(icon, title, text, buttons = []) {
   `;
 }
 
-function renderInicio() {
+   function renderInicio() {
   return `
-    <section class="hero">
-      <div class="eyebrow">
-        ROXTHAL ART DESIGN · ATELIER
+    <section class="hero hero-home">
+
+      <div class="hero-home-content">
+
+        <div class="eyebrow">
+          ROXTHAL ART DESIGN · ATELIER
+        </div>
+
+        <h1>
+          Arte que<br>
+          <span>deja huella.</span>
+        </h1>
+
+        <p class="hero-lead">
+          Arte, tatuajes y formación artística
+          en un espacio creativo pensado para
+          desarrollar ideas, aprender y crear.
+        </p>
+
+        <div class="actions">
+
+          <button
+            class="btn"
+            type="button"
+            data-route="arte"
+          >
+            🎨 Explorar arte
+          </button>
+
+          <button
+            class="btn secondary"
+            type="button"
+            data-route="tatuajes"
+          >
+            🖋️ Ver tatuajes
+          </button>
+
+        </div>
+
       </div>
 
-      <h1>
-        Arte que<br>
-        deja huella.
-      </h1>
-
-      <p>
-        Un espacio creativo dedicado al arte,
-        los tatuajes y la formación artística.
-        Descubre nuestros servicios, cursos,
-        trabajos y proyectos.
-      </p>
-
-      <div class="actions">
-        <button
-          class="btn"
-          type="button"
-          data-route="arte"
-        >
-          🎨 Arte
-        </button>
-
-        <button
-          class="btn secondary"
-          type="button"
-          data-route="tatuajes"
-        >
-          🖋️ Tatuajes
-        </button>
+      <div class="hero-home-signature">
+        <span>ROXTHAL</span>
+        <small>ART · TATTOO · DESIGN</small>
       </div>
+
     </section>
 
-    <section class="section">
+
+    <section class="section home-intro">
+
       <div class="section-head">
         <div>
-          <h2>RoXThal</h2>
-          <p>Arte, creación y aprendizaje.</p>
+          <div class="eyebrow">EL UNIVERSO ROXTHAL</div>
+
+          <h2>
+            Crear. Aprender.<br>
+            Transformar.
+          </h2>
+
+          <p>
+            Cuatro espacios, una misma identidad
+            artística.
+          </p>
         </div>
       </div>
 
-      <div class="grid">
+      <div class="grid home-grid">
 
-        <article class="card">
+        <article class="card home-card">
+
           <div class="emoji">🎨</div>
+
           <h3>Arte</h3>
+
           <p>
             Dibujo, pintura, ilustración y
-            desarrollo de la creatividad artística.
+            desarrollo de la creatividad.
           </p>
 
           <button
@@ -142,14 +168,19 @@ function renderInicio() {
           >
             Explorar
           </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card home-card">
+
           <div class="emoji">🖋️</div>
+
           <h3>Tatuajes</h3>
+
           <p>
-            Diseño, estilos, inspiración y
-            proyectos personalizados de tatuaje.
+            Diseños personalizados, estilos,
+            inspiración y proyectos tattoo.
           </p>
 
           <button
@@ -159,14 +190,19 @@ function renderInicio() {
           >
             Explorar
           </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card home-card">
+
           <div class="emoji">📚</div>
+
           <h3>Formación</h3>
+
           <p>
-            Formación artística y formación
-            específica de tatuaje, separadas.
+            Aprendizaje artístico y formación
+            específica de tatuaje.
           </p>
 
           <button
@@ -176,14 +212,19 @@ function renderInicio() {
           >
             Ver formación
           </button>
+
         </article>
 
-        <article class="card">
+
+        <article class="card home-card">
+
           <div class="emoji">🖼️</div>
+
           <h3>Galería</h3>
+
           <p>
-            Próximamente reuniremos las
-            colecciones y trabajos de RoXThal.
+            Obras, proyectos y colecciones
+            que forman parte del universo RoXThal.
           </p>
 
           <button
@@ -193,56 +234,135 @@ function renderInicio() {
           >
             Ver galería
           </button>
+
         </article>
 
       </div>
+
     </section>
 
+
     <section class="section">
-      <div class="module-hero">
-        <div class="module-icon">✦</div>
 
-        <h2>Una nueva etapa</h2>
+      <div class="home-feature">
 
-        <p>
-          RoXThal Art Design V2 está siendo
-          construida como una plataforma modular,
-          rápida y preparada para crecer sin
-          depender del antiguo sistema.
-        </p>
-
-        <div class="actions">
-          <button
-            class="btn"
-            type="button"
-            data-route="arte"
-          >
-            🎨 Descubrir RoXThal
-          </button>
-
-          <button
-            class="btn secondary"
-            type="button"
-            data-route="mas"
-          >
-            ••• Más
-          </button>
+        <div class="home-feature-icon">
+          ✦
         </div>
+
+        <div class="home-feature-content">
+
+          <div class="eyebrow">
+            ROXTHAL ART DESIGN
+          </div>
+
+          <h2>
+            Una plataforma creada
+            para el arte.
+          </h2>
+
+          <p>
+            Descubre nuestros proyectos, cursos,
+            tatuajes y herramientas creativas
+            desde un único espacio.
+          </p>
+
+          <div class="actions">
+
+            <button
+              class="btn"
+              type="button"
+              data-route="formacion"
+            >
+              📚 Formación
+            </button>
+
+            <button
+              class="btn secondary"
+              type="button"
+              data-route="mas"
+            >
+              ••• Más opciones
+            </button>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
 
-    <section class="section">
-      <div class="notice">
-        ♻️ Creatividad, diversidad y compromiso
-        con una forma de hacer arte diferente.
+
+    <section class="section home-values">
+
+      <div class="home-values-card">
+
+        <div class="home-value">
+
+          <span>♻️</span>
+
+          <div>
+            <strong>Crear diferente</strong>
+            <small>
+              Creatividad y compromiso con
+              nuevas formas de hacer arte.
+            </small>
+          </div>
+
+        </div>
+
+
+        <div class="home-value">
+
+          <span>✦</span>
+
+          <div>
+            <strong>Identidad propia</strong>
+            <small>
+              Cada proyecto nace de una idea
+              y desarrolla su propio lenguaje.
+            </small>
+          </div>
+
+        </div>
+
+
+        <div class="home-value">
+
+          <span>◎</span>
+
+          <div>
+            <strong>Un espacio abierto</strong>
+            <small>
+              Arte, aprendizaje y expresión
+              para personas diferentes.
+            </small>
+          </div>
+
+        </div>
+
       </div>
+
     </section>
+
+
+    <section class="section home-final">
+
+      <div class="notice">
+        <strong>RoXThal Art Design</strong>
+        <br>
+        Arte · Tatuajes · Formación · Diseño
+      </div>
+
+    </section>
+
 
     <p class="footer-note">
-      RoXThal Art Design · Arte · Tatuajes · Formación
+      RoXThal Art Design · San Antonio de Padua
     </p>
   `;
-}
+}   
 
 function renderArte() {
   return `
