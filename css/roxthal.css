@@ -1652,3 +1652,375 @@ body.light .gallery-empty {
   }
 
 }
+/* =========================================================
+   ROXTHAL V2 · INICIO DEFINITIVO
+   ========================================================= */
+
+.hero-home {
+  min-height: 430px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 31px 23px 22px;
+
+  background:
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(216,179,91,.22),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 5% 100%,
+      rgba(255,255,255,.045),
+      transparent 38%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.13),
+      rgba(17,20,25,.96) 47%,
+      rgba(8,9,11,.98)
+    );
+}
+
+.hero-home-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-home h1 {
+  max-width: 650px;
+  margin-bottom: 17px;
+}
+
+.hero-home h1 span {
+  color: var(--gold-light);
+}
+
+.hero-lead {
+  max-width: 560px !important;
+  font-size: 15px !important;
+  line-height: 1.65;
+}
+
+.hero-home-signature {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  margin-top: 45px;
+
+  opacity: .72;
+}
+
+.hero-home-signature span {
+  color: var(--gold-light);
+
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .32em;
+}
+
+.hero-home-signature small {
+  margin-top: 4px;
+
+  color: var(--muted);
+
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: .18em;
+}
+
+.home-intro {
+  margin-top: 34px;
+}
+
+.home-intro .section-head {
+  margin-bottom: 17px;
+}
+
+.home-intro .section-head h2 {
+  margin-top: 7px;
+
+  font-size: 29px;
+  line-height: 1.02;
+}
+
+.home-grid {
+  gap: 13px;
+}
+
+.home-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 235px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.home-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 90px;
+  height: 90px;
+
+  right: -42px;
+  bottom: -42px;
+
+  border: 1px solid rgba(216,179,91,.10);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.home-card .emoji {
+  font-size: 26px;
+}
+
+.home-card h3 {
+  font-size: 17px;
+}
+
+.home-card p {
+  line-height: 1.55;
+}
+
+.home-card .btn {
+  margin-top: auto;
+}
+
+.home-feature {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  gap: 18px;
+
+  padding: 21px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(216,179,91,.11),
+      rgba(17,20,25,.96)
+    );
+
+  border: 1px solid rgba(216,179,91,.18);
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.home-feature::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: -95px;
+  top: -95px;
+
+  border: 1px solid rgba(216,179,91,.12);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.home-feature-icon {
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  color: var(--gold-light);
+
+  background: rgba(216,179,91,.10);
+
+  border: 1px solid rgba(216,179,91,.20);
+  border-radius: 15px;
+
+  font-size: 23px;
+}
+
+.home-feature-content {
+  position: relative;
+  z-index: 2;
+
+  min-width: 0;
+}
+
+.home-feature h2 {
+  margin: 7px 0 10px;
+
+  font-size: 24px;
+  line-height: 1.08;
+  letter-spacing: -.035em;
+}
+
+.home-feature p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.home-feature .actions {
+  margin-top: 18px;
+}
+
+.home-values {
+  margin-top: 24px;
+}
+
+.home-values-card {
+  overflow: hidden;
+
+  background: var(--surface);
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow-soft);
+}
+
+.home-value {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 16px;
+
+  border-bottom: 1px solid var(--line);
+}
+
+.home-value:last-child {
+  border-bottom: 0;
+}
+
+.home-value > span {
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  width: 39px;
+  height: 39px;
+
+  color: var(--gold-light);
+
+  background: rgba(216,179,91,.08);
+
+  border: 1px solid rgba(216,179,91,.14);
+  border-radius: 12px;
+
+  font-size: 18px;
+}
+
+.home-value strong {
+  display: block;
+
+  font-size: 13px;
+}
+
+.home-value small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.home-final {
+  margin-top: 24px;
+}
+
+.home-final .notice {
+  line-height: 1.65;
+}
+
+.home-final .notice strong {
+  color: var(--gold-light);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+   ========================================================= */
+
+.light .hero-home {
+  background:
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(216,179,91,.25),
+      transparent 36%
+    ),
+    var(--surface);
+}
+
+.light .home-feature {
+  background: var(--surface);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .hero-home {
+    min-height: 410px;
+
+    padding: 27px 19px 19px;
+  }
+
+  .hero-home h1 {
+    font-size: clamp(38px, 12vw, 54px);
+  }
+
+  .hero-lead {
+    font-size: 14px !important;
+  }
+
+  .hero-home-signature {
+    margin-top: 38px;
+  }
+
+  .home-feature {
+    padding: 18px;
+    gap: 13px;
+  }
+
+  .home-feature-icon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .home-feature h2 {
+    font-size: 21px;
+  }
+
+  .home-value {
+    padding: 14px;
+  }
+
+}
