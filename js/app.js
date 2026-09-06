@@ -1784,103 +1784,431 @@ function renderFormacionArte() {
   `;
 }
 
-function renderFormacionTattoo() {
-  return `
-    <section class="module-hero">
 
-      <div class="module-icon">🖋️</div>
+function renderFormacionTattoo() {
+return `
+<section class="module-hero tattoo-school-hero">
+
+  <div class="tattoo-school-glow"></div>
+
+  <div class="tattoo-school-ring"></div>
+
+  <div class="tattoo-school-hero-content">
+
+    <div class="module-icon">🖋️</div>
+
+    <div class="eyebrow">
+      ROXTHAL FORMACIÓN TATTOO
+    </div>
+
+    <h2>
+      Aprende el lenguaje<br>
+      <span>del tattoo.</span>
+    </h2>
+
+    <p>
+      Una formación pensada para construir
+      una base sólida, desarrollar criterio
+      visual y comenzar a comprender el
+      tatuaje como disciplina artística.
+    </p>
+
+    <div class="actions">
+
+      <button
+        class="btn"
+        type="button"
+        data-route="contacto"
+      >
+        📍 Solicitar información
+      </button>
+
+      <button
+        class="btn secondary"
+        type="button"
+        data-route="tatuajes"
+      >
+        🖋️ Ver Tattoo Studio
+      </button>
+
+    </div>
+
+  </div>
+
+  <div class="tattoo-school-signature">
+    <strong>TATTOO</strong>
+    <span>LEARN · DESIGN · DEVELOP</span>
+  </div>
+
+</section>
+
+
+<section class="section tattoo-school-intro">
+
+  <div class="section-head">
+
+    <div>
 
       <div class="eyebrow">
-        FORMACIÓN TATTOO
+        INICIACIÓN AL TATUAJE
       </div>
 
       <h2>
-        Curso de iniciación al tatuaje
+        Una base para empezar.<br>
+        Una mirada para evolucionar.
       </h2>
 
       <p>
-        Formación específica para comenzar
-        a desarrollar conocimientos dentro
+        El objetivo es comprender los pilares
+        fundamentales que intervienen en la
+        creación de un proyecto de tattoo y
+        desarrollar una visión artística propia.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="grid tattoo-school-grid">
+
+    <article class="card tattoo-school-card">
+
+      <div class="tattoo-school-number">
+        01
+      </div>
+
+      <div class="emoji">
+        🧠
+      </div>
+
+      <h3>
+        Fundamentos
+      </h3>
+
+      <p>
+        Comprensión de los conceptos
+        esenciales que forman la base
         del mundo del tatuaje.
       </p>
 
-      <div class="actions">
+    </article>
 
-        <button
-          class="btn secondary"
-          type="button"
-          data-route="formacion"
-        >
-          ← Formación
-        </button>
 
-        <button
-          class="btn"
-          type="button"
-          data-route="tatuajes"
-        >
-          🖋️ Área tattoo
-        </button>
+    <article class="card tattoo-school-card">
 
-      </div>
-    </section>
-
-    <section class="section">
-
-      <div class="grid">
-
-        <article class="card">
-          <div class="emoji">📖</div>
-
-          <h3>Iniciación</h3>
-
-          <p>
-            Introducción progresiva al
-            mundo del tatuaje.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="emoji">🖋️</div>
-
-          <h3>Diseño tattoo</h3>
-
-          <p>
-            Preparación de diseños y
-            conceptos orientados al tatuaje.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="emoji">🎯</div>
-
-          <h3>Desarrollo</h3>
-
-          <p>
-            Construcción de una base para
-            continuar evolucionando.
-          </p>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="section">
-
-      <div class="notice">
-        🖋️ Formación exclusivamente de tatuaje.
-        No incluye el curso general de dibujo
-        y pintura.
+      <div class="tattoo-school-number">
+        02
       </div>
 
-    </section>
+      <div class="emoji">
+        ✏️
+      </div>
 
-    <p class="footer-note">
-      RoXThal Formación Tattoo
+      <h3>
+        Diseño tattoo
+      </h3>
+
+      <p>
+        Desarrollo de ideas, referencias
+        y propuestas visuales orientadas
+        al lenguaje del tatuaje.
+      </p>
+
+    </article>
+
+
+    <article class="card tattoo-school-card">
+
+      <div class="tattoo-school-number">
+        03
+      </div>
+
+      <div class="emoji">
+        ◈
+      </div>
+
+      <h3>
+        Composición
+      </h3>
+
+      <p>
+        Forma, proporción, equilibrio y
+        lectura visual para construir
+        diseños con intención.
+      </p>
+
+    </article>
+
+
+    <article class="card tattoo-school-card">
+
+      <div class="tattoo-school-number">
+        04
+      </div>
+
+      <div class="emoji">
+        🎯
+      </div>
+
+      <h3>
+        Desarrollo
+      </h3>
+
+      <p>
+        Evolución progresiva del criterio
+        artístico para continuar creciendo
+        dentro de la disciplina.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="tattoo-school-statement">
+
+    <div class="tattoo-school-statement-mark">
+      ✦
+    </div>
+
+    <div>
+
+      <div class="eyebrow">
+        FILOSOFÍA ROXTHAL
+      </div>
+
+      <h2>
+        No repitas.<br>
+        <span>Construye.</span>
+      </h2>
+
+      <p>
+        Aprender tattoo no consiste solamente
+        en reproducir imágenes. Consiste en
+        aprender a observar, interpretar,
+        diseñar y desarrollar una identidad
+        artística propia.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section tattoo-school-method">
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="eyebrow">
+        MÉTODO
+      </div>
+
+      <h2>
+        Aprende paso<br>
+        a paso.
+      </h2>
+
+      <p>
+        Una progresión estructurada para
+        transformar conceptos en criterio
+        y criterio en creación.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="tattoo-school-steps">
+
+    <article class="tattoo-school-step">
+
+      <span>01</span>
+
+      <div>
+        <strong>Comprende</strong>
+        <p>
+          Conoce los fundamentos y
+          el lenguaje visual del tattoo.
+        </p>
+      </div>
+
+    </article>
+
+
+    <article class="tattoo-school-step">
+
+      <span>02</span>
+
+      <div>
+        <strong>Diseña</strong>
+        <p>
+          Convierte ideas y referencias
+          en propuestas visuales.
+        </p>
+      </div>
+
+    </article>
+
+
+    <article class="tattoo-school-step">
+
+      <span>03</span>
+
+      <div>
+        <strong>Practica</strong>
+        <p>
+          Desarrolla constancia, precisión
+          y criterio a través del aprendizaje.
+        </p>
+      </div>
+
+    </article>
+
+
+    <article class="tattoo-school-step">
+
+      <span>04</span>
+
+      <div>
+        <strong>Evoluciona</strong>
+        <p>
+          Construye progresivamente una
+          visión artística propia.
+        </p>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="tattoo-school-path">
+
+    <div class="eyebrow">
+      TU CAMINO
+    </div>
+
+    <h2>
+      De la idea<br>
+      al diseño.
+    </h2>
+
+    <div class="tattoo-school-path-line">
+
+      <div>
+        <span>01</span>
+        <strong>Idea</strong>
+        <small>Observa</small>
+      </div>
+
+      <div>
+        <span>02</span>
+        <strong>Diseño</strong>
+        <small>Interpreta</small>
+      </div>
+
+      <div>
+        <span>03</span>
+        <strong>Preparación</strong>
+        <small>Organiza</small>
+      </div>
+
+      <div>
+        <span>04</span>
+        <strong>Desarrollo</strong>
+        <small>Evoluciona</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="tattoo-school-cta">
+
+    <div class="eyebrow">
+      ROXTHAL ART DESIGN
+    </div>
+
+    <h2>
+      Tu camino dentro<br>
+      del tattoo empieza aquí.
+    </h2>
+
+    <p>
+      Descubre la formación y encuentra
+      tu propia manera de crear.
     </p>
-  `;
-}
 
+    <div class="actions">
+
+      <button
+        class="btn"
+        type="button"
+        data-route="contacto"
+      >
+        📍 Quiero información
+      </button>
+
+      <button
+        class="btn secondary"
+        type="button"
+        data-route="formacion"
+      >
+        ← Formación
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="notice tattoo-school-notice">
+
+    <strong>Formación exclusivamente de tatuaje.</strong>
+
+    <br><br>
+
+    No incluye el curso general de dibujo
+    y pintura.
+
+  </div>
+
+</section>
+
+
+<p class="footer-note">
+  RoXThal Formación Tattoo · Iniciación al tatuaje
+</p>
+
+`;
+}
 
 function renderGaleria() {
   return `
