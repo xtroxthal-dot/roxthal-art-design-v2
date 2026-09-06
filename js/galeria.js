@@ -1,339 +1,547 @@
-// =========================================================
-// RoXThal Art Design V2
-// GALERÍA — módulo profesional independiente
-// Arte ≠ Tattoo
-// =========================================================
+/* =========================================================
+   ROXTHAL ART DESIGN V2
+   GALERÍA · MOTOR VISUAL
+   Estructura independiente · Arte / Tattoo separados
+   ========================================================= */
 
 const GALLERY_DATA = {
   arte: {
-    title: "Galería de arte",
-    subtitle: "Obras con identidad.",
-    description:
-      "Una colección dedicada exclusivamente al trabajo artístico de RoXThal Art Design.",
+    key: "arte",
+    type: "art",
+    eyebrow: "ROXTHAL ART DESIGN",
+    archive: "ARCHIVE / 01",
+    title: "Galería de Arte",
+    subtitle:
+      "Obras, dibujos, pinturas, ilustraciones y creaciones seleccionadas del universo RoXThal.",
+    curator:
+      "Una selección visual donde cada obra tiene su propio lenguaje.",
+    year: "2026",
     categories: [
-      "Obras",
-      "Dibujo",
-      "Pintura",
-      "Ilustración",
-      "Creación",
-      "Colecciones"
+      { id: "obras", label: "Obras" },
+      { id: "dibujo", label: "Dibujo" },
+      { id: "pintura", label: "Pintura" },
+      { id: "ilustracion", label: "Ilustración" },
+      { id: "creacion", label: "Creación" },
+      { id: "colecciones", label: "Colecciones" }
     ],
-    curatorTitle:
-      "El arte no es decorar una superficie.",
-    curatorText:
-      "Es construir una mirada, desarrollar una técnica y convertir una idea en una obra con identidad.",
-    footer:
-      "RoXThal Art Design · Galería de Arte",
     items: []
   },
 
   tatuajes: {
-    title: "Galería tattoo",
-    subtitle: "Tatuajes con identidad.",
-    description:
-      "Un espacio dedicado exclusivamente a diseños, proyectos y trabajos de tatuaje.",
+    key: "tatuajes",
+    type: "tattoo",
+    eyebrow: "ROXTHAL TATTOO STUDIO",
+    archive: "ARCHIVE / 02",
+    title: "Galería Tattoo",
+    subtitle:
+      "Tatuajes, diseños, estilos, proyectos e inspiración del universo RoXThal Tattoo.",
+    curator:
+      "Cada tatuaje nace de una idea y termina convertido en identidad.",
+    year: "2026",
     categories: [
-      "Tatuajes",
-      "Diseños",
-      "Estilos",
-      "Proyectos",
-      "Inspiración",
-      "Colecciones tattoo"
+      { id: "tatuajes", label: "Tatuajes" },
+      { id: "disenos", label: "Diseños" },
+      { id: "estilos", label: "Estilos" },
+      { id: "proyectos", label: "Proyectos" },
+      { id: "inspiracion", label: "Inspiración" },
+      { id: "colecciones", label: "Colecciones Tattoo" }
     ],
-    curatorTitle:
-      "Un tatuaje empieza mucho antes de la aguja.",
-    curatorText:
-      "Cada proyecto nace de una idea, evoluciona mediante el diseño y termina convertido en una pieza pensada para cada persona.",
-    footer:
-      "RoXThal Art Design · Galería Tattoo",
     items: []
   }
 };
 
-// ---------------------------------------------------------
-// Seguridad básica para textos dinámicos
-// ---------------------------------------------------------
+
+/* =========================================================
+   SEGURIDAD HTML
+   ========================================================= */
 
 function escapeGalleryHTML(value) {
   return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
-// ---------------------------------------------------------
-// Tarjeta individual
-// ---------------------------------------------------------
 
-function renderGalleryCard(item, category) {
-  const title = escapeGalleryHTML(
-    item?.title ||
-      (
-        category === "tatuajes"
-          ? "Proyecto tattoo"
-          : "Obra RoXThal"
-      )
-  );
+/* =========================================================
+   ICONOS
+   ========================================================= */
 
-  const description = escapeGalleryHTML(
-    item?.description || ""
-  );
-
-  const image = item?.image
-    ? `
-      <div class="gallery-image">
-        <img
-          src="${escapeGalleryHTML(item.image)}"
-          alt="${title}"
-          loading="lazy"
-          decoding="async"
-        >
-      </div>
-    `
-    : `
-      <div class="gallery-placeholder">
-        <span>
-          ${category === "tatuajes" ? "✎" : "✦"}
-        </span>
-        <small>Próximamente</small>
-      </div>
+function galleryMark(type) {
+  if (type === "tattoo") {
+    return `
+      <svg viewBox="0 0 48 48" aria-hidden="true">
+        <path
+          d="M10 38 38 10M14 34 34 14M8 40h12M28 8h12"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.4"
+          stroke-linecap="round"
+        />
+        <circle
+          cx="24"
+          cy="24"
+          r="13"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          opacity=".45"
+        />
+      </svg>
     `;
+  }
 
   return `
-    <article class="gallery-card">
-      ${image}
+    <svg viewBox="0 0 48 48" aria-hidden="true">
+      <circle
+        cx="24"
+        cy="24"
+        r="17"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+      <circle cx="17" cy="18" r="3" fill="currentColor"/>
+      <circle cx="30" cy="14" r="2.5" fill="currentColor"/>
+      <circle cx="31" cy="29" r="4" fill="currentColor"/>
+      <path
+        d="M12 31c5-5 10-4 15 1 4 4 8 4 9 4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
+  `;
+}
 
-      <div class="gallery-card-body">
-        <h3>${title}</h3>
 
+/* =========================================================
+   CONTADOR
+   ========================================================= */
+
+function galleryCount(items) {
+  return Array.isArray(items) ? items.length : 0;
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+function renderGalleryFilters(data) {
+  return `
+    <nav
+      class="rx-gallery-filters"
+      aria-label="Categorías de ${escapeGalleryHTML(data.title)}"
+    >
+      ${data.categories
+        .map(
+          (category, index) => `
+            <button
+              class="rx-gallery-filter${index === 0 ? " is-active" : ""}"
+              type="button"
+              data-gallery-filter="${escapeGalleryHTML(category.id)}"
+              data-gallery-type="${escapeGalleryHTML(data.key)}"
+            >
+              <span class="rx-gallery-filter-number">
+                ${String(index + 1).padStart(2, "0")}
+              </span>
+              <span class="rx-gallery-filter-label">
+                ${escapeGalleryHTML(category.label)}
+              </span>
+            </button>
+          `
+        )
+        .join("")}
+    </nav>
+  `;
+}
+
+
+/* =========================================================
+   PIEZA / OBRA
+   ========================================================= */
+
+function renderGalleryPiece(item, index, type) {
+  const title =
+    item?.title ||
+    (type === "tattoo" ? "Proyecto tattoo" : "Obra seleccionada");
+
+  const category =
+    item?.category ||
+    (type === "tattoo" ? "Tatuajes" : "Obras");
+
+  const description =
+    item?.description ||
+    (type === "tattoo"
+      ? "Espacio reservado para un proyecto tattoo."
+      : "Espacio reservado para una obra artística.");
+
+  const image = item?.image || item?.url || "";
+
+  return `
+    <article
+      class="rx-gallery-piece rx-gallery-piece-${escapeGalleryHTML(type)}"
+      data-gallery-category="${escapeGalleryHTML(category)}"
+    >
+      <div class="rx-gallery-piece-index">
+        ${String(index + 1).padStart(2, "0")}
+      </div>
+
+      <div class="rx-gallery-piece-media">
         ${
-          description
-            ? `<p>${description}</p>`
-            : ""
+          image
+            ? `
+              <img
+                src="${escapeGalleryHTML(image)}"
+                alt="${escapeGalleryHTML(title)}"
+                loading="lazy"
+              >
+            `
+            : `
+              <div class="rx-gallery-piece-placeholder">
+                <span class="rx-gallery-piece-placeholder-mark">
+                  ${type === "tattoo" ? "✦" : "◌"}
+                </span>
+                <span>
+                  ${type === "tattoo" ? "TATTOO WORK" : "ART WORK"}
+                </span>
+              </div>
+            `
         }
+      </div>
+
+      <div class="rx-gallery-piece-info">
+        <span class="rx-gallery-piece-category">
+          ${escapeGalleryHTML(category)}
+        </span>
+
+        <h3>
+          ${escapeGalleryHTML(title)}
+        </h3>
+
+        <p>
+          ${escapeGalleryHTML(description)}
+        </p>
       </div>
     </article>
   `;
 }
 
-// ---------------------------------------------------------
-// Estado vacío
-// ---------------------------------------------------------
 
-function renderGalleryEmpty(category) {
-  const isTattoo = category === "tatuajes";
+/* =========================================================
+   ESTADO VACÍO
+   ========================================================= */
+
+function renderGalleryEmpty(data) {
+  const isTattoo = data.type === "tattoo";
 
   return `
-    <div class="gallery-empty">
+    <div class="rx-gallery-empty">
 
-      <span>
-        ${isTattoo ? "✎" : "✦"}
-      </span>
+      <div class="rx-gallery-empty-number">
+        ${data.archive}
+      </div>
 
-      <strong>
-        ${
-          isTattoo
-            ? "La galería tattoo está creciendo."
-            : "La galería de arte está creciendo."
-        }
-      </strong>
+      <div class="rx-gallery-empty-symbol">
+        ${galleryMark(data.type)}
+      </div>
 
-      <p>
-        Próximamente encontrarás aquí
-        nuevos ${
-          isTattoo
-            ? "tatuajes, diseños y proyectos."
-            : "dibujos, pinturas y obras."
-        }
-      </p>
+      <div class="rx-gallery-empty-content">
+
+        <span class="rx-gallery-empty-kicker">
+          ARCHIVO EN CONSTRUCCIÓN
+        </span>
+
+        <h3>
+          ${isTattoo ? "El próximo proyecto empieza aquí." : "La próxima obra empieza aquí."}
+        </h3>
+
+        <p>
+          ${
+            isTattoo
+              ? "Este espacio está preparado para mostrar tatuajes, diseños, proyectos y colecciones de RoXThal Tattoo."
+              : "Este espacio está preparado para mostrar obras, dibujos, pinturas, ilustraciones y colecciones de RoXThal Art Design."
+          }
+        </p>
+
+      </div>
+
+      <div class="rx-gallery-empty-index">
+        <span>AVAILABLE</span>
+        <strong>SOON</strong>
+      </div>
 
     </div>
   `;
 }
 
-// ---------------------------------------------------------
-// Render principal
-// ---------------------------------------------------------
 
-export function renderGallery(category = "arte") {
-  const safeCategory =
-    GALLERY_DATA[category]
-      ? category
-      : "arte";
+/* =========================================================
+   ARCHIVO / ÍNDICE
+   ========================================================= */
 
-  const gallery =
-    GALLERY_DATA[safeCategory];
-
-  const isTattoo =
-    safeCategory === "tatuajes";
-
-  const itemCount =
-    Array.isArray(gallery.items)
-      ? gallery.items.length
-      : 0;
-
-  const cards =
-    itemCount > 0
-      ? gallery.items
-          .map(item =>
-            renderGalleryCard(
-              item,
-              safeCategory
-            )
-          )
-          .join("")
-      : renderGalleryEmpty(
-          safeCategory
-        );
-
-  const categories =
-    gallery.categories
-      .map(categoryName => `
-        <span class="gallery-category">
-          ${escapeGalleryHTML(categoryName)}
-        </span>
-      `)
-      .join("");
-
+function renderGalleryArchive(data) {
   return `
-    <section
-      class="gallery-module"
-      data-gallery="${escapeGalleryHTML(safeCategory)}"
-    >
+    <section class="rx-gallery-archive">
 
-      <!-- HERO -->
-
-      <header class="gallery-hero">
-
-        <div class="gallery-hero-icon">
-          ${isTattoo ? "✎" : "✦"}
-        </div>
-
-        <div class="gallery-hero-content">
-
-          <span class="gallery-eyebrow">
-            ROXTHAL ART DESIGN
-          </span>
-
-          <h1>
-            ${
-              isTattoo
-                ? `Galería <span>Tattoo.</span>`
-                : `Galería de <span>Arte.</span>`
-            }
-          </h1>
-
-          <p>
-            ${escapeGalleryHTML(
-              gallery.subtitle
-            )}
-          </p>
-
-        </div>
-
-        <div class="gallery-counter">
-
-          <strong>
-            ${itemCount}
-          </strong>
-
-          <small>
-            ${
-              itemCount === 1
-                ? "pieza"
-                : "piezas"
-            }
-          </small>
-
-        </div>
-
-      </header>
-
-      <!-- INTRODUCCIÓN -->
-
-      <div class="gallery-intro">
-
-        <p>
-          ${escapeGalleryHTML(
-            gallery.description
-          )}
-        </p>
-
+      <div class="rx-gallery-archive-heading">
+        <span>INDEX</span>
+        <strong>${data.archive}</strong>
       </div>
 
-      <!-- CATEGORÍAS -->
+      <div class="rx-gallery-archive-list">
+        ${data.categories
+          .map(
+            (category, index) => `
+              <div class="rx-gallery-archive-row">
+                <span>
+                  ${String(index + 1).padStart(2, "0")}
+                </span>
 
-      <div
-        class="gallery-categories"
-        aria-label="${
-          isTattoo
-            ? "Categorías de tattoo"
-            : "Categorías de arte"
-        }"
-      >
-        ${categories}
-      </div>
+                <strong>
+                  ${escapeGalleryHTML(category.label)}
+                </strong>
 
-      <!-- CONTENIDO -->
-
-      <div class="gallery-grid">
-        ${cards}
-      </div>
-
-      <!-- CURADURÍA -->
-
-      <div class="gallery-curator">
-
-        <small>
-          ${
-            isTattoo
-              ? "Filosofía tattoo"
-              : "Filosofía artística"
-          }
-        </small>
-
-        <strong>
-          ${escapeGalleryHTML(
-            gallery.curatorTitle
-          )}
-        </strong>
-
-        <p>
-          ${escapeGalleryHTML(
-            gallery.curatorText
-          )}
-        </p>
-
-      </div>
-
-      <div class="gallery-module-footer">
-        ${escapeGalleryHTML(
-          gallery.footer
-        )}
+                <em>
+                  ARCHIVE
+                </em>
+              </div>
+            `
+          )
+          .join("")}
       </div>
 
     </section>
   `;
 }
 
-// ---------------------------------------------------------
-// Acceso a datos
-// Preparado para futura integración con Supabase
-// ---------------------------------------------------------
 
-export function getGalleryData(category) {
-  return (
-    GALLERY_DATA[category] ||
-    null
-  );
+/* =========================================================
+   GALERÍA COMPLETA
+   ========================================================= */
+
+function renderGallery(type = "arte") {
+  const data = GALLERY_DATA[type] || GALLERY_DATA.arte;
+  const items = Array.isArray(data.items) ? data.items : [];
+  const count = galleryCount(items);
+
+  return `
+    <div
+      class="
+        rx-gallery
+        rx-gallery-${escapeGalleryHTML(data.type)}
+      "
+      data-gallery-root="${escapeGalleryHTML(data.key)}"
+    >
+
+      <!-- ================================================
+           COVER
+           ================================================ -->
+
+      <header class="rx-gallery-cover">
+
+        <div class="rx-gallery-cover-meta">
+          <span>${escapeGalleryHTML(data.eyebrow)}</span>
+          <span>${escapeGalleryHTML(data.archive)}</span>
+        </div>
+
+        <div class="rx-gallery-cover-main">
+
+          <div class="rx-gallery-cover-mark">
+            ${galleryMark(data.type)}
+          </div>
+
+          <div class="rx-gallery-cover-title-wrap">
+
+            <span class="rx-gallery-cover-label">
+              VISUAL ARCHIVE
+            </span>
+
+            <h2 class="rx-gallery-cover-title">
+              ${escapeGalleryHTML(data.title)}
+            </h2>
+
+            <p class="rx-gallery-cover-subtitle">
+              ${escapeGalleryHTML(data.subtitle)}
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="rx-gallery-cover-bottom">
+
+          <span>
+            ${escapeGalleryHTML(data.year)}
+          </span>
+
+          <span>
+            ${String(count).padStart(2, "0")} WORKS
+          </span>
+
+          <span>
+            ROXTHAL
+          </span>
+
+        </div>
+
+      </header>
+
+
+      <!-- ================================================
+           INTRO
+           ================================================ -->
+
+      <div class="rx-gallery-introbar">
+
+        <div>
+          <span class="rx-gallery-introbar-label">
+            SELECTED WORKS
+          </span>
+
+          <strong>
+            ${String(count).padStart(2, "0")}
+          </strong>
+        </div>
+
+        <p>
+          ${escapeGalleryHTML(data.curator)}
+        </p>
+
+      </div>
+
+
+      <!-- ================================================
+           FILTERS
+           ================================================ -->
+
+      ${renderGalleryFilters(data)}
+
+
+      <!-- ================================================
+           EXHIBITION
+           ================================================ -->
+
+      <section class="rx-gallery-exhibition">
+
+        <div class="rx-gallery-exhibition-heading">
+
+          <div>
+            <span>EXHIBITION</span>
+            <strong>01 — SELECTED</strong>
+          </div>
+
+          <span>
+            ${data.type === "tattoo" ? "TATTOO / WORKS" : "ART / WORKS"}
+          </span>
+
+        </div>
+
+
+        ${
+          items.length
+            ? `
+              <div class="rx-gallery-feature">
+                ${renderGalleryPiece(items[0], 0, data.type)}
+              </div>
+
+              ${
+                items.length > 1
+                  ? `
+                    <div class="rx-gallery-grid">
+                      ${items
+                        .slice(1)
+                        .map((item, index) =>
+                          renderGalleryPiece(
+                            item,
+                            index + 1,
+                            data.type
+                          )
+                        )
+                        .join("")}
+                    </div>
+                  `
+                  : ""
+              }
+            `
+            : renderGalleryEmpty(data)
+        }
+
+      </section>
+
+
+      <!-- ================================================
+           ARCHIVE INDEX
+           ================================================ -->
+
+      ${renderGalleryArchive(data)}
+
+
+      <!-- ================================================
+           STATEMENT
+           ================================================ -->
+
+      <section class="rx-gallery-statement">
+
+        <span>
+          ROXTHAL / ${escapeGalleryHTML(data.archive)}
+        </span>
+
+        <p>
+          ${
+            data.type === "tattoo"
+              ? "El tatuaje no es una copia. Es una pieza única construida sobre una idea."
+              : "El arte no es decoración. Es lenguaje, proceso y una forma de dejar huella."
+          }
+        </p>
+
+      </section>
+
+
+      <!-- ================================================
+           FOOTER
+           ================================================ -->
+
+      <footer class="rx-gallery-footer">
+
+        <div>
+          ${escapeGalleryHTML(data.eyebrow)}
+        </div>
+
+        <div>
+          ${escapeGalleryHTML(data.title)}
+        </div>
+
+        <div>
+          ${escapeGalleryHTML(data.year)}
+        </div>
+
+      </footer>
+
+    </div>
+  `;
 }
 
-// ---------------------------------------------------------
-// Exportación para futuras integraciones
-// ---------------------------------------------------------
+
+/* =========================================================
+   DATOS PÚBLICOS
+   ========================================================= */
+
+function getGalleryData(type = "arte") {
+  return GALLERY_DATA[type] || GALLERY_DATA.arte;
+}
+
+
+/* =========================================================
+   EXPORTACIÓN
+   ========================================================= */
 
 export {
-  GALLERY_DATA
+  GALLERY_DATA,
+  renderGallery,
+  getGalleryData
 };
