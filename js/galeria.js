@@ -1,7 +1,7 @@
 /* =========================================================
    ROXTHAL ART DESIGN V2
-   GALERÍA · MOTOR VISUAL
-   Estructura independiente · Arte / Tattoo separados
+   GALERÍA · MOTOR VISUAL + FILTROS
+   Arte / Tattoo separados
    ========================================================= */
 
 const GALLERY_DATA = {
@@ -16,6 +16,7 @@ const GALLERY_DATA = {
     curator:
       "Una selección visual donde cada obra tiene su propio lenguaje.",
     year: "2026",
+
     categories: [
       { id: "obras", label: "Obras" },
       { id: "dibujo", label: "Dibujo" },
@@ -24,6 +25,7 @@ const GALLERY_DATA = {
       { id: "creacion", label: "Creación" },
       { id: "colecciones", label: "Colecciones" }
     ],
+
     items: []
   },
 
@@ -38,6 +40,7 @@ const GALLERY_DATA = {
     curator:
       "Cada tatuaje nace de una idea y termina convertido en identidad.",
     year: "2026",
+
     categories: [
       { id: "tatuajes", label: "Tatuajes" },
       { id: "disenos", label: "Diseños" },
@@ -46,13 +49,14 @@ const GALLERY_DATA = {
       { id: "inspiracion", label: "Inspiración" },
       { id: "colecciones", label: "Colecciones Tattoo" }
     ],
+
     items: []
   }
 };
 
 
 /* =========================================================
-   SEGURIDAD HTML
+   SEGURIDAD
    ========================================================= */
 
 function escapeGalleryHTML(value) {
@@ -62,6 +66,20 @@ function escapeGalleryHTML(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   NORMALIZACIÓN
+   ========================================================= */
+
+function normalizeGalleryCategory(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-");
 }
 
 
@@ -145,10 +163,12 @@ function renderGalleryFilters(data) {
               type="button"
               data-gallery-filter="${escapeGalleryHTML(category.id)}"
               data-gallery-type="${escapeGalleryHTML(data.key)}"
+              aria-pressed="${index === 0 ? "true" : "false"}"
             >
               <span class="rx-gallery-filter-number">
                 ${String(index + 1).padStart(2, "0")}
               </span>
+
               <span class="rx-gallery-filter-label">
                 ${escapeGalleryHTML(category.label)}
               </span>
@@ -162,17 +182,21 @@ function renderGalleryFilters(data) {
 
 
 /* =========================================================
-   PIEZA / OBRA
+   PIEZA
    ========================================================= */
 
 function renderGalleryPiece(item, index, type) {
   const title =
     item?.title ||
-    (type === "tattoo" ? "Proyecto tattoo" : "Obra seleccionada");
+    (type === "tattoo"
+      ? "Proyecto tattoo"
+      : "Obra seleccionada");
 
   const category =
     item?.category ||
-    (type === "tattoo" ? "Tatuajes" : "Obras");
+    (type === "tattoo"
+      ? "Tatuajes"
+      : "Obras");
 
   const description =
     item?.description ||
@@ -180,18 +204,25 @@ function renderGalleryPiece(item, index, type) {
       ? "Espacio reservado para un proyecto tattoo."
       : "Espacio reservado para una obra artística.");
 
-  const image = item?.image || item?.url || "";
+  const image =
+    item?.image ||
+    item?.url ||
+    "";
 
   return `
     <article
       class="rx-gallery-piece rx-gallery-piece-${escapeGalleryHTML(type)}"
-      data-gallery-category="${escapeGalleryHTML(category)}"
+      data-gallery-category="${escapeGalleryHTML(
+        normalizeGalleryCategory(category)
+      )}"
     >
+
       <div class="rx-gallery-piece-index">
         ${String(index + 1).padStart(2, "0")}
       </div>
 
       <div class="rx-gallery-piece-media">
+
         ${
           image
             ? `
@@ -203,18 +234,25 @@ function renderGalleryPiece(item, index, type) {
             `
             : `
               <div class="rx-gallery-piece-placeholder">
+
                 <span class="rx-gallery-piece-placeholder-mark">
                   ${type === "tattoo" ? "✦" : "◌"}
                 </span>
+
                 <span>
-                  ${type === "tattoo" ? "TATTOO WORK" : "ART WORK"}
+                  ${type === "tattoo"
+                    ? "TATTOO WORK"
+                    : "ART WORK"}
                 </span>
+
               </div>
             `
         }
+
       </div>
 
       <div class="rx-gallery-piece-info">
+
         <span class="rx-gallery-piece-category">
           ${escapeGalleryHTML(category)}
         </span>
@@ -226,7 +264,9 @@ function renderGalleryPiece(item, index, type) {
         <p>
           ${escapeGalleryHTML(description)}
         </p>
+
       </div>
+
     </article>
   `;
 }
@@ -243,7 +283,7 @@ function renderGalleryEmpty(data) {
     <div class="rx-gallery-empty">
 
       <div class="rx-gallery-empty-number">
-        ${data.archive}
+        ${escapeGalleryHTML(data.archive)}
       </div>
 
       <div class="rx-gallery-empty-symbol">
@@ -257,7 +297,11 @@ function renderGalleryEmpty(data) {
         </span>
 
         <h3>
-          ${isTattoo ? "El próximo proyecto empieza aquí." : "La próxima obra empieza aquí."}
+          ${
+            isTattoo
+              ? "El próximo proyecto empieza aquí."
+              : "La próxima obra empieza aquí."
+          }
         </h3>
 
         <p>
@@ -281,7 +325,7 @@ function renderGalleryEmpty(data) {
 
 
 /* =========================================================
-   ARCHIVO / ÍNDICE
+   ARCHIVO
    ========================================================= */
 
 function renderGalleryArchive(data) {
@@ -290,14 +334,16 @@ function renderGalleryArchive(data) {
 
       <div class="rx-gallery-archive-heading">
         <span>INDEX</span>
-        <strong>${data.archive}</strong>
+        <strong>${escapeGalleryHTML(data.archive)}</strong>
       </div>
 
       <div class="rx-gallery-archive-list">
+
         ${data.categories
           .map(
             (category, index) => `
               <div class="rx-gallery-archive-row">
+
                 <span>
                   ${String(index + 1).padStart(2, "0")}
                 </span>
@@ -309,10 +355,12 @@ function renderGalleryArchive(data) {
                 <em>
                   ARCHIVE
                 </em>
+
               </div>
             `
           )
           .join("")}
+
       </div>
 
     </section>
@@ -321,13 +369,25 @@ function renderGalleryArchive(data) {
 
 
 /* =========================================================
-   GALERÍA COMPLETA
+   GALERÍA
    ========================================================= */
 
 function renderGallery(type = "arte") {
-  const data = GALLERY_DATA[type] || GALLERY_DATA.arte;
-  const items = Array.isArray(data.items) ? data.items : [];
-  const count = galleryCount(items);
+  const data =
+    GALLERY_DATA[type] ||
+    GALLERY_DATA.arte;
+
+  const items =
+    Array.isArray(data.items)
+      ? data.items
+      : [];
+
+  const count =
+    galleryCount(items);
+
+  const firstCategory =
+    data.categories[0]?.label ||
+    "Selected";
 
   return `
     <div
@@ -338,15 +398,16 @@ function renderGallery(type = "arte") {
       data-gallery-root="${escapeGalleryHTML(data.key)}"
     >
 
-      <!-- ================================================
-           COVER
-           ================================================ -->
-
       <header class="rx-gallery-cover">
 
         <div class="rx-gallery-cover-meta">
-          <span>${escapeGalleryHTML(data.eyebrow)}</span>
-          <span>${escapeGalleryHTML(data.archive)}</span>
+          <span>
+            ${escapeGalleryHTML(data.eyebrow)}
+          </span>
+
+          <span>
+            ${escapeGalleryHTML(data.archive)}
+          </span>
         </div>
 
         <div class="rx-gallery-cover-main">
@@ -379,7 +440,7 @@ function renderGallery(type = "arte") {
             ${escapeGalleryHTML(data.year)}
           </span>
 
-          <span>
+          <span data-gallery-total>
             ${String(count).padStart(2, "0")} WORKS
           </span>
 
@@ -392,20 +453,18 @@ function renderGallery(type = "arte") {
       </header>
 
 
-      <!-- ================================================
-           INTRO
-           ================================================ -->
-
       <div class="rx-gallery-introbar">
 
         <div>
+
           <span class="rx-gallery-introbar-label">
             SELECTED WORKS
           </span>
 
-          <strong>
+          <strong data-gallery-count>
             ${String(count).padStart(2, "0")}
           </strong>
+
         </div>
 
         <p>
@@ -415,96 +474,108 @@ function renderGallery(type = "arte") {
       </div>
 
 
-      <!-- ================================================
-           FILTERS
-           ================================================ -->
-
       ${renderGalleryFilters(data)}
 
-
-      <!-- ================================================
-           EXHIBITION
-           ================================================ -->
 
       <section class="rx-gallery-exhibition">
 
         <div class="rx-gallery-exhibition-heading">
 
           <div>
-            <span>EXHIBITION</span>
-            <strong>01 — SELECTED</strong>
+
+            <span>
+              EXHIBITION
+            </span>
+
+            <strong data-gallery-selection>
+              01 — ${escapeGalleryHTML(
+                firstCategory.toUpperCase()
+              )}
+            </strong>
+
           </div>
 
-          <span>
-            ${data.type === "tattoo" ? "TATTOO / WORKS" : "ART / WORKS"}
+          <span data-gallery-kind>
+            ${
+              data.type === "tattoo"
+                ? "TATTOO / WORKS"
+                : "ART / WORKS"
+            }
           </span>
 
         </div>
 
 
-        ${
-          items.length
-            ? `
-              <div class="rx-gallery-feature">
-                ${renderGalleryPiece(items[0], 0, data.type)}
-              </div>
+        <div
+          class="rx-gallery-content"
+          data-gallery-content
+        >
 
-              ${
-                items.length > 1
-                  ? `
-                    <div class="rx-gallery-grid">
-                      ${items
-                        .slice(1)
-                        .map((item, index) =>
-                          renderGalleryPiece(
-                            item,
-                            index + 1,
-                            data.type
+          ${
+            items.length
+              ? `
+                <div class="rx-gallery-feature">
+
+                  ${renderGalleryPiece(
+                    items[0],
+                    0,
+                    data.type
+                  )}
+
+                </div>
+
+                ${
+                  items.length > 1
+                    ? `
+                      <div class="rx-gallery-grid">
+
+                        ${items
+                          .slice(1)
+                          .map(
+                            (item, index) =>
+                              renderGalleryPiece(
+                                item,
+                                index + 1,
+                                data.type
+                              )
                           )
-                        )
-                        .join("")}
-                    </div>
-                  `
-                  : ""
-              }
-            `
-            : renderGalleryEmpty(data)
-        }
+                          .join("")}
+
+                      </div>
+                    `
+                    : ""
+                }
+              `
+              : renderGalleryEmpty(data)
+          }
+
+        </div>
 
       </section>
 
 
-      <!-- ================================================
-           ARCHIVE INDEX
-           ================================================ -->
-
       ${renderGalleryArchive(data)}
 
-
-      <!-- ================================================
-           STATEMENT
-           ================================================ -->
 
       <section class="rx-gallery-statement">
 
         <span>
-          ROXTHAL / ${escapeGalleryHTML(data.archive)}
+          ROXTHAL /
+          ${escapeGalleryHTML(data.archive)}
         </span>
 
         <p>
+
           ${
             data.type === "tattoo"
               ? "El tatuaje no es una copia. Es una pieza única construida sobre una idea."
               : "El arte no es decoración. Es lenguaje, proceso y una forma de dejar huella."
           }
+
         </p>
 
       </section>
 
-
-      <!-- ================================================
-           FOOTER
-           ================================================ -->
 
       <footer class="rx-gallery-footer">
 
@@ -528,11 +599,268 @@ function renderGallery(type = "arte") {
 
 
 /* =========================================================
+   FILTRO FUNCIONAL
+   ========================================================= */
+
+function applyGalleryFilter(button) {
+  const root =
+    button.closest("[data-gallery-root]");
+
+  if (!root) return;
+
+  const type =
+    root.dataset.galleryRoot;
+
+  const filter =
+    normalizeGalleryCategory(
+      button.dataset.galleryFilter
+    );
+
+  const data =
+    GALLERY_DATA[type] ||
+    GALLERY_DATA.arte;
+
+  const pieces =
+    [
+      ...root.querySelectorAll(
+        ".rx-gallery-piece"
+      )
+    ];
+
+  const feature =
+    root.querySelector(
+      ".rx-gallery-feature"
+    );
+
+  const grid =
+    root.querySelector(
+      ".rx-gallery-grid"
+    );
+
+  const empty =
+    root.querySelector(
+      ".rx-gallery-empty"
+    );
+
+  const content =
+    root.querySelector(
+      "[data-gallery-content]"
+    );
+
+  const countNode =
+    root.querySelector(
+      "[data-gallery-count]"
+    );
+
+  const totalNode =
+    root.querySelector(
+      "[data-gallery-total]"
+    );
+
+  const selectionNode =
+    root.querySelector(
+      "[data-gallery-selection]"
+    );
+
+  const category =
+    data.categories.find(
+      item =>
+        normalizeGalleryCategory(
+          item.id
+        ) === filter
+    );
+
+  const categoryLabel =
+    category?.label ||
+    "Seleccionado";
+
+
+  /* ACTIVAR BOTÓN */
+
+  root
+    .querySelectorAll(
+      ".rx-gallery-filter"
+    )
+    .forEach(filterButton => {
+
+      const active =
+        filterButton === button;
+
+      filterButton.classList.toggle(
+        "is-active",
+        active
+      );
+
+      filterButton.setAttribute(
+        "aria-pressed",
+        active
+          ? "true"
+          : "false"
+      );
+    });
+
+
+  /* SI TODAVÍA NO HAY OBRAS */
+
+  if (!pieces.length) {
+
+    if (selectionNode) {
+      selectionNode.textContent =
+        `01 — ${categoryLabel.toUpperCase()}`;
+    }
+
+    if (countNode) {
+      countNode.textContent = "00";
+    }
+
+    if (totalNode) {
+      totalNode.textContent = "00 WORKS";
+    }
+
+    return;
+  }
+
+
+  /* MATCH */
+
+  const isAll =
+    filter === "obras" ||
+    filter === "tatuajes";
+
+  const matches =
+    isAll
+      ? pieces
+      : pieces.filter(piece => {
+
+          const pieceCategory =
+            normalizeGalleryCategory(
+              piece.dataset.galleryCategory
+            );
+
+          return (
+            pieceCategory === filter
+          );
+
+        });
+
+
+  /* MOSTRAR / OCULTAR */
+
+  pieces.forEach(piece => {
+
+    piece.hidden =
+      !matches.includes(piece);
+
+  });
+
+
+  /* FEATURE */
+
+  if (feature) {
+
+    const featurePiece =
+      feature.querySelector(
+        ".rx-gallery-piece"
+      );
+
+    feature.hidden =
+      !featurePiece ||
+      !matches.includes(
+        featurePiece
+      );
+
+  }
+
+
+  /* GRID */
+
+  if (grid) {
+
+    const visible =
+      grid.querySelectorAll(
+        ".rx-gallery-piece:not([hidden])"
+      );
+
+    grid.hidden =
+      visible.length === 0;
+
+  }
+
+
+  /* EMPTY */
+
+  if (empty) {
+
+    empty.hidden =
+      matches.length !== 0;
+
+  }
+
+
+  /* CONTADORES */
+
+  if (countNode) {
+
+    countNode.textContent =
+      String(
+        matches.length
+      ).padStart(2, "0");
+
+  }
+
+  if (totalNode) {
+
+    totalNode.textContent =
+      `${String(
+        matches.length
+      ).padStart(2, "0")} WORKS`;
+
+  }
+
+
+  /* TÍTULO DE SELECCIÓN */
+
+  if (selectionNode) {
+
+    selectionNode.textContent =
+      `01 — ${categoryLabel.toUpperCase()}`;
+
+  }
+}
+
+
+/* =========================================================
+   EVENTOS
+   ========================================================= */
+
+document.addEventListener(
+  "click",
+  event => {
+
+    const button =
+      event.target.closest(
+        "[data-gallery-filter]"
+      );
+
+    if (!button) return;
+
+    applyGalleryFilter(button);
+
+  }
+);
+
+
+/* =========================================================
    DATOS PÚBLICOS
    ========================================================= */
 
-function getGalleryData(type = "arte") {
-  return GALLERY_DATA[type] || GALLERY_DATA.arte;
+function getGalleryData(
+  type = "arte"
+) {
+  return (
+    GALLERY_DATA[type] ||
+    GALLERY_DATA.arte
+  );
 }
 
 
