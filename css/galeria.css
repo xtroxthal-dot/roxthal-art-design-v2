@@ -1,532 +1,457 @@
 /* =========================================================
    RoXThal Art Design V2
-   GALERÍA — VISUAL SIGNATURE
+   GALERÍA — EDITORIAL VISUAL SYSTEM
    Arte ≠ Tattoo
    ========================================================= */
 
+/* ---------------------------------------------------------
+   BASE
+   --------------------------------------------------------- */
+
 .gallery-module {
+  --gallery-bg: #090909;
+  --gallery-panel: #111111;
+  --gallery-panel-2: #151515;
+  --gallery-text: #f4f0e8;
+  --gallery-muted: rgba(244, 240, 232, .58);
+  --gallery-line: rgba(244, 240, 232, .12);
   --gallery-accent: #d8b15a;
-  --gallery-accent-rgb: 216,177,90;
-  --gallery-border: rgba(255,255,255,.10);
-  --gallery-panel: rgba(255,255,255,.035);
-  --gallery-muted: #9da3ad;
+  --gallery-accent-soft: rgba(216, 177, 90, .16);
+  --gallery-shadow: 0 30px 80px rgba(0,0,0,.35);
 
   position: relative;
-  width: 100%;
-  max-width: 1180px;
+  width: min(100%, 1180px);
   margin: 0 auto;
-  padding: 18px 0 48px;
+  padding: clamp(22px, 4vw, 52px) clamp(12px, 3vw, 28px);
+  color: var(--gallery-text);
+  overflow: hidden;
   isolation: isolate;
 }
-
-.gallery-module[data-gallery="arte"] {
-  --gallery-accent: #d8b15a;
-  --gallery-accent-rgb: 216,177,90;
-}
-
-.gallery-module[data-gallery="tatuajes"] {
-  --gallery-accent: #ef6258;
-  --gallery-accent-rgb: 239,98,88;
-}
-
-/* =========================================================
-   ATMÓSFERA
-   ========================================================= */
 
 .gallery-module::before {
   content: "";
   position: absolute;
-  z-index: -2;
-  top: -80px;
-  left: 8%;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  background: rgba(var(--gallery-accent-rgb), .10);
-  filter: blur(90px);
+  inset: 0;
   pointer-events: none;
+  z-index: -3;
+  background:
+    radial-gradient(circle at 82% 10%,
+      rgba(216,177,90,.10),
+      transparent 28%),
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.025),
+      transparent 35%
+    );
 }
 
 .gallery-module::after {
   content: "";
   position: absolute;
-  z-index: -2;
-  right: 5%;
-  top: 420px;
-  width: 240px;
-  height: 240px;
-  border-radius: 50%;
-  background: rgba(var(--gallery-accent-rgb), .06);
-  filter: blur(80px);
+  top: 0;
+  right: 6%;
+  width: 1px;
+  height: 100%;
   pointer-events: none;
+  z-index: -2;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--gallery-line) 15%,
+    var(--gallery-line) 85%,
+    transparent
+  );
 }
 
-/* =========================================================
-   HERO — PIEZA PRINCIPAL
-   ========================================================= */
+
+/* ---------------------------------------------------------
+   ART / TATTOO IDENTITY
+   --------------------------------------------------------- */
+
+.gallery-module[data-gallery="arte"] {
+  --gallery-accent: #d8b15a;
+  --gallery-accent-soft: rgba(216,177,90,.15);
+}
+
+.gallery-module[data-gallery="tatuajes"] {
+  --gallery-accent: #e35d52;
+  --gallery-accent-soft: rgba(227,93,82,.14);
+
+  --gallery-bg: #080808;
+  --gallery-panel: #101010;
+  --gallery-panel-2: #141414;
+}
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
 
 .gallery-hero {
   position: relative;
+  min-height: clamp(390px, 58vh, 650px);
+  display: grid;
+  align-items: end;
+  margin-bottom: clamp(35px, 7vw, 80px);
+  padding: clamp(24px, 5vw, 70px);
   overflow: hidden;
 
-  display: grid;
-  grid-template-columns: 92px 1fr auto;
-  align-items: end;
-  gap: 26px;
-
-  min-height: 330px;
-  padding: 38px;
-
-  border: 1px solid var(--gallery-border);
-  border-radius: 32px;
-
   background:
-    radial-gradient(
-      circle at 78% 18%,
-      rgba(var(--gallery-accent-rgb), .18),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 15% 90%,
-      rgba(255,255,255,.045),
-      transparent 28%
-    ),
     linear-gradient(
-      145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.018) 55%,
-      rgba(0,0,0,.12)
-    );
+      115deg,
+      rgba(255,255,255,.035),
+      transparent 45%
+    ),
+    var(--gallery-bg);
 
-  box-shadow:
-    0 35px 90px rgba(0,0,0,.30),
-    inset 0 1px 0 rgba(255,255,255,.07);
-
-  isolation: isolate;
+  border: 1px solid var(--gallery-line);
+  box-shadow: var(--gallery-shadow);
 }
 
 .gallery-hero::before {
   content: "";
-
   position: absolute;
-  z-index: -1;
-
-  width: 330px;
-  height: 330px;
-
-  right: -130px;
-  top: -145px;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .35);
-  border-radius: 50%;
-
-  box-shadow:
-    0 0 0 30px rgba(var(--gallery-accent-rgb), .025),
-    0 0 0 60px rgba(var(--gallery-accent-rgb), .018);
-}
-
-.gallery-hero::after {
-  content: "";
-
-  position: absolute;
-  z-index: -1;
-
-  left: -70px;
-  bottom: -110px;
-
-  width: 240px;
-  height: 240px;
-
-  border: 1px solid rgba(255,255,255,.07);
-  border-radius: 50%;
-}
-
-/* =========================================================
-   MARCA / ICONO
-   ========================================================= */
-
-.gallery-hero-icon {
-  position: relative;
-
-  width: 92px;
-  height: 92px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .65);
-  border-radius: 28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(var(--gallery-accent-rgb), .18),
-      rgba(var(--gallery-accent-rgb), .035)
-    );
-
-  color: var(--gallery-accent);
-
-  font-size: 38px;
-
-  box-shadow:
-    0 0 0 9px rgba(var(--gallery-accent-rgb), .025),
-    0 20px 55px rgba(0,0,0,.28);
-}
-
-.gallery-hero-icon::before {
-  content: "";
-
-  position: absolute;
-  inset: 9px;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .18);
-  border-radius: 21px;
-}
-
-/* =========================================================
-   TEXTO HERO
-   ========================================================= */
-
-.gallery-hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.gallery-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-
-  margin-bottom: 13px;
-
-  color: var(--gallery-accent);
-
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-}
-
-.gallery-eyebrow::before {
-  content: "";
-
-  width: 25px;
-  height: 1px;
-
-  background: var(--gallery-accent);
-}
-
-.gallery-hero h1 {
-  margin: 0;
-
-  color: var(--text, #fff);
-
-  font-size: clamp(42px, 7vw, 76px);
-  line-height: .90;
-  letter-spacing: -.065em;
-  font-weight: 900;
-}
-
-.gallery-hero h1 span {
-  display: block;
-  color: var(--gallery-accent);
-}
-
-.gallery-hero p {
-  margin: 18px 0 0;
-
-  color: rgba(255,255,255,.64);
-
-  font-size: 14px;
-  line-height: 1.55;
-  font-weight: 500;
-}
-
-/* =========================================================
-   CONTADOR
-   ========================================================= */
-
-.gallery-counter {
-  position: relative;
-  z-index: 2;
-
-  min-width: 112px;
-  padding: 17px 18px;
-
-  border: 1px solid var(--gallery-border);
-  border-radius: 20px;
-
-  background: rgba(0,0,0,.20);
-
-  text-align: left;
-
-  backdrop-filter: blur(12px);
-}
-
-.gallery-counter::before {
-  content: "";
-
-  position: absolute;
-  top: 13px;
-  left: 14px;
-
-  width: 5px;
-  height: 5px;
-
-  border-radius: 50%;
-
-  background: var(--gallery-accent);
-  box-shadow: 0 0 14px var(--gallery-accent);
-}
-
-.gallery-counter strong {
-  display: block;
-
-  padding-left: 14px;
-
-  color: var(--gallery-accent);
-
-  font-size: 34px;
-  line-height: .9;
-  font-weight: 900;
-  letter-spacing: -.05em;
-}
-
-.gallery-counter small {
-  display: block;
-
-  margin-top: 9px;
-  padding-left: 14px;
-
-  color: rgba(255,255,255,.48);
-
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: .17em;
-  text-transform: uppercase;
-}
-
-/* =========================================================
-   INTRO — EDITORIAL
-   ========================================================= */
-
-.gallery-intro {
-  position: relative;
-
-  margin: 28px 0 20px;
-  padding: 24px 26px 24px 29px;
-
-  border-left: 2px solid var(--gallery-accent);
+  inset: 0;
+  pointer-events: none;
 
   background:
     linear-gradient(
       90deg,
-      rgba(var(--gallery-accent-rgb), .10),
-      transparent 72%
+      transparent 0 68%,
+      rgba(255,255,255,.025) 68%,
+      transparent 68.2%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
     );
+
+  background-size:
+    100% 100%,
+    100% 48px;
+
+  opacity: .45;
 }
 
-.gallery-intro::after {
-  content: "ROXTHAL";
-
+.gallery-hero::after {
+  content: "";
   position: absolute;
-  right: 22px;
-  top: 50%;
-  transform: translateY(-50%);
+  width: clamp(220px, 35vw, 500px);
+  aspect-ratio: 1;
+  right: -14%;
+  top: -24%;
+  border: 1px solid var(--gallery-accent);
+  border-radius: 50%;
+  opacity: .25;
+  pointer-events: none;
 
-  color: rgba(255,255,255,.025);
+  box-shadow:
+    0 0 0 45px rgba(255,255,255,.012),
+    0 0 0 90px rgba(255,255,255,.008);
+}
 
-  font-size: 52px;
+
+/* ---------------------------------------------------------
+   HERO ICON / MARK
+   --------------------------------------------------------- */
+
+.gallery-hero-icon {
+  position: absolute;
+  top: clamp(20px, 4vw, 50px);
+  right: clamp(20px, 5vw, 65px);
+
+  width: clamp(58px, 8vw, 90px);
+  height: clamp(58px, 8vw, 90px);
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--gallery-accent);
+  border-radius: 50%;
+
+  color: var(--gallery-accent);
+  font-size: clamp(24px, 4vw, 38px);
+
+  background: rgba(0,0,0,.18);
+
+  box-shadow:
+    inset 0 0 25px rgba(255,255,255,.02),
+    0 0 40px var(--gallery-accent-soft);
+}
+
+.gallery-hero-icon::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+}
+
+
+/* ---------------------------------------------------------
+   HERO CONTENT
+   --------------------------------------------------------- */
+
+.gallery-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.gallery-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 20px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+
+  color: var(--gallery-accent);
+}
+
+.gallery-eyebrow::before {
+  content: "";
+  width: 38px;
+  height: 1px;
+  background: var(--gallery-accent);
+}
+
+.gallery-hero h1 {
+  position: relative;
+
+  margin: 0;
+
+  font-size: clamp(54px, 10vw, 128px);
+  line-height: .82;
+  letter-spacing: -.065em;
   font-weight: 900;
-  letter-spacing: -.08em;
 
+  max-width: 900px;
+
+  color: var(--gallery-text);
+
+  text-wrap: balance;
+}
+
+.gallery-hero h1::after {
+  content: attr(data-gallery-title);
+  position: absolute;
+  left: 4px;
+  bottom: -14px;
+
+  font-size: clamp(60px, 12vw, 145px);
+  line-height: .8;
+
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.055);
+
+  z-index: -1;
   pointer-events: none;
 }
 
-.gallery-intro p {
-  position: relative;
-  z-index: 1;
-
-  max-width: 720px;
-  margin: 0;
+.gallery-intro {
+  max-width: 620px;
+  margin: 30px 0 0;
 
   color: var(--gallery-muted);
 
-  font-size: 14px;
-  line-height: 1.75;
+  font-size: clamp(15px, 2vw, 19px);
+  line-height: 1.7;
+  letter-spacing: -.01em;
 }
 
-/* =========================================================
-   CATEGORÍAS — BARRA EDITORIAL
-   ========================================================= */
+
+/* ---------------------------------------------------------
+   COUNTER
+   --------------------------------------------------------- */
+
+.gallery-counter {
+  position: absolute;
+  right: clamp(24px, 5vw, 70px);
+  bottom: clamp(25px, 5vw, 60px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+
+  padding-left: 22px;
+
+  border-left: 1px solid var(--gallery-accent);
+}
+
+.gallery-counter strong {
+  font-size: clamp(30px, 5vw, 54px);
+  line-height: .9;
+  letter-spacing: -.06em;
+  font-weight: 900;
+  color: var(--gallery-text);
+}
+
+.gallery-counter span {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gallery-accent);
+}
+
+
+/* ---------------------------------------------------------
+   CATEGORY INDEX
+   --------------------------------------------------------- */
 
 .gallery-categories {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  align-items: center;
+  gap: 0;
 
-  margin: 0 0 28px;
-  padding-bottom: 15px;
+  margin: 0 0 clamp(35px, 6vw, 65px);
 
-  border-bottom: 1px solid rgba(255,255,255,.07);
+  border-top: 1px solid var(--gallery-line);
+  border-bottom: 1px solid var(--gallery-line);
 }
 
 .gallery-category {
   position: relative;
 
-  display: inline-flex;
-  align-items: center;
+  padding: 15px 17px;
 
-  min-height: 35px;
-  padding: 8px 13px;
+  border: 0;
+  border-right: 1px solid var(--gallery-line);
 
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 8px;
+  background: transparent;
 
-  background: rgba(255,255,255,.025);
+  color: var(--gallery-muted);
 
-  color: rgba(255,255,255,.62);
-
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: .08em;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
   text-transform: uppercase;
 
+  cursor: pointer;
+
   transition:
-    color .2s ease,
-    border-color .2s ease,
-    background .2s ease,
-    transform .2s ease;
+    color .25s ease,
+    background .25s ease,
+    transform .25s ease;
 }
 
 .gallery-category::before {
   content: "";
-
-  width: 4px;
-  height: 4px;
-
-  margin-right: 8px;
-
-  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
 
   background: var(--gallery-accent);
 
-  box-shadow: 0 0 8px var(--gallery-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+
+  transition: transform .25s ease;
 }
 
-.gallery-category:hover {
-  transform: translateY(-2px);
-
-  color: var(--gallery-accent);
-
-  border-color: rgba(var(--gallery-accent-rgb), .40);
-
-  background: rgba(var(--gallery-accent-rgb), .08);
+.gallery-category:hover,
+.gallery-category:focus-visible {
+  color: var(--gallery-text);
+  background: rgba(255,255,255,.035);
 }
 
-/* =========================================================
-   GRID — PORTFOLIO
-   ========================================================= */
+.gallery-category:hover::before,
+.gallery-category:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.gallery-category.active,
+.gallery-category[aria-selected="true"] {
+  color: var(--gallery-text);
+  background: var(--gallery-accent-soft);
+}
+
+.gallery-category.active::before,
+.gallery-category[aria-selected="true"]::before {
+  transform: scaleX(1);
+}
+
+
+/* ---------------------------------------------------------
+   GRID
+   --------------------------------------------------------- */
 
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 14px;
+  gap: clamp(14px, 2vw, 26px);
+  align-items: start;
 }
 
-/* Primer elemento protagonista cuando haya contenido */
-.gallery-grid .gallery-card:first-child {
-  grid-column: span 7;
-}
 
-.gallery-grid .gallery-card:nth-child(2) {
-  grid-column: span 5;
-}
-
-.gallery-grid .gallery-card:nth-child(n+3) {
-  grid-column: span 4;
-}
-
-/* =========================================================
-   TARJETAS
-   ========================================================= */
+/* ---------------------------------------------------------
+   CARDS
+   --------------------------------------------------------- */
 
 .gallery-card {
   position: relative;
+  grid-column: span 4;
+
   overflow: hidden;
 
-  min-height: 260px;
+  background: var(--gallery-panel);
+  border: 1px solid var(--gallery-line);
 
-  border: 1px solid rgba(255,255,255,.09);
-  border-radius: 20px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.18);
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1),
+    box-shadow .45s ease,
+    border-color .3s ease;
+}
+
+.gallery-card:nth-child(2) {
+  margin-top: clamp(20px, 5vw, 70px);
+}
+
+.gallery-card:nth-child(5) {
+  margin-top: clamp(-30px, -2vw, 0px);
+}
+
+.gallery-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255,255,255,.25);
+
+  box-shadow:
+    0 35px 80px rgba(0,0,0,.42),
+    0 0 0 1px var(--gallery-accent-soft);
+}
+
+
+/* ---------------------------------------------------------
+   IMAGE AREA
+   --------------------------------------------------------- */
+
+.gallery-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
 
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.015)
+      rgba(255,255,255,.055),
+      rgba(0,0,0,.35)
     );
-
-  box-shadow:
-    0 18px 50px rgba(0,0,0,.18);
-
-  transition:
-    transform .28s cubic-bezier(.2,.8,.2,1),
-    border-color .28s ease,
-    box-shadow .28s ease;
-}
-
-.gallery-card:hover {
-  transform: translateY(-7px);
-
-  border-color: rgba(var(--gallery-accent-rgb), .55);
-
-  box-shadow:
-    0 30px 70px rgba(0,0,0,.30),
-    0 0 35px rgba(var(--gallery-accent-rgb), .06);
-}
-
-/* =========================================================
-   IMAGEN
-   ========================================================= */
-
-.gallery-image,
-.gallery-placeholder {
-  position: relative;
-
-  width: 100%;
-  aspect-ratio: 4 / 3;
-
-  overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(var(--gallery-accent-rgb), .09),
-      transparent 55%
-    ),
-    #111318;
-}
-
-.gallery-grid .gallery-card:first-child .gallery-image,
-.gallery-grid .gallery-card:first-child .gallery-placeholder {
-  aspect-ratio: 16 / 10;
-}
-
-.gallery-image::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 50%,
-      rgba(0,0,0,.58)
-    );
-
-  pointer-events: none;
 }
 
 .gallery-image img {
@@ -538,593 +463,748 @@
   object-fit: cover;
 
   transition:
-    transform .6s cubic-bezier(.2,.8,.2,1),
-    filter .35s ease;
+    transform .7s cubic-bezier(.2,.8,.2,1),
+    filter .5s ease;
 }
 
 .gallery-card:hover .gallery-image img {
   transform: scale(1.055);
-
-  filter: saturate(1.08) contrast(1.03);
 }
 
-/* =========================================================
-   PLACEHOLDER
-   ========================================================= */
 
-.gallery-placeholder {
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 11px;
-}
+/* ---------------------------------------------------------
+   IMAGE OVERLAY
+   --------------------------------------------------------- */
 
-.gallery-placeholder::before {
+.gallery-image::after {
   content: "";
-
   position: absolute;
-  inset: 16px;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .17);
-  border-radius: 15px;
+  inset: 0;
 
   background:
     linear-gradient(
-      135deg,
-      transparent 49.5%,
-      rgba(var(--gallery-accent-rgb), .08) 50%,
-      transparent 50.5%
+      to bottom,
+      transparent 50%,
+      rgba(0,0,0,.55)
     );
+
+  pointer-events: none;
+}
+
+.gallery-placeholder {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 22px;
+
+  color: rgba(255,255,255,.55);
+
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      var(--gallery-accent-soft),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #1c1c1c,
+      #080808
+    );
+}
+
+.gallery-placeholder::before {
+  content: "RX";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-size: clamp(60px, 10vw, 110px);
+  font-weight: 900;
+  letter-spacing: -.12em;
+
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,.12);
 }
 
 .gallery-placeholder::after {
   content: "";
-
   position: absolute;
+  inset: 18px;
 
-  width: 100px;
-  height: 100px;
+  border: 1px solid rgba(255,255,255,.09);
 
-  border: 1px solid rgba(var(--gallery-accent-rgb), .10);
-  border-radius: 50%;
+  pointer-events: none;
 }
 
-.gallery-placeholder span {
-  position: relative;
-  z-index: 1;
 
-  display: grid;
-  place-items: center;
-
-  width: 62px;
-  height: 62px;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .45);
-  border-radius: 20px;
-
-  background: rgba(var(--gallery-accent-rgb), .08);
-
-  color: var(--gallery-accent);
-
-  font-size: 27px;
-}
-
-.gallery-placeholder small {
-  position: relative;
-  z-index: 1;
-
-  color: rgba(255,255,255,.45);
-
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: .20em;
-  text-transform: uppercase;
-}
-
-/* =========================================================
-   CUERPO DE TARJETA
-   ========================================================= */
+/* ---------------------------------------------------------
+   CARD BODY
+   --------------------------------------------------------- */
 
 .gallery-card-body {
   position: relative;
 
-  padding: 18px 19px 20px;
+  padding: 20px 21px 23px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.018),
+      transparent
+    );
 }
 
 .gallery-card-body::before {
   content: "";
-
   position: absolute;
 
   top: 0;
-  left: 19px;
+  left: 21px;
 
-  width: 28px;
-  height: 2px;
+  width: 30px;
+  height: 1px;
 
   background: var(--gallery-accent);
 }
 
 .gallery-card-body h3 {
-  margin: 4px 0 0;
+  margin: 0 0 8px;
 
-  color: var(--text, #fff);
-
-  font-size: 16px;
-  line-height: 1.25;
-  font-weight: 850;
-  letter-spacing: -.025em;
+  font-size: clamp(18px, 2vw, 23px);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+  font-weight: 800;
 }
 
 .gallery-card-body p {
-  margin: 7px 0 0;
-
-  color: var(--gallery-muted);
-
-  font-size: 11px;
-  line-height: 1.6;
-}
-
-/* =========================================================
-   ESTADO VACÍO — IMPORTANTE
-   ========================================================= */
-
-.gallery-empty {
-  grid-column: 1 / -1;
-
-  position: relative;
-  overflow: hidden;
-
-  min-height: 360px;
-
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 11px;
-
-  padding: 45px 25px;
-
-  text-align: center;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .16);
-  border-radius: 26px;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(var(--gallery-accent-rgb), .10),
-      transparent 52%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.035),
-      rgba(255,255,255,.012)
-    );
-}
-
-.gallery-empty::before {
-  content: "GALLERY";
-
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  transform: translate(-50%, -50%);
-
-  color: rgba(255,255,255,.018);
-
-  font-size: clamp(70px, 14vw, 170px);
-  font-weight: 900;
-  letter-spacing: -.09em;
-
-  white-space: nowrap;
-
-  pointer-events: none;
-}
-
-.gallery-empty > span {
-  position: relative;
-  z-index: 1;
-
-  display: grid;
-  place-items: center;
-
-  width: 72px;
-  height: 72px;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .55);
-  border-radius: 23px;
-
-  background: rgba(var(--gallery-accent-rgb), .08);
-
-  color: var(--gallery-accent);
-
-  font-size: 28px;
-
-  box-shadow:
-    0 0 35px rgba(var(--gallery-accent-rgb), .10);
-}
-
-.gallery-empty strong {
-  position: relative;
-  z-index: 1;
-
-  color: var(--text, #fff);
-
-  font-size: 20px;
-  font-weight: 850;
-  letter-spacing: -.025em;
-}
-
-.gallery-empty p {
-  position: relative;
-  z-index: 1;
-
-  max-width: 380px;
-
   margin: 0;
 
   color: var(--gallery-muted);
 
   font-size: 12px;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
-/* =========================================================
-   CURADURÍA
-   ========================================================= */
 
-.gallery-curator {
-  position: relative;
-  overflow: hidden;
+/* ---------------------------------------------------------
+   CARD NUMBER
+   --------------------------------------------------------- */
 
-  margin-top: 28px;
-  padding: 32px;
-
-  border: 1px solid rgba(var(--gallery-accent-rgb), .16);
-  border-radius: 25px;
-
-  background:
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(var(--gallery-accent-rgb), .12),
-      transparent 35%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.015)
-    );
-}
-
-.gallery-curator::after {
-  content: "“";
-
+.gallery-card-number {
   position: absolute;
 
-  right: 25px;
-  top: -28px;
+  top: 15px;
+  right: 17px;
 
-  color: rgba(var(--gallery-accent-rgb), .10);
-
-  font-size: 150px;
-  line-height: 1;
-  font-family: Georgia, serif;
-}
-
-.gallery-curator small {
-  position: relative;
-  z-index: 1;
-
-  display: block;
-
-  margin-bottom: 10px;
-
-  color: var(--gallery-accent);
+  z-index: 3;
 
   font-size: 9px;
   font-weight: 900;
-  letter-spacing: .22em;
-  text-transform: uppercase;
+  letter-spacing: .15em;
+
+  color: rgba(255,255,255,.55);
+
+  mix-blend-mode: difference;
 }
 
-.gallery-curator strong {
+
+/* ---------------------------------------------------------
+   EMPTY STATE — EXHIBITION WALL
+   --------------------------------------------------------- */
+
+.gallery-empty {
   position: relative;
-  z-index: 1;
 
-  display: block;
+  min-height: clamp(300px, 42vw, 480px);
 
-  max-width: 720px;
+  display: grid;
+  place-items: center;
 
-  color: var(--text, #fff);
+  margin-top: 8px;
 
-  font-size: clamp(22px, 4vw, 34px);
-  line-height: 1.08;
-  letter-spacing: -.04em;
-  font-weight: 850;
+  overflow: hidden;
+
+  border: 1px solid var(--gallery-line);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 20%,
+      rgba(255,255,255,.025) 20% 20.2%,
+      transparent 20.2% 80%,
+      rgba(255,255,255,.025) 80% 80.2%,
+      transparent 80.2%
+    ),
+    linear-gradient(
+      180deg,
+      #121212,
+      #090909
+    );
+
+  box-shadow: var(--gallery-shadow);
 }
 
-.gallery-curator p {
+.gallery-empty::before {
+  content: "";
+  position: absolute;
+
+  width: min(55vw, 430px);
+  aspect-ratio: 1;
+
+  border: 1px solid var(--gallery-accent);
+
+  transform: rotate(45deg);
+
+  opacity: .12;
+}
+
+.gallery-empty::after {
+  content: "";
+
+  position: absolute;
+  inset: 12%;
+
+  border: 1px solid rgba(255,255,255,.06);
+
+  pointer-events: none;
+}
+
+.gallery-empty > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
 
-  max-width: 720px;
+.gallery-empty-content {
+  width: min(600px, 80%);
+  text-align: center;
+}
 
-  margin: 13px 0 0;
+.gallery-empty-icon {
+  width: 62px;
+  height: 62px;
+
+  margin: 0 auto 24px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--gallery-accent);
+  border-radius: 50%;
+
+  color: var(--gallery-accent);
+  font-size: 22px;
+
+  background: rgba(0,0,0,.2);
+}
+
+.gallery-empty h3 {
+  margin: 0 0 12px;
+
+  font-size: clamp(24px, 4vw, 44px);
+  line-height: 1;
+  letter-spacing: -.05em;
+  font-weight: 900;
+}
+
+.gallery-empty p {
+  max-width: 510px;
+  margin: 0 auto;
 
   color: var(--gallery-muted);
 
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.7;
 }
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
 
-.gallery-module-footer {
-  margin-top: 17px;
+/* ---------------------------------------------------------
+   CURATOR / PHILOSOPHY
+   --------------------------------------------------------- */
 
-  color: rgba(255,255,255,.34);
+.gallery-curator {
+  position: relative;
+
+  margin-top: clamp(55px, 9vw, 110px);
+  padding: clamp(28px, 5vw, 55px) 0;
+
+  border-top: 1px solid var(--gallery-line);
+  border-bottom: 1px solid var(--gallery-line);
+}
+
+.gallery-curator::before {
+  content: "“";
+
+  position: absolute;
+  top: 5px;
+  left: 0;
+
+  font-family: Georgia, serif;
+  font-size: clamp(80px, 12vw, 150px);
+  line-height: 1;
+
+  color: var(--gallery-accent);
+  opacity: .18;
+}
+
+.gallery-curator-label {
+  margin-bottom: 20px;
 
   font-size: 9px;
   font-weight: 900;
-  letter-spacing: .14em;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+
+  color: var(--gallery-accent);
+}
+
+.gallery-curator strong {
+  display: block;
+
+  max-width: 900px;
+
+  font-size: clamp(28px, 5vw, 62px);
+  line-height: .98;
+  letter-spacing: -.055em;
+  font-weight: 800;
+}
+
+.gallery-curator p {
+  max-width: 700px;
+  margin: 22px 0 0;
+
+  color: var(--gallery-muted);
+
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.gallery-module-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  padding-top: 25px;
+
+  color: rgba(244,240,232,.42);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .18em;
   text-transform: uppercase;
 }
 
-/* =========================================================
-   MODO CLARO
-   ========================================================= */
+.gallery-module-footer::after {
+  content: "ROXTHAL";
 
-body.light .gallery-module {
-  --gallery-border: rgba(0,0,0,.10);
-  --gallery-muted: #686d76;
+  color: var(--gallery-accent);
 }
 
-body.light .gallery-module::before,
-body.light .gallery-module::after {
-  opacity: .65;
+
+/* ---------------------------------------------------------
+   TATTOO — MORE RAW / EDITORIAL
+   --------------------------------------------------------- */
+
+.gallery-module[data-gallery="tatuajes"] {
+  margin-top: clamp(30px, 6vw, 80px);
 }
 
-body.light .gallery-hero {
+.gallery-module[data-gallery="tatuajes"] .gallery-hero {
+  min-height: clamp(430px, 65vh, 700px);
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(227,93,82,.08),
+      transparent 35%
+    ),
+    #050505;
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-hero h1 {
+  text-transform: uppercase;
+  font-size: clamp(48px, 9vw, 118px);
+  letter-spacing: -.075em;
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-hero-icon {
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-hero-icon::after {
+  border-radius: 0;
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-hero-icon > * {
+  transform: rotate(-45deg);
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-card {
+  border-radius: 0;
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-image {
+  aspect-ratio: 3 / 4;
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-card:nth-child(odd) {
+  transform: translateY(0);
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-card:nth-child(odd):hover {
+  transform: translateY(-8px);
+}
+
+.gallery-module[data-gallery="tatuajes"] .gallery-placeholder {
   background:
     radial-gradient(
-      circle at 78% 18%,
-      rgba(var(--gallery-accent-rgb), .15),
+      circle at 35% 30%,
+      rgba(227,93,82,.18),
       transparent 30%
     ),
     linear-gradient(
       145deg,
-      rgba(255,255,255,.98),
-      rgba(245,245,245,.92)
+      #171717,
+      #050505
     );
-
-  box-shadow:
-    0 25px 65px rgba(0,0,0,.10),
-    inset 0 1px 0 rgba(255,255,255,.9);
 }
 
-body.light .gallery-hero h1,
-body.light .gallery-card-body h3,
-body.light .gallery-empty strong,
-body.light .gallery-curator strong {
-  color: #121419;
+.gallery-module[data-gallery="tatuajes"] .gallery-empty {
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,.018) 0,
+      rgba(255,255,255,.018) 1px,
+      transparent 1px,
+      transparent 14px
+    ),
+    #080808;
 }
 
-body.light .gallery-hero p {
-  color: #666b74;
+
+/* ---------------------------------------------------------
+   LIGHT MODE
+   --------------------------------------------------------- */
+
+body.light .gallery-module {
+  --gallery-bg: #efede8;
+  --gallery-panel: #f7f5f0;
+  --gallery-panel-2: #ebe8e1;
+  --gallery-text: #151310;
+  --gallery-muted: rgba(21,19,16,.58);
+  --gallery-line: rgba(21,19,16,.14);
+  --gallery-shadow: 0 30px 70px rgba(30,25,18,.10);
 }
 
-body.light .gallery-counter {
-  background: rgba(255,255,255,.65);
+body.light .gallery-module::before {
+  background:
+    radial-gradient(
+      circle at 82% 10%,
+      rgba(216,177,90,.13),
+      transparent 28%
+    );
 }
 
-body.light .gallery-counter small,
-body.light .gallery-category,
-body.light .gallery-module-footer {
-  color: #666b74;
-}
-
-body.light .gallery-category {
-  border-color: rgba(0,0,0,.09);
-  background: rgba(0,0,0,.025);
-}
-
-body.light .gallery-card {
-  border-color: rgba(0,0,0,.09);
-  background: rgba(255,255,255,.85);
+body.light .gallery-hero {
+  background:
+    linear-gradient(
+      115deg,
+      rgba(0,0,0,.025),
+      transparent 45%
+    ),
+    var(--gallery-bg);
 }
 
 body.light .gallery-image,
-body.light .gallery-placeholder {
-  background: #ececec;
-}
-
-body.light .gallery-intro {
-  background:
-    linear-gradient(
-      90deg,
-      rgba(var(--gallery-accent-rgb), .10),
-      transparent 72%
-    );
-}
-
-body.light .gallery-empty,
-body.light .gallery-curator {
+body.light .gallery-empty {
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.92),
-      rgba(245,245,245,.82)
+      #e7e3db,
+      #d8d3ca
     );
 }
 
-body.light .gallery-empty::before {
-  color: rgba(0,0,0,.025);
+body.light .gallery-placeholder {
+  background:
+    radial-gradient(
+      circle at 70% 25%,
+      var(--gallery-accent-soft),
+      transparent 30%
+    ),
+    linear-gradient(
+      145deg,
+      #d8d3ca,
+      #bbb5aa
+    );
+  color: rgba(21,19,16,.55);
 }
 
-body.light .gallery-empty p,
-body.light .gallery-curator p {
-  color: #686d76;
+body.light .gallery-placeholder::before {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(21,19,16,.15);
 }
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+body.light .gallery-empty {
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0 20%,
+      rgba(0,0,0,.025) 20% 20.2%,
+      transparent 20.2% 80%,
+      rgba(0,0,0,.025) 80% 80.2%,
+      transparent 80.2%
+    ),
+    #e8e5df;
+}
 
-@media (max-width: 900px) {
+body.light .gallery-empty::after {
+  border-color: rgba(0,0,0,.08);
+}
+
+body.light .gallery-card:hover {
+  box-shadow:
+    0 30px 70px rgba(30,25,18,.15),
+    0 0 0 1px var(--gallery-accent-soft);
+}
+
+body.light .gallery-module[data-gallery="tatuajes"] {
+  --gallery-bg: #e9e6e1;
+  --gallery-panel: #f2f0ed;
+  --gallery-text: #111;
+  --gallery-muted: rgba(17,17,17,.58);
+}
+
+body.light .gallery-module[data-gallery="tatuajes"] .gallery-hero {
+  background:
+    linear-gradient(
+      120deg,
+      rgba(227,93,82,.08),
+      transparent 40%
+    ),
+    #e9e6e1;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .gallery-module {
+    padding:
+      18px 10px
+      45px;
+  }
 
   .gallery-hero {
-    grid-template-columns: 78px 1fr;
-    min-height: 300px;
-    padding: 30px;
+    min-height: 470px;
+    padding: 28px 22px;
   }
 
   .gallery-hero-icon {
-    width: 78px;
-    height: 78px;
-    border-radius: 23px;
-    font-size: 32px;
+    top: 22px;
+    right: 22px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .gallery-hero h1 {
+    font-size: clamp(48px, 16vw, 78px);
+    max-width: 100%;
+  }
+
+  .gallery-intro {
+    margin-top: 24px;
+    font-size: 14px;
+    line-height: 1.65;
   }
 
   .gallery-counter {
-    grid-column: 1 / -1;
-    justify-self: start;
+    right: 22px;
+    bottom: 25px;
+  }
+
+  .gallery-counter strong {
+    font-size: 34px;
+  }
+
+  .gallery-categories {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+
+    scrollbar-width: none;
+
+    margin-left: -10px;
+    margin-right: -10px;
+
+    padding-left: 10px;
+  }
+
+  .gallery-categories::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-category {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 14px 15px;
   }
 
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .gallery-grid .gallery-card:first-child,
-  .gallery-grid .gallery-card:nth-child(2),
-  .gallery-grid .gallery-card:nth-child(n+3) {
-    grid-column: span 1;
-  }
-
-  .gallery-grid .gallery-card:first-child .gallery-image,
-  .gallery-grid .gallery-card:first-child .gallery-placeholder {
-    aspect-ratio: 4 / 3;
-  }
-}
-
-/* =========================================================
-   MÓVIL
-   ========================================================= */
-
-@media (max-width: 620px) {
-
-  .gallery-module {
-    padding: 10px 0 32px;
-  }
-
-  .gallery-hero {
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: 18px;
-
-    min-height: 0;
-
-    padding: 25px 20px;
-
-    border-radius: 25px;
-  }
-
-  .gallery-hero-icon {
-    width: 64px;
-    height: 64px;
-
-    border-radius: 19px;
-
-    font-size: 26px;
-  }
-
-  .gallery-hero h1 {
-    font-size: 43px;
-    line-height: .92;
-  }
-
-  .gallery-hero p {
-    margin-top: 13px;
-    font-size: 13px;
-  }
-
-  .gallery-counter {
-    width: 100%;
-  }
-
-  .gallery-intro {
-    margin-top: 21px;
-    padding: 18px 17px;
-  }
-
-  .gallery-intro::after {
-    display: none;
-  }
-
-  .gallery-categories {
-    margin-bottom: 19px;
-    gap: 6px;
-  }
-
-  .gallery-category {
-    min-height: 31px;
-    padding: 7px 10px;
-    font-size: 8px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .gallery-grid .gallery-card:first-child,
-  .gallery-grid .gallery-card:nth-child(2),
-  .gallery-grid .gallery-card:nth-child(n+3) {
-    grid-column: 1;
+    gap: 10px;
   }
 
   .gallery-card {
-    min-height: 0;
-    border-radius: 19px;
+    grid-column: span 1;
+  }
+
+  .gallery-card:nth-child(2),
+  .gallery-card:nth-child(5) {
+    margin-top: 25px;
+  }
+
+  .gallery-card-body {
+    padding: 15px 14px 18px;
+  }
+
+  .gallery-card-body h3 {
+    font-size: 16px;
+  }
+
+  .gallery-card-body p {
+    font-size: 11px;
+  }
+
+  .gallery-empty {
+    min-height: 340px;
+  }
+
+  .gallery-empty-content {
+    width: 78%;
+  }
+
+  .gallery-empty h3 {
+    font-size: 27px;
+  }
+
+  .gallery-empty p {
+    font-size: 12px;
+  }
+
+  .gallery-curator {
+    margin-top: 60px;
+  }
+
+  .gallery-curator strong {
+    font-size: 31px;
+  }
+
+  .gallery-curator p {
+    font-size: 13px;
+  }
+
+  .gallery-module-footer {
+    font-size: 8px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 430px) {
+
+  .gallery-hero {
+    min-height: 450px;
+  }
+
+  .gallery-hero h1 {
+    font-size: 48px;
+  }
+
+  .gallery-grid {
+    gap: 8px;
+  }
+
+  .gallery-card:nth-child(2),
+  .gallery-card:nth-child(5) {
+    margin-top: 18px;
+  }
+
+  .gallery-image {
+    aspect-ratio: 4 / 5;
+  }
+
+  .gallery-card-body h3 {
+    font-size: 15px;
+  }
+
+  .gallery-card-body p {
+    font-size: 10px;
   }
 
   .gallery-empty {
     min-height: 300px;
-    padding: 32px 18px;
-    border-radius: 21px;
   }
 
-  .gallery-empty strong {
-    font-size: 17px;
-  }
-
-  .gallery-curator {
-    margin-top: 19px;
-    padding: 24px 19px;
-    border-radius: 21px;
-  }
-
-  .gallery-curator strong {
-    font-size: 23px;
+  .gallery-empty-icon {
+    width: 54px;
+    height: 54px;
   }
 }
 
-/* =========================================================
-   REDUCCIÓN DE MOVIMIENTO
-   ========================================================= */
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY / REDUCED MOTION
+   --------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
 
   .gallery-card,
-  .gallery-image img,
-  .gallery-category {
-    transition: none;
-  }
-
   .gallery-card:hover,
-  .gallery-category:hover {
-    transform: none;
+  .gallery-image img,
+  .gallery-category,
+  .gallery-category::before {
+    transition: none !important;
+    transform: none !important;
   }
+}
+
+.gallery-category:focus-visible,
+.gallery-card:focus-visible {
+  outline: 2px solid var(--gallery-accent);
+  outline-offset: 4px;
+}
+
+
+/* ---------------------------------------------------------
+   SAFETY
+   Scoped exclusively to gallery.
+   No global body/header/nav/button rules.
+   --------------------------------------------------------- */
+
+.gallery-module button,
+.gallery-module a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gallery-module img {
+  max-width: 100%;
 }
